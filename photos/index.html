@@ -8,14 +8,17 @@
   <link rel="dns-prefetch" href="//Az1u1u.me">
   <title>相册 | 王安植的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="相片     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&a">
+<meta property="og:type" content="website">
 <meta property="og:title" content="相册">
-<meta property="og:url" content="//Az1u1u.me/photo/index.html">
+<meta property="og:url" content="//Az1u1u.me/photos/index.html">
 <meta property="og:site_name" content="王安植的博客">
+<meta property="og:description" content="相片     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($script)       $script.set">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-23T08:03:09.398Z">
+<meta property="og:updated_time" content="2017-11-23T07:47:41.176Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="相册">
+<meta name="twitter:description" content="相片     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($script)       $script.set">
   
     <link rel="alternative" href="/atom.xml" title="王安植的博客" type="application/atom+xml">
   
@@ -55,8 +58,6 @@
 			<ul>
 			
 				<li><a href="/">主页</a></li>
-	        
-				<li><a href="/photo">相册</a></li>
 	        
 			</ul>
 		</nav>
@@ -110,8 +111,6 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -130,9 +129,7 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
-		        
-					<li style="width: 50%"><a href="/photo">相册</a></li>
+					<li style="width: 100%"><a href="/">主页</a></li>
 		        
 				</ul>
 			</nav>
@@ -147,7 +144,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-photos" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -163,8 +160,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><link type="text/css" heref="/fancybox/jquery.fancybox.css" rel="stylesheet"></p>
-<div class="instagram"><section class="archives album"><ul class="img-box-ul"></ul></section></div>
+        <link rel="stylesheet" href="./ins.css">
+<div class="photos-btn-wrap">
+	<a class="photos-btn active" href="javascript:void(0)" target="_blank" rel="noopener">相片</a>
+</div>
+<script>
+  (function() {
+    var loadScript = function(path) {
+      var $script = document.createElement('script')
+      document.getElementsByTagName('body')[0].appendChild($script)
+      $script.setAttribute('src', path)
+    }
+    setTimeout(function() {
+      loadScript('./ins.js')
+    }, 0)
+  })()
+</script>
 
       
 
@@ -223,7 +234,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://Az1u1u.me/photo/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://Az1u1u.me/photos/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -253,14 +264,6 @@
 </aside>
 
 
-
-  
-  
-  
-
-  
-
-  
 
 
           </div>
