@@ -16,16 +16,16 @@
 <meta property="og:site_name" content="Az1u1u的博客">
 <meta property="og:description" content="awk基础简介 AWK是一种优良的文本处理工具。它不仅是 Linux 中也是任何环境中现有的功能最强大 的数据处理引擎之一，相比sed常常作用于一整行的处理，awk比较倾向于将一行分成数 个“字段”来处理。所以，awk相当适合处理小型的数据处理。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="//az1u1u.me/assets/bloglmg/图片资料/awk/awk1">
-<meta property="og:image" content="//az1u1u.me/assets/bloglmg/图片资料/awk/awk2">
-<meta property="og:image" content="//az1u1u.me/assets/bloglmg/图片资料/awk/awk3">
-<meta property="og:image" content="//az1u1u.me/assets/bloglmg/图片资料/awk/awk4">
-<meta property="og:image" content="//az1u1u.me/assets/bloglmg/图片资料/awk/awk5">
-<meta property="og:updated_time" content="2017-11-23T06:14:00.080Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/wanganzhi200/az1u1u.github.io/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/awk/awk1.png">
+<meta property="og:image" content="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/awk/awk2.png">
+<meta property="og:image" content="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/awk/awk3.png">
+<meta property="og:image" content="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/awk/awk4.png">
+<meta property="og:image" content="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/awk/awk5.png">
+<meta property="og:updated_time" content="2017-11-23T06:35:07.467Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux Awk基础">
 <meta name="twitter:description" content="awk基础简介 AWK是一种优良的文本处理工具。它不仅是 Linux 中也是任何环境中现有的功能最强大 的数据处理引擎之一，相比sed常常作用于一整行的处理，awk比较倾向于将一行分成数 个“字段”来处理。所以，awk相当适合处理小型的数据处理。">
-<meta name="twitter:image" content="//az1u1u.me/assets/bloglmg/图片资料/awk/awk1">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/wanganzhi200/az1u1u.github.io/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/awk/awk1.png">
   
     <link rel="alternative" href="/atom.xml" title="Az1u1u的博客" type="application/atom+xml">
   
@@ -199,11 +199,11 @@
 <ul>
 <li>awk主要是处理每一行的字段内的数据，而默认的字段的分隔符为空格键或[TAB]键。举例说明，我们用cat /etc/passwd这个可以查看用户：</li>
 </ul>
-<p><img src="/assets/bloglmg/图片资料/awk/awk1" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/wanganzhi200/az1u1u.github.io/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/awk/awk1.png" alt="Aaron Swartz"></p>
 <ul>
 <li>若我想取出用户名称和shell类型，且名称与shell类型以冒号隔开，则成这样：</li>
 </ul>
-<p><img src="/assets/bloglmg/图片资料/awk/awk2" alt=""></p>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/awk/awk2.png" alt="Aaron Swrtz"></p>
 <p>这是awk最常用的动作，通过print的功能将字段数据列出来，字段的分割可以自己选择<br>以什么方式隔开,-F指定域分隔符为’:’。</p>
 <p><strong>系统变量</strong></p>
 <ul>
@@ -263,7 +263,7 @@
 <li><p><code>awk -F: &#39;{printf&quot;%s&quot;,$1}&#39; /etc/passwd</code></p>
 </li>
 </ul>
-<p><img src="/assets/bloglmg/图片资料/awk/awk3" alt=""></p>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/awk/awk3.png" alt=""></p>
 <p><strong>修饰符</strong></p>
 <ul>
 <li>/#[.#]：第一个数字控制显示的宽度；第二个#表示小数点后精度，%3.1f</li>
@@ -271,11 +271,11 @@
 <li>+：显示数值的正负符号%+d</li>
 <li><code>awk -F: &#39;{printf &quot;%-20s %10d\n&quot;,$1,$3}&#39; /etc/passwd</code></li>
 </ul>
-<p><img src="/assets/bloglmg/图片资料/awk/awk4" alt=""></p>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/awk/awk4.png" alt=""></p>
 <ul>
 <li><code>awk -F: &#39;{printf &quot;Username:%-15s,UID:%d\n&quot;,$1,$3}&#39; /etc/passwd</code></li>
 </ul>
-<p><img src="/assets/bloglmg/图片资料/awk/awk5" alt=""></p>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/awk/awk5.png" alt=""></p>
 
       
 
