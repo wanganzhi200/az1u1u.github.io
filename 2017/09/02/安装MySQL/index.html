@@ -20,8 +20,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7114772-22f02e27e70f0124.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7114772-53a6cf6715912bb2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7114772-5e008e30f6773399.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7114772-074fdb8620321b6b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-11-25T09:30:15.691Z">
+<meta property="og:updated_time" content="2017-11-25T09:33:13.575Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 安装MySQL">
 <meta name="twitter:description" content="安装MySQL安装方式： 1、源代码：编译安装 2、二进制格式的程序包：展开至特定路径，并经过简单配置后即可使用 3、程序包管理器管理的程序包： rpm:     OS Vendor     项目官方 deb">
@@ -233,10 +232,17 @@ deb
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">yum</span> groupinstall <span class="keyword">mariadb </span><span class="keyword">mariadb-client</span></span><br></pre></td></tr></table></figure>
 <p><img src="http://upload-images.jianshu.io/upload_images/7114772-53a6cf6715912bb2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mariadb3.png"></p>
 <p>启动服务</p>
-<figure class="highlight plain"><figcaption><span>start mariadb```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">开机启动</span><br><span class="line"></span><br><span class="line">```systemctl enable mariadb</span><br></pre></td></tr></table></figure>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="literal">start</span> mariadb</span><br></pre></td></tr></table></figure>
+<p>开机启动</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="builtin-name">enable</span> mariadb</span><br></pre></td></tr></table></figure>
 <p>安装完毕后，直接连接mysql</p>
 <p>连接后，查看有无数据库</p>
-<figure class="highlight plain"><figcaption><span>databases```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">现在连接上去都是没有密码的，可以直接连接上去。</span><br><span class="line"></span><br><span class="line">- 切换数据库</span><br><span class="line"></span><br><span class="line">```use test;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">databases</span></span><br></pre></td></tr></table></figure>
+<p>现在连接上去都是没有密码的，可以直接连接上去。</p>
+<ul>
+<li>切换数据库</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="keyword">test</span>;</span><br></pre></td></tr></table></figure>
 <p><img src="http://upload-images.jianshu.io/upload_images/7114772-5e008e30f6773399.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mariadb4.png"></p>
 <ul>
 <li>查看当前数据库里有哪些表</li>
@@ -253,13 +259,16 @@ deb
 <ul>
 <li>指定用户登入</li>
 </ul>
-<figure class="highlight plain"><figcaption><span>-uroot```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 显示当前登入用户名</span><br><span class="line"></span><br><span class="line">```select user();</span><br></pre></td></tr></table></figure>
-<p><img src="http://upload-images.jianshu.io/upload_images/7114772-074fdb8620321b6b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mariadb5.png"></p>
-<ul>
-<li>提高安全性</li>
-</ul>
-<p><strong>直接运行</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. 设置数据库管理员root口令</span><br><span class="line">2. 禁止root远程登录</span><br><span class="line">3. 删除anonymous用户帐号</span><br><span class="line">4. 删除test数据库</span><br><span class="line"></span><br><span class="line">再连接数据库就需要输入口令了,登入</span><br><span class="line"></span><br><span class="line">```mysql -uroot -p</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>-uroot```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 显示当前登入用户名</span><br></pre></td></tr></table></figure>
+<p>select user();<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![<span class="string">mariadb5.png</span>](<span class="link">http://upload-images.jianshu.io/upload_images/7114772-074fdb8620321b6b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240</span>)</span><br><span class="line"></span><br><span class="line"><span class="bullet">- </span>提高安全性</span><br><span class="line"></span><br><span class="line"><span class="strong">**直接运行**</span></span><br><span class="line"></span><br><span class="line"><span class="code">```/usr/bin/mysql_secure_installation</span></span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>设置数据库管理员root口令</li>
+<li>禁止root远程登录</li>
+<li>删除anonymous用户帐号</li>
+<li>删除test数据库</li>
+</ol>
+<p>再连接数据库就需要输入口令了,登入</p>
+<p><code>mysql -uroot -p</code></p>
 <h2 id="二进制格式安装过程"><a href="#二进制格式安装过程" class="headerlink" title="二进制格式安装过程"></a>二进制格式安装过程</h2><ul>
 <li>(1) 准备用户</li>
 </ul>
