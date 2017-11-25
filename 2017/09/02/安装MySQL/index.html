@@ -18,7 +18,10 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7114772-9bd2c24fe1410921.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7114772-22f02e27e70f0124.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-11-23T07:17:57.823Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7114772-53a6cf6715912bb2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7114772-5e008e30f6773399.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7114772-074fdb8620321b6b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-11-25T09:30:15.691Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 安装MySQL">
 <meta name="twitter:description" content="安装MySQL安装方式： 1、源代码：编译安装 2、二进制格式的程序包：展开至特定路径，并经过简单配置后即可使用 3、程序包管理器管理的程序包： rpm:     OS Vendor     项目官方 deb">
@@ -227,34 +230,36 @@ deb
 <p>如果没有使用<code>yum list mariadb*</code>来查看一下。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/7114772-22f02e27e70f0124.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mariadb2.png"></p>
 <p>安装包组</p>
-<figure class="highlight plain"><figcaption><span>groupinstall mariadb mariadb-client```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![mariadb3.png](http://upload-images.jianshu.io/upload_images/7114772-53a6cf6715912bb2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line"></span><br><span class="line">启动服务</span><br><span class="line"></span><br><span class="line">```systemctl start mariadb</span><br></pre></td></tr></table></figure>
-<p>开机启动</p>
-<figure class="highlight plain"><figcaption><span>enable mariadb```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">安装完毕后，直接连接mysql</span><br><span class="line"></span><br><span class="line">连接后，查看有无数据库</span><br><span class="line"></span><br><span class="line">```show databases</span><br></pre></td></tr></table></figure>
-<p>现在连接上去都是没有密码的，可以直接连接上去。</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">yum</span> groupinstall <span class="keyword">mariadb </span><span class="keyword">mariadb-client</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/7114772-53a6cf6715912bb2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mariadb3.png"></p>
+<p>启动服务</p>
+<figure class="highlight plain"><figcaption><span>start mariadb```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">开机启动</span><br><span class="line"></span><br><span class="line">```systemctl enable mariadb</span><br></pre></td></tr></table></figure>
+<p>安装完毕后，直接连接mysql</p>
+<p>连接后，查看有无数据库</p>
+<figure class="highlight plain"><figcaption><span>databases```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">现在连接上去都是没有密码的，可以直接连接上去。</span><br><span class="line"></span><br><span class="line">- 切换数据库</span><br><span class="line"></span><br><span class="line">```use test;</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/7114772-5e008e30f6773399.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mariadb4.png"></p>
 <ul>
-<li>切换数据库</li>
+<li>查看当前数据库里有哪些表</li>
 </ul>
-<figure class="highlight plain"><figcaption><span>test;```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![mariadb4.png](http://upload-images.jianshu.io/upload_images/7114772-5e008e30f6773399.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line"></span><br><span class="line">- 查看当前数据库里有哪些表</span><br><span class="line"></span><br><span class="line">```show tables;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>tables;```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 查看表里的字段</span><br><span class="line"></span><br><span class="line">```desc user;</span><br></pre></td></tr></table></figure>
+<p>host 主机</p>
+<p>user 用户</p>
+<p>password 口令</p>
+<p>….等等之类的</p>
 <ul>
-<li>查看表里的字段</li>
+<li>只显示上面3个字段</li>
 </ul>
-<figure class="highlight plain"><figcaption><span>user;```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">host 主机</span><br><span class="line"></span><br><span class="line">user 用户</span><br><span class="line"></span><br><span class="line">password 口令</span><br><span class="line"></span><br><span class="line">....等等之类的</span><br><span class="line"></span><br><span class="line">- 只显示上面3个字段</span><br><span class="line"></span><br><span class="line">```select host,user,password from user;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>host,user,password from user;```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 退出</span><br><span class="line"></span><br><span class="line">    ```bye或quit</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>退出</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 指定用户登入</span><br><span class="line"></span><br><span class="line">```mysql -uroot</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>显示当前登入用户名</p>
-</li>
+<li>指定用户登入</li>
 </ul>
-<figure class="highlight plain"><figcaption><span>user();```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![mariadb5.png](http://upload-images.jianshu.io/upload_images/7114772-074fdb8620321b6b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line"></span><br><span class="line">- 提高安全性</span><br><span class="line"></span><br><span class="line">**直接运行**</span><br><span class="line"></span><br><span class="line">```/usr/bin/mysql_secure_installation</span><br></pre></td></tr></table></figure>
-<ol>
-<li>设置数据库管理员root口令</li>
-<li>禁止root远程登录</li>
-<li>删除anonymous用户帐号</li>
-<li>删除test数据库</li>
-</ol>
-<p>再连接数据库就需要输入口令了,登入</p>
-<p><code>mysql -uroot -p</code></p>
+<figure class="highlight plain"><figcaption><span>-uroot```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 显示当前登入用户名</span><br><span class="line"></span><br><span class="line">```select user();</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/7114772-074fdb8620321b6b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mariadb5.png"></p>
+<ul>
+<li>提高安全性</li>
+</ul>
+<p><strong>直接运行</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. 设置数据库管理员root口令</span><br><span class="line">2. 禁止root远程登录</span><br><span class="line">3. 删除anonymous用户帐号</span><br><span class="line">4. 删除test数据库</span><br><span class="line"></span><br><span class="line">再连接数据库就需要输入口令了,登入</span><br><span class="line"></span><br><span class="line">```mysql -uroot -p</span><br></pre></td></tr></table></figure>
 <h2 id="二进制格式安装过程"><a href="#二进制格式安装过程" class="headerlink" title="二进制格式安装过程"></a>二进制格式安装过程</h2><ul>
 <li>(1) 准备用户</li>
 </ul>
