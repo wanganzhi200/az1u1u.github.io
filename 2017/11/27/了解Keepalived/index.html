@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//Az1u1u.me">
-  <title>Archives | 王安植的博客</title>
+  <title>Linux 了解Keepalived | 王安植的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Thanks for Litten&apos;s blog configuration">
-<meta property="og:type" content="website">
-<meta property="og:title" content="王安植的博客">
-<meta property="og:url" content="//Az1u1u.me/archives/index.html">
+  <meta name="description" content="keepalived简介 Keepalived的作用是检测服务器的状态，如果有一台web服务器宕机，或工作出现故障，Keepalived将检测到，   并将有故障的服务器从系统中剔除，同时使用其他服务器代替该服务器的工作，当服务器工作正常后Keepalived  自动将服务器加入到服务器群中，这些工作全部自动完成，不需">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 了解Keepalived">
+<meta property="og:url" content="//Az1u1u.me/2017/11/27/了解Keepalived/index.html">
 <meta property="og:site_name" content="王安植的博客">
-<meta property="og:description" content="Thanks for Litten&apos;s blog configuration">
+<meta property="og:description" content="keepalived简介 Keepalived的作用是检测服务器的状态，如果有一台web服务器宕机，或工作出现故障，Keepalived将检测到，   并将有故障的服务器从系统中剔除，同时使用其他服务器代替该服务器的工作，当服务器工作正常后Keepalived  自动将服务器加入到服务器群中，这些工作全部自动完成，不需要人工干涉，需要人工做的只是修复故障的服务器。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-27T01:19:14.770Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="王安植的博客">
-<meta name="twitter:description" content="Thanks for Litten&apos;s blog configuration">
+<meta name="twitter:title" content="Linux 了解Keepalived">
+<meta name="twitter:description" content="keepalived简介 Keepalived的作用是检测服务器的状态，如果有一台web服务器宕机，或工作出现故障，Keepalived将检测到，   并将有故障的服务器从系统中剔除，同时使用其他服务器代替该服务器的工作，当服务器工作正常后Keepalived  自动将服务器加入到服务器群中，这些工作全部自动完成，不需要人工干涉，需要人工做的只是修复故障的服务器。">
   
     <link rel="alternative" href="/atom.xml" title="王安植的博客" type="application/atom+xml">
   
@@ -143,36 +145,113 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-了解Keepalived" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Linux 了解Keepalived
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/27/了解Keepalived/" class="archive-article-date">
+
+        
+        <a href="/2017/11/27/了解Keepalived/" class="archive-article-date">
   	<time datetime="2017-11-27T03:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-27</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/27/了解Keepalived/">Linux 了解Keepalived</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="keepalived"><a href="#keepalived" class="headerlink" title="keepalived"></a>keepalived</h1><h6 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h6><blockquote>
+<p>Keepalived的作用是检测服务器的状态，如果有一台web服务器宕机，或工作出现故障，Keepalived将检测到，   并将有故障的服务器从系统中剔除，同时使用其他服务器代替该服务器的工作，当服务器工作正常后Keepalived  自动将服务器加入到服务器群中，这些工作全部自动完成，不需要人工干涉，需要人工做的只是修复故障的服务器。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="vrrp协议"><a href="#vrrp协议" class="headerlink" title="vrrp协议"></a>vrrp协议</h3><p><strong>vrrp作用</strong></p>
+<blockquote>
+<p>vrrp协议的软件实现，原生设计主的目的为了高可用的ipvs服务。</p>
+</blockquote>
+<ol>
+<li><p>于vrrp协议完成地址流动</p>
+</li>
+<li><p>为了集群内的所有节点生成ipvs规则</p>
+</li>
+<li><p>ipvs集群的各RS做健康监测</p>
+</li>
+<li><p>于脚本调用接口通过执行脚本完成脚本中定义的功能，进而影响集群事物</p>
+</li>
+</ol>
+<h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><p><strong>核心组件：</strong></p>
+<ol>
+<li><p>vrrp stack:vrrp协议的实现；</p>
+</li>
+<li><p>ipvs wrapper:为了集群内的所有节点生成ipvs规则等功能；</p>
+</li>
+<li><p>checkers:为ipvs集群的各RS做健康状态监测；</p>
+</li>
+</ol>
+<p><strong>控制组件：</strong></p>
+<ol>
+<li><p>实现配置文件的分析和加载；</p>
+</li>
+<li><p>IO复用器；</p>
+</li>
+<li><p>内存管理组件；</p>
+</li>
+</ol>
+<blockquote>
+<p>配置文件主要配置核心组件。</p>
+</blockquote>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p><strong>HA Cluster的配置前提：</strong></p>
+<ol>
+<li>各节点时间必须同步；</li>
+<li>确保iptables及selinux不会成为阻碍；（如果了解规则，可适当添加规则，较为复杂）</li>
+<li>各节点之间可通过主机名互相通信；</li>
+<li>确保各节点用于集群服务的接口支持MULTICAST通信；</li>
+</ol>
+<ul>
+<li>实验环境</li>
+</ul>
+<ol>
+<li>一台服务器</li>
+<li>客户端数台</li>
+</ol>
+<p><strong>- 时间同步</strong></p>
+<figure class="highlight vim"><figcaption><span>/etc/chrony.conf```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="Use-public-servers-from-the-pool-ntp-org-project"><a href="#Use-public-servers-from-the-pool-ntp-org-project" class="headerlink" title="Use public servers from the pool.ntp.org project."></a>Use public servers from the pool.ntp.org project.</h1><h1 id="Please-consider-joining-the-pool-http-www-pool-ntp-org-join-html"><a href="#Please-consider-joining-the-pool-http-www-pool-ntp-org-join-html" class="headerlink" title="Please consider joining the pool (http://www.pool.ntp.org/join.html)."></a>Please consider joining the pool (<a href="http://www.pool.ntp.org/join.html" target="_blank" rel="noopener">http://www.pool.ntp.org/join.html</a>).</h1><p>#server 0.centos.pool.ntp.org iburst</p>
+<p>#server 1.centos.pool.ntp.org iburst</p>
+<p>#server 2.centos.pool.ntp.org iburst<br>server 172.16.0.1 iburst<br><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">默认server是指向网上，这里把它注释掉了，我添加了一条直接指向了服务器。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">```systemctl chrony.service restart</span><br></pre></td></tr></table></figure></p>
+<p>重启服务生效</p>
+<figure class="highlight plain"><figcaption><span>sources```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">查看时间源同步差距</span><br><span class="line"></span><br><span class="line">```date</span><br></pre></td></tr></table></figure>
+<p>查看时间是否正确</p>
+<p><strong>- 确保iptables及selinux不会成为阻碍</strong></p>
+<figure class="highlight plain"><figcaption><span>status firewalld.service``` </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">查看firewalld.service服务是否停止</span><br><span class="line"></span><br><span class="line">```getenforce</span><br></pre></td></tr></table></figure>
+<p>查看是否关闭（Disabled）</p>
+<p>如果是enforcing,就需要修改/etc/selinux/config文件。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> This file controls the state of SELinux on the system.</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> SELINUX= can take one of these three values:</span></span><br><span class="line"><span class="meta">#</span><span class="bash">     enforcing - SELinux security policy is enforced.</span></span><br><span class="line"><span class="meta">#</span><span class="bash">     permissive - SELinux prints warnings instead of enforcing.</span></span><br><span class="line"><span class="meta">#</span><span class="bash">     disabled - No SELinux policy is loaded.</span></span><br><span class="line">SELINUX=Disabled </span><br><span class="line"><span class="meta">#</span><span class="bash"> SELINUXTYPE= can take one of three two values:</span></span><br><span class="line"><span class="meta">#</span><span class="bash">     targeted - Targeted processes are protected,</span></span><br><span class="line"><span class="meta">#</span><span class="bash">     minimum - Modification of targeted policy. Only selected processes are protected. </span></span><br><span class="line"><span class="meta">#</span><span class="bash">     mls - Multi Level Security protection.</span></span><br><span class="line">SELINUXTYPE=targeted</span><br></pre></td></tr></table></figure></p>
+<p><strong>-  各节点之间可通过主机名互相通信</strong></p>
+<figure class="highlight vim"><figcaption><span>/etc/hosts```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4  centos7.waz.com<br>::1         localhost localhost.localdomain localhost6 localhost6.localdomain6</p>
+<p>192.168.40.184 node1.wanganzhi.com node1<br>192.168.40.185 node2.wanganzhi.com node2<br>192.168.40.186 node3.wanganzhi.com node3<br>192.168.40.186 node4.wanganzhi.com node4<br><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**- 确保各节点用于集群服务的接口支持MULTICAST通信**</span><br><span class="line"></span><br><span class="line">```ifconfig</span><br></pre></td></tr></table></figure></p>
+<p>查看网卡是否支持MULTICAST</p>
+<h3 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h3><p><strong>- keepalived安装配置</strong></p>
+<blockquote>
+<p>CentOS 6.4以后 直接base仓库就可以提供，yum源配光盘或源仓库可直接安装</p>
+</blockquote>
+<figure class="highlight plain"><figcaption><span>-y install keepalived```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; 主配置文件：/etc/keepalived/keepalived.conf</span><br><span class="line"></span><br><span class="line">&gt; 主程序文件：/usr/sbin/keepalived</span><br><span class="line"></span><br><span class="line">&gt; Unit File：keepalived.service</span><br><span class="line"></span><br><span class="line">&gt; Unit File的环境配置文件：/etc/sysconfig/keepalived</span><br><span class="line"></span><br><span class="line">- 配置文件配置段</span><br><span class="line"> </span><br><span class="line">		TOP HIERACHY</span><br><span class="line">			GLOBALCONFIGURATION</span><br><span class="line">				Globaldefinitions</span><br><span class="line">	    		Staticroutes/addresses</span><br><span class="line">			VRRPD CONFIGURATION</span><br><span class="line">		    	VRRPsynchronizationgroup(s)：vrrp同步组；</span><br><span class="line">				VRRPinstance(s)：每个vrrpinstance即一个vrrp路由器；</span><br><span class="line">			LVS CONFIGURATION</span><br><span class="line">				Virtualservergroup(s)</span><br><span class="line">				Virtualserver(s)：ipvs集群的vs和rs；</span><br><span class="line"></span><br><span class="line">- 单主配置示例：</span><br><span class="line"></span><br><span class="line">```cd /etc/keepalived/</span><br></pre></td></tr></table></figure>
+<figure class="highlight vim"><figcaption><span>keepalived.conf```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">	! Configuration File <span class="keyword">for</span> keepalived</span><br><span class="line"></span><br><span class="line">		global_defs &#123;</span><br><span class="line">					notification_email &#123;</span><br><span class="line">						root@localhost</span><br><span class="line">					&#125;</span><br><span class="line">					notification_email_fromkeepalived@localhost</span><br><span class="line">					smtp_server <span class="number">127.0</span>.<span class="number">0.1</span></span><br><span class="line">					smtp_connect_timeout <span class="number">30</span></span><br><span class="line">					router_id node1</span><br><span class="line">					vrrp_mcast_group4 <span class="number">224.0</span>.<span class="number">100.19</span></span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">		vrrp_instance VI_1 &#123;</span><br><span class="line">					state BACKUP</span><br><span class="line">					interface eno33</span><br><span class="line">					virtual_router_id <span class="number">14</span></span><br><span class="line">					priority <span class="number">98</span></span><br><span class="line">					advert_int <span class="number">1</span></span><br><span class="line">					authentication &#123;</span><br><span class="line">						auth_type PASS</span><br><span class="line">						auth_pass <span class="number">571</span>f97b2</span><br><span class="line">					&#125;</span><br><span class="line">					virtual_ipaddress &#123;</span><br><span class="line">						<span class="number">10.1</span>.<span class="number">0.91</span>/<span class="number">16</span> dev eno33</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;			</span><br><span class="line"></span><br><span class="line">配置完毕后，启动Keepalived服务</span><br><span class="line"></span><br><span class="line">```/etc/init.d/keepalived start</span><br></pre></td></tr></table></figure>
+<p>检查配置结果，查看是否有虚拟ip xx.x.x.xx</p>
+<p><code>ip addr |grep xx.x.x.xx</code></p>
+<p>如果出现ip，就表示Keepalived服务单主配置成功</p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -184,175 +263,104 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://Az1u1u.me/2017/11/27/了解Keepalived/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/25/pxe自动化系统安装/" class="archive-article-date">
-  	<time datetime="2017-11-25T08:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-25</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/11/25/pxe自动化系统安装/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux pex自动化安装</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/25/pxe自动化系统安装/">Linux pex自动化安装</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">实验</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/02/安装MySQL/" class="archive-article-date">
-  	<time datetime="2017-09-02T13:06:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/02/安装MySQL/">Linux 安装MySQL</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/27/MySQL基础理论/" class="archive-article-date">
-  	<time datetime="2017-08-27T15:56:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/27/MySQL基础理论/">Linux MySQL基础理论</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/16/awk基础/" class="archive-article-date">
-  	<time datetime="2017-07-16T14:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/16/awk基础/">Linux awk基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -375,8 +383,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
