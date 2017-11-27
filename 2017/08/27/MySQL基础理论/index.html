@@ -17,7 +17,7 @@
 <meta property="og:description" content="mySQL （关系型数据库管理系统） 编辑 MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下产品。MySQL是最流行的关系型数据库管理系统之一，在WEB应用方面，MySQL是最好的 RDBMS(Relational Database ManagementSystem，关系数据库管理系统) 应用软件。 MySQL是一种关系数据库管理系统，关系数据库">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7114772-2e2dfdb9a6ec7b09.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-11-23T07:19:42.014Z">
+<meta property="og:updated_time" content="2017-11-27T01:33:01.759Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux MySQL基础理论">
 <meta name="twitter:description" content="mySQL （关系型数据库管理系统） 编辑 MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下产品。MySQL是最流行的关系型数据库管理系统之一，在WEB应用方面，MySQL是最好的 RDBMS(Relational Database ManagementSystem，关系数据库管理系统) 应用软件。 MySQL是一种关系数据库管理系统，关系数据库">
@@ -196,35 +196,22 @@
 <p><strong>管理系统的优缺点</strong></p>
 <p><strong>- 管理系统的缺点</strong></p>
 <ol>
-<li><p>编写应用程序不方便</p>
-</li>
-<li><p>数据冗余不可避免</p>
-</li>
-<li><p>应用程序依赖性</p>
-</li>
-<li><p>不支持对文件的并发访问</p>
-</li>
-<li><p>数据间联系弱</p>
-</li>
-<li><p>难以按用户视图表示数据</p>
-</li>
-<li><p>无安全控制功能</p>
-</li>
+<li>编写应用程序不方便</li>
+<li>数据冗余不可避免</li>
+<li>应用程序依赖性</li>
+<li>不支持对文件的并发访问</li>
+<li>数据间联系弱</li>
+<li>难以按用户视图表示数据</li>
+<li>无安全控制功能</li>
 </ol>
 <p><strong>- 管理系统的优点</strong></p>
 <ol>
-<li><p>相互关联的数据的集合</p>
-</li>
-<li><p>较少的数据冗余</p>
-</li>
-<li><p>程序与数据相互对立</p>
-</li>
-<li><p>保证数据的安全、可靠</p>
-</li>
-<li><p>最大限度地保证数据的正确性</p>
-</li>
-<li><p>数据可以并发使用并能同时保证一致性</p>
-</li>
+<li>相互关联的数据的集合</li>
+<li>较少的数据冗余</li>
+<li>程序与数据相互对立</li>
+<li>保证数据的安全、可靠</li>
+<li>最大限度地保证数据的正确性</li>
+<li>数据可以并发使用并能同时保证一致性</li>
 </ol>
 <p><strong>数据三要素</strong></p>
 <p><strong>- 数据结构：</strong></p>
@@ -245,23 +232,16 @@
 <p><strong>数据规划简单流程</strong></p>
 <p><strong>- 第一阶段：收集数据，得到字</strong>段</p>
 <ol>
-<li><p>收集必要且完整的数据项</p>
-</li>
-<li><p>转换成数据表的字段</p>
-</li>
+<li>收集必要且完整的数据项</li>
+<li>转换成数据表的字段</li>
 </ol>
 <p><strong>- 第二阶段：把字段分类，归入表，建立表的关联</strong></p>
 <ol>
-<li><p>关联：表和表间的关系</p>
-</li>
-<li><p>分割数据表并建立关联的优点</p>
-</li>
-<li><p>节省空间</p>
-</li>
-<li><p>减少输入错误</p>
-</li>
-<li><p>方便数据修改</p>
-</li>
+<li>关联：表和表间的关系</li>
+<li>分割数据表并建立关联的优点</li>
+<li>节省空间</li>
+<li>减少输入错误</li>
+<li>方便数据修改</li>
 </ol>
 <p><strong>- 第三阶段：</strong></p>
 <ol>
@@ -272,24 +252,34 @@
 </blockquote>
 <p>从理论上讲，完全可以为数据表里的每个字段分别建一个索引，但 MySQL 把同一个数据表里的索引总数限制为16个。</p>
 <p><strong>索引类别</strong></p>
-<p><strong>- 普通索引</strong></p>
+<ul>
+<li><strong>普通索引</strong></li>
+</ul>
 <blockquote>
 <p>普通索引（由关键字 KEY 或 INDEX 定义的索引）的唯一任务是加快对数据的访问速度。因此，应该只为那些最经常出现在查询条件（WHERE column =）或排序条件（ORDER BY column）中的数据列创建索引。只要有可能，就应该选择一个数据最整齐、最紧凑的数据列（如一个整数类型的数据列）来创建索引。</p>
 </blockquote>
-<p><strong>- 唯一索引</strong></p>
+<ul>
+<li><strong>唯一索引</strong></li>
+</ul>
 <blockquote>
 <p>普通索引允许被索引的数据列包含重复的值。比如说，因为人有可能同名，所以同一个姓名在同一个“员工个人资料”数据表里可能出现两次或更多次。</p>
 <p>如果能确定某个数据列将只包含彼此各不相同的值，在为这个数据列创建索引的时候就应该用关键字UNIQUE 把它定义为一个唯一索引。这么做的好处：一是简化了 MySQL 对这个索引的管理工作，这个索引也因此而变得更有效率；二是 MySQL 会在有新记录插入数据表时，自动检查新记录的这个字段的值是否已经在某个记录的这个字段里出现过了；如果是，MySQL 将拒绝插入那条新记录。也就是说，唯一索引可以保证数据记录的唯一性。事实上，在许多场合，人们创建唯一索引的目的往往不是为了提高访问速度，而只是为了避免数据出现重复。</p>
 </blockquote>
-<p><strong>- 主索引</strong></p>
+<ul>
+<li><strong>主索引</strong></li>
+</ul>
 <blockquote>
 <p>在前面已经反复多次强调过：必须为主键字段创建一个索引，这个索引就是所谓的“主索引”。主索引与唯一索引的唯一区别是：前者在定义时使用的关键字是 PRIMARY 而不是 UNIQUE。</p>
 </blockquote>
-<p><strong>- 外键索引</strong></p>
+<ul>
+<li><strong>外键索引</strong></li>
+</ul>
 <blockquote>
 <p>如果为某个外键字段定义了一个外键约束条件，MySQL 就会定义一个内部索引来帮助自己以最有效率的方式去管理和使用外键约束条件。</p>
 </blockquote>
-<p><strong>- 复合索引</strong></p>
+<ul>
+<li><strong>复合索引</strong></li>
+</ul>
 <blockquote>
 <p>索引可以覆盖多个数据列，如像 INDEX (columnA, columnB) 索引。这种索引的特点是 MySQL 可以有选择地使用一个这样的索引。如果查询操作只需要用到 columnA 数据列上的一个索引，就可以使用复合索引 INDEX(columnA, columnB)。不过，这种用法仅适用于在复合索引中排列在前的数据列组合。比如说，INDEX (A，B，C) 可以当做 A 或 (A,B) 的索引来使用，但不能当做 B、C 或 (B,C) 的索引来使用。</p>
 </blockquote>

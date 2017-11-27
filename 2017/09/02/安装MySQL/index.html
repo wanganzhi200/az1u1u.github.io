@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7114772-53a6cf6715912bb2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7114772-5e008e30f6773399.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7114772-074fdb8620321b6b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-11-27T01:02:46.907Z">
+<meta property="og:updated_time" content="2017-11-27T01:30:24.191Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 安装MySQL">
 <meta name="twitter:description" content="安装MySQL安装方式： 1、源代码：编译安装 2、二进制格式的程序包：展开至特定路径，并经过简单配置后即可使用 3、程序包管理器管理的程序包： rpm:     OS Vendor     项目官方 deb">
@@ -190,44 +190,33 @@ deb
 <p>这个安装较稳定，如果想安装新的可以去官方网站上下载。</p>
 <h3 id="MariaDB"><a href="#MariaDB" class="headerlink" title="MariaDB"></a>MariaDB</h3><p><strong>- Centos7的MariaDB数据库包括两个包组：</strong></p>
 <ol>
-<li><p>Mariadb</p>
-</li>
-<li><p>mariadb-client</p>
-</li>
+<li>Mariadb</li>
+<li>mariadb-client</li>
 </ol>
 <p><strong>- mariadb组包括下面包：</strong></p>
 <ol>
-<li><p>mariadb-server：mandatory package</p>
-</li>
-<li><p>mariadb-bench：optional package</p>
-</li>
-<li><p>mariadb-test：optional package</p>
-</li>
+<li>mariadb-server：mandatory package</li>
+<li>mariadb-bench：optional package</li>
+<li>mariadb-test：optional package</li>
 </ol>
 <p><strong>- mariadb-client组包括下面包:</strong></p>
 <ol>
-<li><p>Mariadb：mandatory package</p>
-</li>
-<li><p>MySQL-python：default package</p>
-</li>
-<li><p>mysql-connector-odbc：default<br>package</p>
-</li>
-<li><p>libdbi-dbd-mysql：optional package</p>
-</li>
-<li><p>mysql-connector-java：optional<br>package</p>
-</li>
-<li><p>perl-DBD-MySQL：optional package</p>
-</li>
+<li>Mariadb：mandatory package</li>
+<li>MySQL-python：default package</li>
+<li>mysql-connector-odbc：default<br>package</li>
+<li>libdbi-dbd-mysql：optional package</li>
+<li>mysql-connector-java：optional<br>package</li>
+<li>perl-DBD-MySQL：optional package</li>
 </ol>
 <ul>
 <li>配置文件：</li>
 </ul>
-<p><code>/etc/my.cnf和/etc/my.cnf.d/ *.cnf</code></p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">/etc/my.cnf</span>和<span class="string">/etc/my.cnf.d/</span> *<span class="string">.cnf</span></span><br></pre></td></tr></table></figure>
 <p><strong>- MariaDB安装</strong></p>
 <p>查看有没有对应的mariadb的数据库包组</p>
-<p><code>yum grouplist</code></p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">yum grouplist</span></span><br></pre></td></tr></table></figure>
 <p><img src="http://upload-images.jianshu.io/upload_images/7114772-9bd2c24fe1410921.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mariadb.png"></p>
-<p>如果没有使用<code>yum list mariadb*</code>来查看一下。</p>
+<p>如果没有使用来查看一下。<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="built_in">list</span> mariadb*</span><br></pre></td></tr></table></figure></p>
 <p><img src="http://upload-images.jianshu.io/upload_images/7114772-22f02e27e70f0124.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mariadb2.png"></p>
 <p>安装包组</p>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">yum</span> groupinstall <span class="keyword">mariadb </span><span class="keyword">mariadb-client</span></span><br></pre></td></tr></table></figure>
