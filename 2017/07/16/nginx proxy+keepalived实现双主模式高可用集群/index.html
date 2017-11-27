@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//Az1u1u.me">
-  <title>Archives: 2017 | 王安植的博客</title>
+  <title>keepalived实现双主模式高可用集群 | 王安植的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Thanks for Litten&apos;s blog configuration">
-<meta property="og:type" content="website">
-<meta property="og:title" content="王安植的博客">
-<meta property="og:url" content="//Az1u1u.me/archives/2017/index.html">
+  <meta name="description" content="keepalived+nginx proxy Keepalived是Linux下面实现VRRP备份路由的高可靠性运行件。基于Keepalived设计的服务模式能够真正做到主服务器和备份服务器故障时IP瞬间无缝交接。二者结合，可以构架出比较稳定的软件方案，现在就开始做实验吧。   环境准备   [root@node1 ~">
+<meta name="keywords" content="Linux,实验">
+<meta property="og:type" content="article">
+<meta property="og:title" content="keepalived实现双主模式高可用集群">
+<meta property="og:url" content="//Az1u1u.me/2017/07/16/nginx proxy+keepalived实现双主模式高可用集群/index.html">
 <meta property="og:site_name" content="王安植的博客">
-<meta property="og:description" content="Thanks for Litten&apos;s blog configuration">
+<meta property="og:description" content="keepalived+nginx proxy Keepalived是Linux下面实现VRRP备份路由的高可靠性运行件。基于Keepalived设计的服务模式能够真正做到主服务器和备份服务器故障时IP瞬间无缝交接。二者结合，可以构架出比较稳定的软件方案，现在就开始做实验吧。   环境准备   [root@node1 ~]# httpd服务器192.168.40.184 [root@node2 ~]">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-27T02:52:41.814Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="王安植的博客">
-<meta name="twitter:description" content="Thanks for Litten&apos;s blog configuration">
+<meta name="twitter:title" content="keepalived实现双主模式高可用集群">
+<meta name="twitter:description" content="keepalived+nginx proxy Keepalived是Linux下面实现VRRP备份路由的高可靠性运行件。基于Keepalived设计的服务模式能够真正做到主服务器和备份服务器故障时IP瞬间无缝交接。二者结合，可以构架出比较稳定的软件方案，现在就开始做实验吧。   环境准备   [root@node1 ~]# httpd服务器192.168.40.184 [root@node2 ~]">
   
     <link rel="alternative" href="/atom.xml" title="王安植的博客" type="application/atom+xml">
   
@@ -143,74 +145,112 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-nginx proxy+keepalived实现双主模式高可用集群" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/27/了解Keepalived/" class="archive-article-date">
-  	<time datetime="2017-11-27T03:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-27</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/27/了解Keepalived/">Linux 了解Keepalived</a>
+    <h1 class="article-title" itemprop="name">
+      keepalived实现双主模式高可用集群
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/25/pxe自动化系统安装/" class="archive-article-date">
-  	<time datetime="2017-11-25T08:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-25</time>
+        
+        <a href="/2017/07/16/nginx proxy+keepalived实现双主模式高可用集群/" class="archive-article-date">
+  	<time datetime="2017-07-16T14:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-16</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/25/pxe自动化系统安装/">Linux pex自动化安装</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="keepalived-nginx-proxy"><a href="#keepalived-nginx-proxy" class="headerlink" title="keepalived+nginx proxy"></a>keepalived+nginx proxy</h1><blockquote>
+<p>Keepalived是Linux下面实现VRRP备份路由的高可靠性运行件。基于Keepalived设计的服务模式能够真正做到主服务器和备份服务器故障时IP瞬间无缝交接。二者结合，可以构架出比较稳定的软件方案，现在就开始做实验吧。</p>
+</blockquote>
+<ul>
+<li><h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a><strong>环境准备</strong></h2></li>
+</ul>
+<ol>
+<li>[root@node1 ~]# httpd服务器192.168.40.184</li>
+<li>[root@node2 ~]# httpd服务器192.168.40.185</li>
+<li>[root@node3 ~]# keepalived+nginx服务器192.168.40.186 Vip:192.168.100.1</li>
+<li>[root@node4 ~]# keepalived+nginx服务器192.168.40.187 Vip:192.168.100.2</li>
+<li>[root@localhost ~] 客户机</li>
+</ol>
+<a id="more"></a>
+<ul>
+<li><h2 id="配置httpd服务器"><a href="#配置httpd服务器" class="headerlink" title="配置httpd服务器"></a><strong>配置httpd服务器</strong></h2></li>
+<li><p><strong>httpd1配置</strong></p>
+</li>
+</ul>
+<p><strong>[root@node1 ~]#</strong></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@node1 ~]<span class="selector-id">#yum</span> install httpd -y</span><br><span class="line">Loaded plugins: fastestmirror, langpacks</span><br><span class="line">Loading mirror speeds from cached hostfile</span><br><span class="line">Package httpd-<span class="number">2.4</span>.<span class="number">6</span>-<span class="number">45</span><span class="selector-class">.el7</span><span class="selector-class">.centos</span><span class="selector-class">.x86_64</span> already installed and latest version</span><br><span class="line">Nothing to do</span><br><span class="line">[root@node1 ~]<span class="selector-id">#echo</span> <span class="string">'webserver1'</span> &gt; /var/www/html/index<span class="selector-class">.html</span> </span><br><span class="line">[root@node1 ~]<span class="selector-id">#systemctl</span> start httpd</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>我这里是已经安装过hpptd，如果没有安装直接会读条安装</p>
+</blockquote>
+<ul>
+<li><strong>httpd2配置</strong></li>
+</ul>
+<p><strong>[root@node2 ~]#</strong></p>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">[root@node2 ~]# yum -y install httpd</span><br><span class="line">Loaded plugins: fastestmirror</span><br><span class="line">base                                                                     | 3.6 kB  00:00:00     </span><br><span class="line">Loading mirror speeds from cached hostfile</span><br><span class="line">Resolving Dependencies</span><br><span class="line">--&gt; Running transaction check</span><br><span class="line">---&gt; Package httpd.x86_64 0:2.4.6<span class="string">-45</span>.el7.centos will be installed</span><br><span class="line">--&gt; Processing Dependency: httpd-tools = 2.4.6<span class="string">-45</span>.el7.centos for package: httpd<span class="string">-2</span>.4.6<span class="string">-45</span>.el7.cen</span><br><span class="line">tos.x86_64--&gt; Processing Dependency: /etc/mime.types for package: httpd<span class="string">-2</span>.4.6<span class="string">-45</span>.el7.centos.x86_64</span><br><span class="line">--&gt; Processing Dependency: libaprutil<span class="string">-1</span>.so.0()(64bit) for package: httpd<span class="string">-2</span>.4.6<span class="string">-45</span>.el7.centos.x86</span><br><span class="line">_64--&gt; Processing Dependency: libapr<span class="string">-1</span>.so.0()(64bit) for package: httpd<span class="string">-2</span>.4.6<span class="string">-45</span>.el7.centos.x86_64</span><br><span class="line">--&gt; Running transaction check</span><br><span class="line">---&gt; Package apr.x86_64 0:1.4.8<span class="string">-3</span>.el7 will be installed</span><br><span class="line">---&gt; Package apr-util.x86_64 0:1.5.2<span class="string">-6</span>.el7 will be installed</span><br><span class="line">---&gt; Package httpd-tools.x86_64 0:2.4.6<span class="string">-45</span>.el7.centos will be installed</span><br><span class="line">---&gt; Package mailcap.noarch 0:2.1.41<span class="string">-2</span>.el7 will be installed</span><br><span class="line">--&gt; Finished Dependency Resolution</span><br><span class="line"></span><br><span class="line">Dependencies Resolved</span><br><span class="line"></span><br><span class="line">================================================================================================</span><br><span class="line"> Package                Arch              Version                         Repository       Size</span><br><span class="line">================================================================================================</span><br><span class="line">Installing:</span><br><span class="line"> httpd                  x86_64            2.4.6<span class="string">-45</span>.el7.centos             base            2.7 M</span><br><span class="line">Installing for dependencies:</span><br><span class="line"> apr                    x86_64            1.4.8<span class="string">-3</span>.el7                     base            103 k</span><br><span class="line"> apr-util               x86_64            1.5.2<span class="string">-6</span>.el7                     base             92 k</span><br><span class="line"> httpd-tools            x86_64            2.4.6<span class="string">-45</span>.el7.centos             base             84 k</span><br><span class="line"> mailcap                noarch            2.1.41<span class="string">-2</span>.el7                    base             31 k</span><br><span class="line"></span><br><span class="line">Transaction Summary</span><br><span class="line">================================================================================================</span><br><span class="line">Install  1 Package (<span class="string">+4</span> Dependent packages)</span><br><span class="line"></span><br><span class="line">Total download size: 3.0 M</span><br><span class="line">Installed size: 10 M</span><br><span class="line">Downloading packages:</span><br><span class="line">------------------------------------------------------------------------------------------------</span><br><span class="line">Total                                                            24 MB/s | 3.0 MB  00:00:00     </span><br><span class="line">Running transaction check</span><br><span class="line">Running transaction test</span><br><span class="line">Transaction test succeeded</span><br><span class="line">Running transaction</span><br><span class="line">  Installing : apr<span class="string">-1</span>.4.8<span class="string">-3</span>.el7.x86_64                                                       1/5 </span><br><span class="line">  Installing : apr-util<span class="string">-1</span>.5.2<span class="string">-6</span>.el7.x86_64                                                  2/5 </span><br><span class="line">  Installing : httpd-tools<span class="string">-2</span>.4.6<span class="string">-45</span>.el7.centos.x86_64                                       3/5 </span><br><span class="line">  Installing : mailcap<span class="string">-2</span>.1.41<span class="string">-2</span>.el7.noarch                                                  4/5 </span><br><span class="line">  Installing : httpd<span class="string">-2</span>.4.6<span class="string">-45</span>.el7.centos.x86_64                                             5/5 </span><br><span class="line">  Verifying  : httpd-tools<span class="string">-2</span>.4.6<span class="string">-45</span>.el7.centos.x86_64                                       1/5 </span><br><span class="line">  Verifying  : mailcap<span class="string">-2</span>.1.41<span class="string">-2</span>.el7.noarch                                                  2/5 </span><br><span class="line">  Verifying  : apr<span class="string">-1</span>.4.8<span class="string">-3</span>.el7.x86_64                                                       3/5 </span><br><span class="line">  Verifying  : httpd<span class="string">-2</span>.4.6<span class="string">-45</span>.el7.centos.x86_64                                             4/5 </span><br><span class="line">  Verifying  : apr-util<span class="string">-1</span>.5.2<span class="string">-6</span>.el7.x86_64                                                  5/5 </span><br><span class="line"></span><br><span class="line">Installed:</span><br><span class="line">  httpd.x86_64 0:2.4.6<span class="string">-45</span>.el7.centos                                                            </span><br><span class="line"></span><br><span class="line">Dependency Installed:</span><br><span class="line">  apr.x86_64 0:1.4.8<span class="string">-3</span>.el7                             apr-util.x86_64 0:1.5.2<span class="string">-6</span>.el7            </span><br><span class="line">  httpd-tools.x86_64 0:2.4.6<span class="string">-45</span>.el7.centos             mailcap.noarch 0:2.1.41<span class="string">-2</span>.el7            </span><br><span class="line"></span><br><span class="line">Complete!</span><br><span class="line">[root@node2 ~]# echo 'webserver2' &gt; /var/www/html/index.html</span><br><span class="line">[root@node2 ~]# systemctl start httpd</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h2 id="配置nginx服务器"><a href="#配置nginx服务器" class="headerlink" title="配置nginx服务器"></a><strong>配置nginx服务器</strong></h2></li>
+</ul>
+<p><strong>[root@node3 ~]#</strong></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">root@node3 ~</span>]<span class="meta"># yum install nginx -y</span></span><br><span class="line">[<span class="meta">root@node3 ~</span>]<span class="meta"># vim /etc/nginx/nginx.conf</span></span><br><span class="line">打开配置文件，在http&#123;&#125;里直接添加：</span><br><span class="line">upstream httpds &#123;</span><br><span class="line">        server <span class="number">192.168</span><span class="number">.40</span><span class="number">.184</span>;</span><br><span class="line">        server <span class="number">192.168</span><span class="number">.40</span><span class="number">.185</span>;</span><br><span class="line">&#125;</span><br><span class="line">然后找到下面location这一行改为：</span><br><span class="line">        location / &#123;</span><br><span class="line">        proxy_pass http:<span class="comment">//httpds:</span></span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line">[<span class="meta">root@node3 ~</span>]<span class="meta"># systemctl start nginx</span></span><br><span class="line"></span><br><span class="line">测试：</span><br><span class="line">[<span class="meta">root@node3 ~</span>]<span class="meta"># curl 192.168.40.186</span></span><br><span class="line">webserver1</span><br><span class="line">[<span class="meta">root@node3 ~</span>]<span class="meta"># curl 192.168.40.186</span></span><br><span class="line">webserver2</span><br></pre></td></tr></table></figure>
+<p><strong>[root@node4 ~]#</strong></p>
+<figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">[root@node4 ~]<span class="comment"># yum install nginx -y</span></span><br><span class="line">[root@node4 ~]<span class="comment"># vim /etc/nginx/nginx.conf</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">http</span> &#123;</span><br><span class="line">    log_format  <span class="keyword">main</span>  <span class="string">'<span class="variable">$remote_addr</span> - <span class="variable">$remote_user</span> [<span class="variable">$time_local</span>] "<span class="variable">$request</span>" '</span></span><br><span class="line">                      <span class="string">'<span class="variable">$status</span> <span class="variable">$body_bytes_sent</span> "<span class="variable">$http_referer</span>" '</span></span><br><span class="line">                      <span class="string">'"<span class="variable">$http_user_agent</span>" "<span class="variable">$http_x_forwarded_for</span>"'</span>;</span><br><span class="line"></span><br><span class="line">    access_log  /var/log/nginx/access.log  <span class="keyword">main</span>;</span><br><span class="line"></span><br><span class="line">    sendfile            on;</span><br><span class="line">    tcp_nopush          on;</span><br><span class="line">    tcp_nodelay         on;</span><br><span class="line">    keepalive_timeout   <span class="number">65</span>;</span><br><span class="line">    types_hash_max_size <span class="number">2048</span>;</span><br><span class="line"></span><br><span class="line">    <span class="literal">include</span>             /etc/nginx/mime.types;</span><br><span class="line">    default_type        application/octet-stream;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Load modular configuration files from the /etc/nginx/conf.d directory.</span></span><br><span class="line">    <span class="comment"># See http://nginx.org/en/docs/ngx_core_module.html#include</span></span><br><span class="line">    <span class="comment"># for more information.</span></span><br><span class="line">    <span class="literal">include</span> /etc/nginx/conf.d/*.conf;</span><br><span class="line"></span><br><span class="line">   upstream httpds &#123;</span><br><span class="line">        server <span class="number">192.168</span>.<span class="number">40.184</span>;</span><br><span class="line">        server <span class="number">192.168</span>.<span class="number">40.185</span>;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">   <span class="keyword">server</span> &#123;</span><br><span class="line">        listen       <span class="number">80</span> default_server;</span><br><span class="line">        listen       [::]:<span class="number">80</span> default_server;</span><br><span class="line">        server_name  <span class="number">_</span>;</span><br><span class="line">        <span class="literal">root</span>         /usr/share/nginx/html;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Load configuration files for the default server block.</span></span><br><span class="line">        <span class="literal">include</span> /etc/nginx/<span class="keyword">default</span>.d/*.conf;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">        proxy_pass http://httpds;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">[root@node4 ~]<span class="comment"># systemctl start nginx</span></span><br><span class="line"></span><br><span class="line">测试：</span><br><span class="line">[root@node4 ~]<span class="comment"># curl 192.168.40.187</span></span><br><span class="line">webserver1</span><br><span class="line">[root@node4 ~]<span class="comment"># curl 192.168.40.187</span></span><br><span class="line">webserver2</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h2 id="配置keepalived"><a href="#配置keepalived" class="headerlink" title="配置keepalived"></a><strong>配置keepalived</strong></h2></li>
+</ul>
+<p><strong>[root@node3 ~]#</strong></p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="variable">@node3</span> ~]<span class="comment"># yum -y install keepalived</span></span><br><span class="line">Loaded <span class="symbol">plugins:</span> fastestmirror</span><br><span class="line">Loading mirror speeds from cached hostfile</span><br><span class="line">Resolving Dependencies</span><br><span class="line">--&gt; Running transaction check</span><br><span class="line">---&gt; Package keepalived.x86_64 <span class="number">0</span><span class="symbol">:</span><span class="number">1.2</span>.<span class="number">13</span>-<span class="number">8</span>.el7 will be installed</span><br><span class="line">--&gt; Processing <span class="symbol">Dependency:</span> libsensors.so.<span class="number">4</span>()(<span class="number">64</span>bit) <span class="keyword">for</span> <span class="symbol">package:</span> keepalived-<span class="number">1.2</span>.<span class="number">13</span>-<span class="number">8</span>.el7.x86_64</span><br><span class="line">--&gt; Processing <span class="symbol">Dependency:</span> libnetsnmpmibs.so.<span class="number">31</span>()(<span class="number">64</span>bit) <span class="keyword">for</span> <span class="symbol">package:</span> keepalived-<span class="number">1.2</span>.<span class="number">13</span>-<span class="number">8</span>.el7.x8</span><br><span class="line"><span class="number">6_64</span>--&gt; Processing <span class="symbol">Dependency:</span> libnetsnmpagent.so.<span class="number">31</span>()(<span class="number">64</span>bit) <span class="keyword">for</span> <span class="symbol">package:</span> keepalived-<span class="number">1.2</span>.<span class="number">13</span>-<span class="number">8</span>.el7.x</span><br><span class="line"><span class="number">86_64</span>--&gt; Processing <span class="symbol">Dependency:</span> libnetsnmp.so.<span class="number">31</span>()(<span class="number">64</span>bit) <span class="keyword">for</span> <span class="symbol">package:</span> keepalived-<span class="number">1.2</span>.<span class="number">13</span>-<span class="number">8</span>.el7.x86_64</span><br><span class="line">--&gt; Running transaction check</span><br><span class="line">---&gt; Package lm_sensors-libs.x86_64 <span class="number">0</span><span class="symbol">:</span><span class="number">3.4</span>.<span class="number">0</span>-<span class="number">4.20160601</span>gitf9185e5.el7 will be installed</span><br><span class="line">---&gt; Package net-snmp-agent-libs.x86_64 <span class="number">1</span><span class="symbol">:</span><span class="number">5.7</span>.<span class="number">2</span>-<span class="number">24</span>.el7_2.<span class="number">1</span> will be installed</span><br><span class="line">---&gt; Package net-snmp-libs.x86_64 <span class="number">1</span><span class="symbol">:</span><span class="number">5.7</span>.<span class="number">2</span>-<span class="number">24</span>.el7_2.<span class="number">1</span> will be installed</span><br><span class="line">--&gt; Finished Dependency Resolution</span><br><span class="line"></span><br><span class="line">Dependencies Resolved</span><br><span class="line"></span><br><span class="line">================================================================================================</span><br><span class="line"> Package                   Arch         Version                                Repository  Size</span><br><span class="line">================================================================================================</span><br><span class="line"><span class="symbol">Installing:</span></span><br><span class="line"> keepalived                x86_64       <span class="number">1.2</span>.<span class="number">13</span>-<span class="number">8</span>.el7                           base       <span class="number">224</span> k</span><br><span class="line">Installing <span class="keyword">for</span> <span class="symbol">dependencies:</span></span><br><span class="line"> lm_sensors-libs           x86_64       <span class="number">3.4</span>.<span class="number">0</span>-<span class="number">4.20160601</span>gitf9185e5.el7         base        <span class="number">41</span> k</span><br><span class="line"> net-snmp-agent-libs       x86_64       <span class="number">1</span><span class="symbol">:</span><span class="number">5.7</span>.<span class="number">2</span>-<span class="number">24</span>.el7_2.<span class="number">1</span>                     base       <span class="number">702</span> k</span><br><span class="line"> net-snmp-libs             x86_64       <span class="number">1</span><span class="symbol">:</span><span class="number">5.7</span>.<span class="number">2</span>-<span class="number">24</span>.el7_2.<span class="number">1</span>                     base       <span class="number">747</span> k</span><br><span class="line"></span><br><span class="line">Transaction Summary</span><br><span class="line">================================================================================================</span><br><span class="line">Install  <span class="number">1</span> Package (+<span class="number">3</span> Dependent packages)</span><br><span class="line"></span><br><span class="line">Total download <span class="symbol">size:</span> <span class="number">1.7</span> M</span><br><span class="line">Installed <span class="symbol">size:</span> <span class="number">5.6</span> M</span><br><span class="line">Downloading <span class="symbol">packages:</span></span><br><span class="line">------------------------------------------------------------------------------------------------</span><br><span class="line">Total                                                            <span class="number">15</span> MB/s | <span class="number">1.7</span> MB  <span class="number">00</span><span class="symbol">:</span><span class="number">00</span><span class="symbol">:</span><span class="number">00</span>     </span><br><span class="line">Running transaction check</span><br><span class="line">Running transaction test</span><br><span class="line">Transaction test succeeded</span><br><span class="line">Running transaction</span><br><span class="line">  Installing : lm_sensors-libs-<span class="number">3.4</span>.<span class="number">0</span>-<span class="number">4.20160601</span>gitf9185e5.el7.x86_64                        <span class="number">1</span>/<span class="number">4</span> </span><br><span class="line">  Installing : <span class="number">1</span><span class="symbol">:net-snmp-libs-</span><span class="number">5.7</span>.<span class="number">2</span>-<span class="number">24</span>.el7_2.<span class="number">1</span>.x86_64                                      <span class="number">2</span>/<span class="number">4</span> </span><br><span class="line">  Installing : <span class="number">1</span><span class="symbol">:net-snmp-agent-libs-</span><span class="number">5.7</span>.<span class="number">2</span>-<span class="number">24</span>.el7_2.<span class="number">1</span>.x86_64                                <span class="number">3</span>/<span class="number">4</span> </span><br><span class="line">  Installing : keepalived-<span class="number">1.2</span>.<span class="number">13</span>-<span class="number">8</span>.el7.x86_64                                               <span class="number">4</span>/<span class="number">4</span> </span><br><span class="line">  Verifying  : <span class="number">1</span><span class="symbol">:net-snmp-agent-libs-</span><span class="number">5.7</span>.<span class="number">2</span>-<span class="number">24</span>.el7_2.<span class="number">1</span>.x86_64                                <span class="number">1</span>/<span class="number">4</span> </span><br><span class="line">  Verifying  : keepalived-<span class="number">1.2</span>.<span class="number">13</span>-<span class="number">8</span>.el7.x86_64                                               <span class="number">2</span>/<span class="number">4</span> </span><br><span class="line">  Verifying  : <span class="number">1</span><span class="symbol">:net-snmp-libs-</span><span class="number">5.7</span>.<span class="number">2</span>-<span class="number">24</span>.el7_2.<span class="number">1</span>.x86_64                                      <span class="number">3</span>/<span class="number">4</span> </span><br><span class="line">  Verifying  : lm_sensors-libs-<span class="number">3.4</span>.<span class="number">0</span>-<span class="number">4.20160601</span>gitf9185e5.el7.x86_64                        <span class="number">4</span>/<span class="number">4</span> </span><br><span class="line"></span><br><span class="line"><span class="symbol">Installed:</span></span><br><span class="line">  keepalived.x86_64 <span class="number">0</span><span class="symbol">:</span><span class="number">1.2</span>.<span class="number">13</span>-<span class="number">8</span>.el7                                                              </span><br><span class="line"></span><br><span class="line">Dependency <span class="symbol">Installed:</span></span><br><span class="line">  lm_sensors-libs.x86_64 <span class="number">0</span><span class="symbol">:</span><span class="number">3.4</span>.<span class="number">0</span>-<span class="number">4.20160601</span>gitf9185e5.el7                                       </span><br><span class="line">  net-snmp-agent-libs.x86_64 <span class="number">1</span><span class="symbol">:</span><span class="number">5.7</span>.<span class="number">2</span>-<span class="number">24</span>.el7_2.<span class="number">1</span>                                                 </span><br><span class="line">  net-snmp-libs.x86_64 <span class="number">1</span><span class="symbol">:</span><span class="number">5.7</span>.<span class="number">2</span>-<span class="number">24</span>.el7_2.<span class="number">1</span>                                                       </span><br><span class="line">Complete!</span><br><span class="line"></span><br><span class="line">[root<span class="variable">@node3</span> ~]<span class="comment"># vim /etc/keepalived/keepalived.conf </span></span><br><span class="line"></span><br><span class="line">! Configuration File <span class="keyword">for</span> keepalived</span><br><span class="line">   notification_email &#123;</span><br><span class="line">     acassen<span class="variable">@firewall</span>.loc</span><br><span class="line">     failover<span class="variable">@firewall</span>.loc</span><br><span class="line">     sysadmin<span class="variable">@firewall</span>.loc</span><br><span class="line">   &#125; </span><br><span class="line">   notification_email_from Alexandre.Cassen<span class="variable">@firewall</span>.loc</span><br><span class="line">   smtp_server <span class="number">127.0</span>.<span class="number">0</span>.<span class="number">1</span></span><br><span class="line">   smtp_connect_timeout <span class="number">30</span></span><br><span class="line">   router_id router1</span><br><span class="line">   vrrp_mcast_group4 <span class="number">224.1</span>.<span class="number">1.1</span></span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">vrrp_instance VI_1 &#123;</span><br><span class="line">    state MASTER</span><br><span class="line">    interface ens37</span><br><span class="line">    virtual_router_id <span class="number">1</span></span><br><span class="line">    priority <span class="number">100</span></span><br><span class="line">    advert_int <span class="number">1</span></span><br><span class="line">    authentication &#123;</span><br><span class="line">        auth_type PASS</span><br><span class="line">        auth_pass <span class="number">1111</span></span><br><span class="line">    &#125;   </span><br><span class="line">    virtual_ipaddress &#123;</span><br><span class="line">        <span class="number">192.168</span>.<span class="number">40.101</span> </span><br><span class="line">    &#125;   </span><br><span class="line">&#125;   </span><br><span class="line"></span><br><span class="line">vrrp_instance VI_2 &#123;</span><br><span class="line">    state BACKUP</span><br><span class="line">    interface ens37</span><br><span class="line">    virtual_router_id <span class="number">2</span></span><br><span class="line">    priority <span class="number">95</span></span><br><span class="line">    advert_int <span class="number">1</span></span><br><span class="line">    authentication &#123;</span><br><span class="line">        auth_type PASS</span><br><span class="line">        auth_pass <span class="number">2222</span></span><br><span class="line">    &#125;   </span><br><span class="line">    virtual_ipaddress &#123;</span><br><span class="line">        <span class="number">192.168</span>.<span class="number">40.102</span></span><br><span class="line">    &#125;   </span><br><span class="line">&#125;   </span><br><span class="line"></span><br><span class="line">[root<span class="variable">@node3</span> ~]<span class="comment"># systemctl start keepalived</span></span><br></pre></td></tr></table></figure>
+<p><strong>[root@node4 ~]#</strong></p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">[root@node4 ~]# yum -y install keepalived</span><br><span class="line"></span><br><span class="line">[root@node4 ~]# vim /etc/keepalived/keepalived.conf </span><br><span class="line"></span><br><span class="line">! Configuration File for keepalived</span><br><span class="line">   notification_email &#123;</span><br><span class="line">     acassen@firewall.loc</span><br><span class="line">     failover@firewall.loc</span><br><span class="line">     sysadmin@firewall.loc</span><br><span class="line">   &#125; </span><br><span class="line">   notification_email_from Alexandre.Cassen@firewall.loc</span><br><span class="line">   smtp_server <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span></span><br><span class="line">   smtp_connect_timeout <span class="number">30</span></span><br><span class="line">   router_id router2</span><br><span class="line">   vrrp_mcast_group4 <span class="number">224.1</span><span class="number">.1</span><span class="number">.1</span></span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">vrrp_instance VI_1 &#123;</span><br><span class="line">    <span class="section">state</span> BACKUP</span><br><span class="line">    interface ens37</span><br><span class="line">    virtual_router_id <span class="number">1</span></span><br><span class="line">    priority <span class="number">95</span></span><br><span class="line">    advert_int <span class="number">1</span></span><br><span class="line">    authentication &#123;</span><br><span class="line">        auth_type PASS</span><br><span class="line">        auth_pass <span class="number">1111</span></span><br><span class="line">    &#125;   </span><br><span class="line">    virtual_ipaddress &#123;</span><br><span class="line">        <span class="number">192.168</span><span class="number">.40</span><span class="number">.101</span> </span><br><span class="line">    &#125;   </span><br><span class="line">&#125;   </span><br><span class="line"></span><br><span class="line">vrrp_instance VI_2 &#123;</span><br><span class="line">    <span class="section">state</span> MASTER</span><br><span class="line">    interface ens37</span><br><span class="line">    virtual_router_id <span class="number">2</span></span><br><span class="line">    priority <span class="number">100</span></span><br><span class="line">    advert_int <span class="number">1</span></span><br><span class="line">    authentication &#123;</span><br><span class="line">        auth_type PASS</span><br><span class="line">        auth_pass <span class="number">2222</span></span><br><span class="line">    &#125;   </span><br><span class="line">    virtual_ipaddress &#123;</span><br><span class="line">        <span class="number">192.168</span><span class="number">.40</span><span class="number">.102</span></span><br><span class="line">    &#125;   </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">[root@node4 ~]# systemctl start keepalived</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a><strong>测试</strong></h2></li>
+</ul>
+<blockquote>
+<p><strong>上面已经把基础都配置好了，现在开始启动做测试。</strong></p>
+</blockquote>
+<p><strong>[root@node3 ~]#</strong></p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@node3 ~]# <span class="built_in">ip</span> a</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>: ens37: &lt;BROADCAST,MULTICAST,<span class="meta">UP</span>,LOWER_UP&gt; mtu <span class="number">1500</span> qdisc pfifo_fast state <span class="meta">UP</span> qlen <span class="number">1000</span></span><br><span class="line">    link/ether <span class="number">00</span>:<span class="number">50</span>:<span class="number">56</span>:<span class="number">26</span>:<span class="number">5d</span>:<span class="number">87</span> brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet <span class="number">192.168</span><span class="meta">.40</span><span class="meta">.186</span>/<span class="number">24</span> brd <span class="number">192.168</span><span class="meta">.40</span><span class="meta">.255</span> scope <span class="meta">global</span> dynamic ens37</span><br><span class="line">       valid_lft 1309sec preferred_lft 1309sec</span><br><span class="line">    inet <span class="number">192.168</span><span class="meta">.40</span><span class="meta">.101</span>/<span class="number">32</span> scope <span class="meta">global</span> ens37</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 fe80::<span class="number">1446</span>:88c6:b45f:64e9/<span class="number">64</span> scope link </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">通过<span class="built_in">ip</span> a可以看到<span class="number">192.168</span><span class="meta">.40</span><span class="meta">.101</span>已经配置上去了，这个上面就算成功了，下面在看看另一台。</span><br></pre></td></tr></table></figure>
+<p><strong>[root@node4 ~]#</strong></p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@node4 ~]<span class="comment"># ip a</span></span><br><span class="line"><span class="number">3</span>: ens37: <span class="variable">&lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt;</span> mtu <span class="number">1500</span> qdisc pfifo_fast <span class="keyword">state</span> UP qlen <span class="number">1000</span></span><br><span class="line">    link/ether <span class="number">00</span>:<span class="number">50</span>:<span class="number">56</span>:<span class="number">28</span>:c1:<span class="number">83</span> brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    <span class="keyword">inet</span> <span class="number">192.168</span>.<span class="number">40.187</span>/<span class="number">24</span> brd <span class="number">192.168</span>.<span class="number">40.255</span> scope <span class="keyword">global</span> dynamic ens37</span><br><span class="line">       valid_lft <span class="number">1707</span>sec preferred_lft <span class="number">1707</span>sec</span><br><span class="line">    <span class="keyword">inet</span> <span class="number">192.168</span>.<span class="number">40.102</span>/<span class="number">32</span> scope <span class="keyword">global</span> ens37</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    <span class="keyword">inet6</span> fe80::ad66:<span class="number">2</span>c63:<span class="number">7</span>f34:fd2c/<span class="number">64</span> scope link </span><br><span class="line">       val id_lft forever preferred_lft forever</span><br><span class="line">这个也出现了，也成功了</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>上面使用ip a名称看来都已经成功了，另外两台虚拟机上面都配置了后端httpd1与2的代理服务，那么我们现在用客户机访问测试一下是否正常。</strong></p>
+</blockquote>
+<p><strong>[root@localhost ~]</strong></p>
+<figure class="highlight d"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="keyword">@localhost</span> ~]# <span class="keyword">for</span> i <span class="keyword">in</span> &#123;<span class="number">1.</span>.<span class="number">10</span>&#125;;<span class="keyword">do</span> curl http:<span class="comment">//192.168.40.101/;done</span></span><br><span class="line">webserver2</span><br><span class="line">webserver1</span><br><span class="line">webserver2</span><br><span class="line">webserver1</span><br><span class="line">webserver2</span><br><span class="line">webserver1</span><br><span class="line">webserver2</span><br><span class="line">webserver1</span><br><span class="line">webserver2</span><br><span class="line">webserver1</span><br><span class="line">访问<span class="number">192.168</span>.40.101没问题，试试<span class="number">102</span></span><br><span class="line"></span><br><span class="line">[root<span class="keyword">@localhost</span> ~]# <span class="keyword">for</span> i <span class="keyword">in</span> &#123;<span class="number">1.</span>.<span class="number">10</span>&#125;;<span class="keyword">do</span> curl http:<span class="comment">//192.168.40.102/;done</span></span><br><span class="line">webserver1</span><br><span class="line">webserver2</span><br><span class="line">webserver1</span><br><span class="line">webserver2</span><br><span class="line">webserver1</span><br><span class="line">webserver2</span><br><span class="line">webserver1</span><br><span class="line">webserver2</span><br><span class="line">webserver1</span><br><span class="line">webserver2</span><br><span class="line"><span class="number">192.168</span>.40.102也没问题</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>测试到这里说明这个实验已经完成，但是还需要测试如果一台主机宕机了，其他两个虚拟Ip还可以正常工作吗，那么我们在来测试一下</strong></p>
+</blockquote>
+<p><strong>[root@node3 ~]#</strong></p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@node3 ~]<span class="comment"># systemctl stop keepalived #停止keeplived</span></span><br><span class="line"></span><br><span class="line">[root@node3 ~]<span class="comment"># ip a</span></span><br><span class="line"></span><br><span class="line"><span class="number">3</span>: ens37: <span class="variable">&lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt;</span> mtu <span class="number">1500</span> qdisc pfifo_fast <span class="keyword">state</span> UP qlen <span class="number">1000</span></span><br><span class="line">    link/ether <span class="number">00</span>:<span class="number">50</span>:<span class="number">56</span>:<span class="number">26</span>:<span class="number">5</span>d:<span class="number">87</span> brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    <span class="keyword">inet</span> <span class="number">192.168</span>.<span class="number">40.186</span>/<span class="number">24</span> brd <span class="number">192.168</span>.<span class="number">40.255</span> scope <span class="keyword">global</span> dynamic ens37</span><br><span class="line">       valid_lft <span class="number">1309</span>sec preferred_lft <span class="number">1309</span>sec</span><br><span class="line">    <span class="keyword">inet6</span> fe80::<span class="number">1446</span>:<span class="number">88</span>c6:b45f:<span class="number">64</span>e9/<span class="number">64</span> scope link </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line"></span><br><span class="line">服务停掉以后可以看到vip已经不见了，现在应该是转移到node2上面去了，我们去看看</span><br></pre></td></tr></table></figure>
+<p><strong>[root@node4 ~]#</strong><br><figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[root@node4 ~]<span class="comment"># ip a</span></span><br><span class="line"></span><br><span class="line"><span class="number">3</span>: ens37: <span class="variable">&lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt;</span> mtu <span class="number">1500</span> qdisc pfifo_fast <span class="keyword">state</span> UP qlen <span class="number">1000</span></span><br><span class="line">    link/ether <span class="number">00</span>:<span class="number">50</span>:<span class="number">56</span>:<span class="number">28</span>:c1:<span class="number">83</span> brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    <span class="keyword">inet</span> <span class="number">192.168</span>.<span class="number">40.187</span>/<span class="number">24</span> brd <span class="number">192.168</span>.<span class="number">40.255</span> scope <span class="keyword">global</span> dynamic ens37</span><br><span class="line">       valid_lft <span class="number">1707</span>sec preferred_lft <span class="number">1707</span>sec</span><br><span class="line">    <span class="keyword">inet</span> <span class="number">192.168</span>.<span class="number">40.101</span>/<span class="number">32</span> scope <span class="keyword">global</span> ens37</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    <span class="keyword">inet</span> <span class="number">192.168</span>.<span class="number">40.102</span>/<span class="number">32</span> scope <span class="keyword">global</span> ens37</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    <span class="keyword">inet6</span> fe80::ad66:<span class="number">2</span>c63:<span class="number">7</span>f34:fd2c/<span class="number">64</span> scope link </span><br><span class="line">       val id_lft forever preferred_lft forever</span><br><span class="line">现在node4上面出现了<span class="number">2</span>个vip，那么网页还能正常工作不，我们再去用客户机访问一下。</span><br></pre></td></tr></table></figure></p>
+<p><strong>[root@localhost ~]#</strong></p>
+<figure class="highlight d"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="keyword">@localhost</span> ~]# <span class="keyword">for</span> i <span class="keyword">in</span> &#123;<span class="number">1.</span>.<span class="number">10</span>&#125;;<span class="keyword">do</span> curl http:<span class="comment">//192.168.40.101/;done</span></span><br><span class="line">webserver2</span><br><span class="line">webserver1</span><br><span class="line">webserver2</span><br><span class="line">webserver1</span><br><span class="line">webserver2</span><br><span class="line">webserver1</span><br><span class="line">webserver2</span><br><span class="line">webserver1</span><br><span class="line">webserver2</span><br><span class="line">webserver1</span><br><span class="line">[root<span class="keyword">@localhost</span> ~]# <span class="keyword">for</span> i <span class="keyword">in</span> &#123;<span class="number">1.</span>.<span class="number">10</span>&#125;;<span class="keyword">do</span> curl http:<span class="comment">//192.168.40.102/;done</span></span><br><span class="line">webserver1</span><br><span class="line">webserver2</span><br><span class="line">webserver1</span><br><span class="line">webserver2</span><br><span class="line">webserver1</span><br><span class="line">webserver2</span><br><span class="line">webserver1</span><br><span class="line">webserver2</span><br><span class="line">webserver1</span><br><span class="line">webserver2</span><br><span class="line">两个ip依然可以正常访问。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>ip转移的原理就是配置文件中权重的设置，虚拟主机在广播域内每秒都会更新优先级，权重值，一旦发现在权重较高者就将vip添加到相应的设备上，为了更加清楚的看到过程，我们可以用监控来查看信息。</strong></p>
+</blockquote>
+<p><strong>[root@node4 ~]#</strong></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@node4 ~]# yum -y install tcpdump</span><br><span class="line"></span><br><span class="line">[root@node4 ~]# tcpdump -i ens37 -nn host 224.1.1.1</span><br><span class="line">16:03:06.372459<span class="built_in"> IP </span>192.168.40.187 &gt; 224.1.1.1: VRRPv2, Advertisement, vrid 1, prio 95, authtype simple, intvl 1s, length 20</span><br><span class="line">16:03:06.896593<span class="built_in"> IP </span>192.168.40.187 &gt; 224.1.1.1: VRRPv2, Advertisement, vrid 2, prio 100, authtype simple, intvl 1s, length 20</span><br><span class="line">16:03:07.373876<span class="built_in"> IP </span>192.168.40.187 &gt; 224.1.1.1: VRRPv2, Advertisement, vrid 1, prio 95, authtype simple, intvl 1s, length 20</span><br><span class="line">16:03:07.898220<span class="built_in"> IP </span>192.168.40.187 &gt; 224.1.1.1: VRRPv2, Advertisement, vrid 2, prio 100, authtype simple, intvl 1s, length 20</span><br><span class="line">16:03:08.374548<span class="built_in"> IP </span>192.168.40.187 &gt; 224.1.1.1: VRRPv2, Advertisement, vrid 1, prio 95, authtype simple, intvl 1s, length 20</span><br><span class="line">16:03:08.900079<span class="built_in"> IP </span>192.168.40.187 &gt; 224.1.1.1: VRRPv2, Advertisement, vrid 2, prio 100, authtype simple, intvl 1s, length 20</span><br><span class="line">16:03:09.377419<span class="built_in"> IP </span>192.168.40.187 &gt; 224.1.1.1: VRRPv2, Advertisement, vrid 1, prio 95, authtype simple, intvl 1s, length 20</span><br><span class="line">16:03:09.903509<span class="built_in"> IP </span>192.168.40.187 &gt; 224.1.1.1: VRRPv2, Advertisement, vrid 2, prio 100, authtype simple, intvl 1s, length 20</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>以上主要观看prio值，在node3没有启动时(上面做测试的时候关闭了)，node4每秒广播一次优先级为95的vrid 1与优先级100的vrid 2，如果当我启动node3的keepalived可以看到监控中，node3与node4同时广播了一次自己的优先级，node4的vrid 1为95，node3的为100，然后可以发现vrid 1就变成了node3的100了，不广播node4的95了，因为node3的优先级较高。</strong></p>
+</blockquote>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@node4 ~]# tcpdump -i ens37 -nn host 224.1.1.1</span><br><span class="line">tcpdump: verbose output suppressed, use -v <span class="keyword">or</span> -vv <span class="keyword">for</span> full protocol decode</span><br><span class="line">listening on ens37, link-type EN10MB (Ethernet), capture size 65535 bytes</span><br><span class="line">16:17:01.406785<span class="built_in"> IP </span>192.168.40.187 &gt; 224.1.1.1: VRRPv2, Advertisement, vrid 1, prio 95, authtype simple, intvl 1s, length 20</span><br><span class="line">16:17:01.730866<span class="built_in"> IP </span>192.168.40.186 &gt; 224.1.1.1: VRRPv2, Advertisement, vrid 2, prio 100, authtype simple, intvl 1s, length 20</span><br><span class="line">16:20:58.304585<span class="built_in"> IP </span>192.168.40.187 &gt; 224.1.1.1: VRRPv2, Advertisement, vrid 2, prio 100, authtype simple, intvl 1s, length 20</span><br><span class="line">16:20:59.118167<span class="built_in"> IP </span>192.168.40.186 &gt; 224.1.1.1: VRRPv2, Advertisement, vrid 1, prio 100, authtype simple, intvl 1s, length 20</span><br><span class="line">16:20:59.308064<span class="built_in"> IP </span>192.168.40.187 &gt; 224.1.1.1: VRRPv2, Advertisement, vrid 2, prio 100, authtype simple, intvl 1s, length 20</span><br><span class="line">16:21:00.121610<span class="built_in"> IP </span>192.168.40.186 &gt; 224.1.1.1: VRRPv2, Advertisement, vrid 1, prio 100, authtype simple, intvl 1s, length 20</span><br><span class="line">16:21:00.309219<span class="built_in"> IP </span>192.168.40.187 &gt; 224.1.1.1: VRRPv2, Advertisement, vrid 2, prio 100, authtype simple, intvl 1s, length 20</span><br><span class="line">16:21:01.124993<span class="built_in"> IP </span>192.168.40.186 &gt; 224.1.1.1: VRRPv2, Advertisement, vrid 1, prio 100, authtype simple, intvl 1s, length 20</span><br><span class="line">16:21:01.312567<span class="built_in"> IP </span>192.168.40.187 &gt; 224.1.1.1: VRRPv2, Advertisement, vrid 2, prio 100, authtype simple, intvl 1s, length 20</span><br><span class="line">16:21:02.127997<span class="built_in"> IP </span>192.168.40.186 &gt; 224.1.1.1: VRRPv2, Advertisement, vrid 1, prio 100, authtype simple, intvl 1s, length 20</span><br><span class="line">16:21:02.315574<span class="built_in"> IP </span>192.168.40.187 &gt; 224.1.1.1: VRRPv2, Advertisement, vrid 2, prio 100, authtype simple, intvl 1s, length 20</span><br><span class="line">16:21:03.129976<span class="built_in"> IP </span>192.168.40.186 &gt; 224.1.1.1: VRRPv2, Advertisement, vrid 1, prio 100, authtype simple, intvl 1s, length 20</span><br><span class="line">16:21:03.317468<span class="built_in"> IP </span>192.168.40.187 &gt; 224.1.1.1: VRRPv2, Advertisement, vrid 2, prio 100, authtype simple, intvl 1s, length 20</span><br><span class="line">16:21:04.134008<span class="built_in"> IP </span>192.168.40.186 &gt; 224.1.1.1: VRRPv2, Advertisement, vrid 1, prio 100, authtype simple, intvl 1s, length 20</span><br><span class="line">16:21:04.321042<span class="built_in"> IP </span>192.168.40.187 &gt; 224.1.1.1: VRRPv2, Advertisement, vrid 2, prio 100, authtype simple, intvl 1s, length 20</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>测试到这里就结束了，跟node3一样，如果node4宕机，他的ip就会转到node3上，优先级谁高谁先输出。</strong></p>
+</blockquote>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -226,175 +266,108 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://Az1u1u.me/2017/07/16/nginx proxy+keepalived实现双主模式高可用集群/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/02/安装MySQL/" class="archive-article-date">
-  	<time datetime="2017-09-02T13:06:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-02</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2017/07/16/awk基础/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Linux awk基础
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/02/安装MySQL/">Linux 安装MySQL</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/27/MySQL基础理论/" class="archive-article-date">
-  	<time datetime="2017-08-27T15:56:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/27/MySQL基础理论/">Linux MySQL基础理论</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/16/awk基础/" class="archive-article-date">
-  	<time datetime="2017-07-16T14:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/16/awk基础/">Linux awk基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/16/nginx proxy+keepalived实现双主模式高可用集群/" class="archive-article-date">
-  	<time datetime="2017-07-16T14:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/16/nginx proxy+keepalived实现双主模式高可用集群/">keepalived实现双主模式高可用集群</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">实验</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -417,8 +390,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
