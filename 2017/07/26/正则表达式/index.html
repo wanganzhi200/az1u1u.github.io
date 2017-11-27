@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0.png">
 <meta property="og:image" content="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0.png">
 <meta property="og:image" content="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%AC%AC%E5%8D%81%E4%BA%94%E5%BC%A0.png">
-<meta property="og:updated_time" content="2017-11-27T05:37:48.067Z">
+<meta property="og:updated_time" content="2017-11-27T06:06:10.515Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 正则表达式及文本处理">
 <meta name="twitter:description" content="正则表达式 通俗点说，正则表达式就是处理字符串的方法，更加快速简洁的代表各个要求参数，一般用于描述字符排列和匹配模式的一种语法规则，通过正则表达式一些特殊符号的辅助，让用户轻易的查找、删除、替换一些字符串的处理程序。（ ps：正则表达式和通配符不一样，通配符代表的是bash接口的一个功能，但正则表达式是一种字符串处理的表达方式，两者一定要分清楚。）">
@@ -201,13 +201,10 @@
 <li>位置锚定</li>
 <li>分组</li>
 </ol>
-<blockquote>
-<p><strong>字符匹配</strong></p>
-</blockquote>
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">.  </span>表示任意单个字符</span><br></pre></td></tr></table></figure>
-<p>例如:<img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%82%B9%E7%9A%84%E4%BE%8B%E5%A6%82.png" alt=""></p>
+<h3 id="字符匹配"><a href="#字符匹配" class="headerlink" title="字符匹配"></a><strong>字符匹配</strong></h3><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">.  </span>表示任意单个字符</span><br></pre></td></tr></table></figure>
+<p><strong>例如:</strong><br><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%82%B9%E7%9A%84%E4%BE%8B%E5%A6%82.png" alt=""></p>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ ]   表示匹配范围内的任意单个字符（[<span class="keyword">abc</span>]r 相当于r一个个匹配里面的，如<span class="keyword">ar</span>,<span class="keyword">br</span>,<span class="keyword">cr</span>）</span><br></pre></td></tr></table></figure>
-<p>例如:<img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%9B%BE.png" alt=""></p>
+<p><strong>例如:</strong><br><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%9B%BE.png" alt=""></p>
 <ol>
 <li>[^ ]  表示匹配范围外的任意单个字符</li>
 <li>[:alpha:]   任意一个字母（相当于a-zA-Z）</li>
@@ -220,45 +217,42 @@
 <li>[:alnum:]   任意字母和数字（相当于0-9a-zA-Z）</li>
 <li>[:print:]   可打印字符</li>
 </ol>
-<p>例如:字符的使用<br><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%AC%AC%E4%B8%89%E5%BC%A0.png" alt=""></p>
+<p><strong>例如:字符的使用</strong><br><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%AC%AC%E4%B8%89%E5%BC%A0.png" alt=""></p>
 <blockquote>
 <p>ps:用的时候记得加[]，例如:[[:alnum:]]或者[0-9a-zA-Z]这样用，当然最好还是用[[:alnum:]]这种命令，它会比[a-z0-9A-Z]更为确定一些。在这里汉字也为字母。</p>
-<p><strong>匹配次数</strong></p>
 </blockquote>
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">*    </span>表示前面的一个字符的0-N次（它有一个贪婪模式，会尽量匹配最长）</span><br></pre></td></tr></table></figure>
-<p>例如:<img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%AC%AC%E5%9B%9B%E7%AB%A0.png" alt=""></p>
+<h3 id="匹配次数"><a href="#匹配次数" class="headerlink" title="匹配次数"></a><strong>匹配次数</strong></h3><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">*    </span>表示前面的一个字符的0-N次（它有一个贪婪模式，会尽量匹配最长）</span><br></pre></td></tr></table></figure>
+<p><strong>例如:</strong><br><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%AC%AC%E5%9B%9B%E7%AB%A0.png" alt=""></p>
 <figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.*   表示任意多个长度的字符</span><br><span class="line"></span><br><span class="line"><span class="string">\?</span>    表示<span class="string">\?符号前的字符0-1次</span></span><br></pre></td></tr></table></figure>
-<p>例如:<img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%AC%AC%E4%BA%94%E7%AB%A0.png" alt=""></p>
+<p><strong>例如:</strong><br><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%AC%AC%E4%BA%94%E7%AB%A0.png" alt=""></p>
 <figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">\+</span>     匹配<span class="string">\+前的字符至少1次</span></span><br></pre></td></tr></table></figure>
-<p>例如:<img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%AC%AC%E5%85%AD%E7%AB%A0.png" alt=""></p>
+<p><strong>例如:</strong><br><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%AC%AC%E5%85%AD%E7%AB%A0.png" alt=""></p>
 <figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">\&#123;</span>m,n&#125;    表示<span class="symbol">\&#123;</span>m,n<span class="symbol">\&#125;</span>符号前的字符的m-n次</span><br><span class="line"></span><br><span class="line"><span class="symbol">\&#123;</span>m<span class="symbol">\&#125;</span>     表示&#123;m<span class="symbol">\&#125;</span>符号前的字符m次</span><br><span class="line"></span><br><span class="line"><span class="symbol">\&#123;</span>n,<span class="symbol">\&#125;</span>     表示匹配前面字符至少n次</span><br><span class="line"></span><br><span class="line"><span class="symbol">\&#123;</span>,n&#125;      表示匹配前面字符最多n次</span><br></pre></td></tr></table></figure>
-<p>例如:<img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%AC%AC%E4%B8%83%E7%AB%A0.png" alt=""></p>
+<p><strong>例如:</strong><br><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%AC%AC%E4%B8%83%E7%AB%A0.png" alt=""></p>
 <blockquote>
 <p>ps: \的意义是转义字符，意思就是将一些有特殊符号的意义去除</p>
-<p><strong>位置锚定</strong></p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^ 之后接字符    表示^ 之后的字符出现在行首</span><br></pre></td></tr></table></figure>
-<p>例如:<img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%AC%AC%E5%85%AB%E7%AB%A0.png" alt=""></p>
+<h3 id="位置锚定"><a href="#位置锚定" class="headerlink" title="位置锚定"></a><strong>位置锚定</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^ 之后接字符    表示^ 之后的字符出现在行首</span><br></pre></td></tr></table></figure>
+<p><strong>例如:</strong><br><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%AC%AC%E5%85%AB%E7%AB%A0.png" alt=""></p>
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>之前接字符    表示<span class="variable">$之</span>前的字符出现在行尾</span><br></pre></td></tr></table></figure>
-<p>例如:<img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%AC%AC%E4%B9%9D%E7%AB%A0.png" alt=""></p>
+<p><strong>例如:</strong><br><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%AC%AC%E4%B9%9D%E7%AB%A0.png" alt=""></p>
 <figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">\&gt;</span>      表示<span class="string">\&gt;</span> 符号之后的字符出现在单词的尾部</span><br><span class="line"></span><br><span class="line"><span class="string">\&lt;</span>      表示<span class="string">\&lt;</span> 之前的字符出现在单词的首部</span><br><span class="line"></span><br><span class="line"><span class="string">\&lt;字符</span> <span class="string">\&gt;</span>      表示只有小于号和大于号之间的字符</span><br></pre></td></tr></table></figure>
-<p>例如:<img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%AC%AC%E5%8D%81%E7%AB%A0.png" alt=""></p>
+<p><strong>例如:</strong><br><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%AC%AC%E5%8D%81%E7%AB%A0.png" alt=""></p>
 <blockquote>
 <p>ps:\b 同样可以用于匹配单词位置，只不过有时候怕不好区别，最好还是用大于小于，这样也方便看清。</p>
-<p><strong>分组</strong></p>
+</blockquote>
+<h3 id="分组"><a href="#分组" class="headerlink" title="分组"></a><strong>分组</strong></h3><blockquote>
 <p>分组简单来说就是()用一个命令将一个或者多个字符捆绑在一起，当成一个整体进行处理,如：(abc)+</p>
 </blockquote>
-<p>例如:<img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%AC%AC%E5%8D%81%E4%B8%80%E5%BC%A0.png" alt=""></p>
+<p><strong>例如:</strong><br><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%AC%AC%E5%8D%81%E4%B8%80%E5%BC%A0.png" alt=""></p>
 <blockquote>
 <p>分组括号中的模式匹配到的内容会被正则表达式引擎记录于内部的变量中，这些变量的命名方式为: \1,\2,\3, …,\1表示从左侧起第一个左括号以及与之匹配右括号之间的模式所匹配到的字符</p>
 </blockquote>
 <figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">\示</span>例：grep <span class="symbol">\(</span>r..t<span class="symbol">\)</span>.*<span class="symbol">\(</span>a..b<span class="symbol">\)</span> <span class="symbol">\1</span> <span class="symbol">\2</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">\1</span> ：r..t</span><br><span class="line"></span><br><span class="line"><span class="symbol">\2</span> ：a..b</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>例如:第一个括号为(r..t) 那么\1也是r..t</p>
-</blockquote>
+<p><strong>例如:第一个括号为(r..t) 那么\1也是r..t</strong></p>
 <p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%AC%AC%E5%8D%81%E4%BA%8C%E5%BC%A0.png" alt=""></p>
 <figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">或者：<span class="symbol">\|</span></span><br><span class="line"></span><br><span class="line">示例：a<span class="symbol">\|</span>b: a或b</span><br><span class="line"></span><br><span class="line">C<span class="symbol">\|</span>cat: C或cat</span><br><span class="line"></span><br><span class="line"><span class="symbol">\(</span>C<span class="symbol">\|</span>c<span class="symbol">\)</span>at:Cat或cat</span><br></pre></td></tr></table></figure>
-<p>例如:<img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0.png" alt=""></p>
+<p><strong>例如:</strong><br><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0.png" alt=""></p>
 <blockquote>
 <p>ps：有时候命令需要整体括起来，加双引号“”</p>
 </blockquote>
@@ -266,46 +260,44 @@
 <li><h2 id="扩展正则表达式"><a href="#扩展正则表达式" class="headerlink" title="扩展正则表达式"></a>扩展正则表达式</h2></li>
 </ul>
 <blockquote>
-<p>扩展正则表达式和基本正常表达式的功能是类似的，包括基本正则表达式的字符匹配都是相同的，扩展正则表达式照样可以使用，不过扩展正则表达式和基本正则表达式还是有所不同，可以说在某些时候更加简单。</p>
+<p>扩展正则表达式和基本正常表达式的功能是类似的，包括基本正则表达式的字符匹配都是相同的，扩展正则表达式照样可以使用，不过扩展正则表达式和基本正则表达式还是有所不同，可以说在某些时候更加简单</p>
 <p>刚刚我们用的匹配次数、位置锚定、分组的命令有非常多的\，如果使用多了也会看得眼花缭乱，自己有时候也会输入错误或者忘记、漏掉\。</p>
 </blockquote>
 <ul>
 <li><strong>这里我只列出和基本正则有区别的命令:</strong></li>
 </ul>
-<blockquote>
-<p><strong>字符匹配</strong></p>
-</blockquote>
-<p>（和基本正则一模一样）</p>
-<blockquote>
-<p><strong>匹配次数</strong></p>
-</blockquote>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">？      表示？符号前的字符<span class="number">0</span><span class="number">-1</span>次（在基本正则里? 表示?符号前的字符<span class="number">0</span><span class="number">-1</span>次）</span><br><span class="line"></span><br><span class="line">*        表示+前面的字符至少<span class="number">1</span>次 （在基本正则里\+ 匹配\+前的字符至少<span class="number">1</span>次）</span><br></pre></td></tr></table></figure>
-<p>例如:<img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0.png" alt=""></p>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;m,<span class="built_in">n</span>&#125;   表示&#123;m,<span class="built_in">n</span>&#125;符号前的字符的m-<span class="built_in">n</span>次</span><br><span class="line"></span><br><span class="line">&#123;m&#125;      表示&#123;m&#125;符号前的字符m次</span><br><span class="line"></span><br><span class="line">&#123;<span class="built_in">n</span>,&#125;      表示匹配前面字符至少<span class="built_in">n</span>次</span><br><span class="line"></span><br><span class="line">&#123;,<span class="built_in">n</span>&#125;      表示匹配前面字符最多<span class="built_in">n</span>次</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>位置锚定</strong></p>
+<h3 id="字符匹配-1"><a href="#字符匹配-1" class="headerlink" title="字符匹配"></a><strong>字符匹配</strong></h3><blockquote>
 <p>ps: 和基本正则一模一样</p>
-<p><strong>分组</strong></p>
+</blockquote>
+<h3 id="匹配次数-1"><a href="#匹配次数-1" class="headerlink" title="匹配次数"></a><strong>匹配次数</strong></h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">？      表示？符号前的字符<span class="number">0</span><span class="number">-1</span>次（在基本正则里? 表示?符号前的字符<span class="number">0</span><span class="number">-1</span>次）</span><br><span class="line"></span><br><span class="line">*        表示+前面的字符至少<span class="number">1</span>次 （在基本正则里\+ 匹配\+前的字符至少<span class="number">1</span>次）</span><br></pre></td></tr></table></figure>
+<p><strong>例如:</strong><br><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0.png" alt=""></p>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;m,<span class="built_in">n</span>&#125;   表示&#123;m,<span class="built_in">n</span>&#125;符号前的字符的m-<span class="built_in">n</span>次</span><br><span class="line"></span><br><span class="line">&#123;m&#125;      表示&#123;m&#125;符号前的字符m次</span><br><span class="line"></span><br><span class="line">&#123;<span class="built_in">n</span>,&#125;      表示匹配前面字符至少<span class="built_in">n</span>次</span><br><span class="line"></span><br><span class="line">&#123;,<span class="built_in">n</span>&#125;      表示匹配前面字符最多<span class="built_in">n</span>次</span><br></pre></td></tr></table></figure>
+<h3 id="位置锚定-1"><a href="#位置锚定-1" class="headerlink" title="位置锚定"></a><strong>位置锚定</strong></h3><blockquote>
+<p>ps: 和基本正则一模一样</p>
+</blockquote>
+<h3 id="分组-1"><a href="#分组-1" class="headerlink" title="分组"></a><strong>分组</strong></h3><blockquote>
 <p>ps: 和匹配次数一样，把\全部去掉就行了</p>
 </blockquote>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">grep (r..t).*(<span class="selector-tag">a</span>..b) <span class="number">1</span> <span class="number">2</span></span><br><span class="line"></span><br><span class="line">\<span class="number">1</span> ：r..t</span><br><span class="line"></span><br><span class="line">\<span class="number">2</span> ：<span class="selector-tag">a</span>..b</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>ps:\1还是要加\号的</p>
-<p><strong>练习</strong></p>
 </blockquote>
+<h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a><strong>练习</strong></h3><blockquote>
 <p><strong>在ifconfig 中找出其ip地址的命令。</strong></p>
+</blockquote>
 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig|grep -E “(&lt;([<span class="number">1</span><span class="number">-9</span>]|[<span class="number">1</span><span class="number">-9</span>][<span class="number">0</span><span class="number">-9</span>]|<span class="number">1</span>[<span class="number">0</span><span class="number">-9</span>][<span class="number">0</span><span class="number">-9</span>]|<span class="number">2</span>[<span class="number">0</span><span class="number">-4</span>][<span class="number">0</span><span class="number">-9</span>]|<span class="number">25</span>[<span class="number">0</span><span class="number">-5</span>])&gt;.)&#123;<span class="number">3</span>&#125;&lt;([<span class="number">1</span><span class="number">-9</span>]|[<span class="number">1</span><span class="number">-9</span>][<span class="number">0</span><span class="number">-9</span>]|<span class="number">1</span>[<span class="number">0</span><span class="number">-9</span>][<span class="number">0</span><span class="number">-9</span>]|<span class="number">2</span>[<span class="number">0</span><span class="number">-4</span>][<span class="number">0</span><span class="number">-9</span>]|<span class="number">25</span>[<span class="number">0</span><span class="number">-5</span>]&gt;)”</span><br></pre></td></tr></table></figure>
-<p>例如:<img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%AC%AC%E5%8D%81%E4%BA%94%E5%BC%A0.png" alt=""></p>
+<p><strong>例如:</strong><br><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E6%AD%A3%E5%88%99/%E7%AC%AC%E5%8D%81%E4%BA%94%E5%BC%A0.png" alt=""></p>
 <ul>
 <li><h2 id="grep-的常用选项"><a href="#grep-的常用选项" class="headerlink" title="grep 的常用选项"></a>grep 的常用选项</h2></li>
 </ul>
 <blockquote>
 <p>命令说明:按行处理，输出文件中包含搜索字符串的所有行。(按关键字搜索)</p>
-<p>格式：grep [-acinv] ‘搜索字符串’ filename</p>
 </blockquote>
+<ul>
+<li>格式：grep [-acinv] ‘搜索字符串’ filename</li>
+</ul>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grep</span>        选取命令，查找</span><br><span class="line"><span class="keyword">grep</span> -i     忽略字符的大小写</span><br><span class="line"><span class="keyword">grep</span> --colour     高亮显示搜索结果</span><br><span class="line"><span class="keyword">grep</span> -o z          表示只显示匹配中的字符</span><br><span class="line"><span class="keyword">grep</span> -v             表示显示匹配外的字符行</span><br><span class="line"><span class="keyword">grep</span> -E             表示扩展正则表达式</span><br><span class="line"><span class="keyword">grep</span> -A 数字     表示匹配的字符所对应的行数的后几行将要被显示出来</span><br><span class="line"><span class="keyword">grep</span> -B 数字      表示匹配的字符所对应的行数的钱几行将要被显示出来</span><br><span class="line"><span class="keyword">grep</span> -C 数字      表示匹配的字符所对应的前后几行将要被显示出来</span><br><span class="line"><span class="keyword">grep</span> -E =egrep   （变量）</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>例子</strong></p>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a><strong>例子</strong></h3><blockquote>
 <p>在文件a.txt中搜索包含字符串good或glad的行：</p>
 </blockquote>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -E <span class="string">'g(oo|la)d'</span> <span class="selector-tag">a</span>.txt</span><br></pre></td></tr></table></figure>
@@ -316,43 +308,30 @@
 <ul>
 <li><h2 id="文件查看命令"><a href="#文件查看命令" class="headerlink" title="文件查看命令"></a>文件查看命令</h2></li>
 </ul>
-<blockquote>
-<p><strong>cat的常用选项</strong></p>
-<p>命令说明：按行处理，将一行消息的某段切出来。（查看文本文件）</p>
-<p>格式:cut -d ‘分割字符’ -f fields</p>
+<h3 id="cat的常用选项"><a href="#cat的常用选项" class="headerlink" title="cat的常用选项"></a><strong>cat的常用选项</strong></h3><blockquote>
+<p>  命令说明：按行处理，将一行消息的某段切出来。（查看文本文件）</p>
 </blockquote>
+<ul>
+<li>格式:cut -d ‘分割字符’ -f fields</li>
+</ul>
 <figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cut</span>          查看文本文件</span><br><span class="line"><span class="built_in">cut</span> -A      显示所有</span><br><span class="line"><span class="built_in">cut</span> -E      显示每行的结束符</span><br><span class="line"><span class="built_in">cut</span> -n      加行号</span><br><span class="line"><span class="built_in">cut</span> -b      减去空白行（有字符的不减去，如空格，tab键）</span><br><span class="line"><span class="built_in">cut</span> -s      压缩相邻的空行</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>分页查看</strong></p>
-</blockquote>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">more</span>         分页显示（b向回翻页）</span><br><span class="line"><span class="keyword">more</span> -<span class="keyword">d</span>     显示翻页及退出提示</span><br><span class="line">less           分页显示（一页页查看文件或者输出，可以回翻，可以搜索）</span><br><span class="line">（ps：<span class="keyword">man</span>使用的就是less分页命令）</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>head的常用选项</strong></p>
-</blockquote>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">head            查看命令（不加参数默认查看前<span class="number">10</span>行）</span><br><span class="line">head -n <span class="number">3</span>     查看命令前<span class="number">3</span>行(不加n直接加数字也可以)</span><br><span class="line">head -c <span class="number">3</span>     查看命令前<span class="number">3</span>个字节（回车算一个字节，汉字<span class="number">3</span>个字节）</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>tail的常用选项</strong></p>
-</blockquote>
-<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">tail</span>            查看命令（不加参数默认查看后<span class="number">10</span>行）</span><br><span class="line">taul -<span class="keyword">c</span> <span class="number">3</span>    查看命令从后开始<span class="number">3</span>个字节</span><br><span class="line"><span class="keyword">tail</span> -f        追踪查看文件最新追加的内容是否有变化（一般用于日志监控）</span><br><span class="line"><span class="keyword">tail</span> -n <span class="number">3</span>     查看命令从后开始<span class="number">3</span>行</span><br><span class="line">（ps:&amp; 可放置后台执行）</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>wc 的常用选项</strong></p>
+<h3 id="分页查看"><a href="#分页查看" class="headerlink" title="分页查看"></a><strong>分页查看</strong></h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">more</span>         分页显示（b向回翻页）</span><br><span class="line"><span class="keyword">more</span> -<span class="keyword">d</span>     显示翻页及退出提示</span><br><span class="line">less           分页显示（一页页查看文件或者输出，可以回翻，可以搜索）</span><br><span class="line">（ps：<span class="keyword">man</span>使用的就是less分页命令）</span><br></pre></td></tr></table></figure>
+<h3 id="head的常用选项"><a href="#head的常用选项" class="headerlink" title="head的常用选项"></a><strong>head的常用选项</strong></h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">head            查看命令（不加参数默认查看前<span class="number">10</span>行）</span><br><span class="line">head -n <span class="number">3</span>     查看命令前<span class="number">3</span>行(不加n直接加数字也可以)</span><br><span class="line">head -c <span class="number">3</span>     查看命令前<span class="number">3</span>个字节（回车算一个字节，汉字<span class="number">3</span>个字节）</span><br></pre></td></tr></table></figure>
+<h3 id="tail的常用选项"><a href="#tail的常用选项" class="headerlink" title="tail的常用选项"></a><strong>tail的常用选项</strong></h3><figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">tail</span>            查看命令（不加参数默认查看后<span class="number">10</span>行）</span><br><span class="line">taul -<span class="keyword">c</span> <span class="number">3</span>    查看命令从后开始<span class="number">3</span>个字节</span><br><span class="line"><span class="keyword">tail</span> -f        追踪查看文件最新追加的内容是否有变化（一般用于日志监控）</span><br><span class="line"><span class="keyword">tail</span> -n <span class="number">3</span>     查看命令从后开始<span class="number">3</span>行</span><br><span class="line">（ps:&amp; 可放置后台执行）</span><br></pre></td></tr></table></figure>
+<h3 id="wc-的常用选项"><a href="#wc-的常用选项" class="headerlink" title="wc 的常用选项"></a><strong>wc 的常用选项</strong></h3><blockquote>
 <p>命令说明:一般用于文本数据统计</p>
-<p>格式:1. 行 2. 单词 3. 字节 4. 文件名</p>
 </blockquote>
+<ul>
+<li>格式:1. 行 2. 单词 3. 字节 4. 文件名</li>
+</ul>
 <figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wc -l        统计行数</span><br><span class="line">wc -w      统计单词</span><br><span class="line">wc -<span class="keyword">c</span>       统计字节</span><br><span class="line">wc -m      统计字符</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>sort 的常用选项</strong></p>
-</blockquote>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sort</span> -t:      指定:为分隔符（一般配合k使用，:可以更换各种分隔符， . / : % $ <span class="comment"># 等）</span></span><br><span class="line"><span class="built_in">sort</span> -k:      指定:为分隔符的第几列排序</span><br><span class="line"><span class="built_in">sort</span> -n       数字排序</span><br><span class="line"><span class="built_in">sort</span> -r       倒序</span><br><span class="line"><span class="built_in">sort</span> -f       忽略大小写</span><br><span class="line"><span class="built_in">sort</span> -u       删除重复行</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>uniq 的常用选项</strong></p>
-</blockquote>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">uniq</span>          合并相邻的重复行</span><br><span class="line"><span class="selector-tag">uniq</span> <span class="selector-tag">-c</span>      显示重复的次数</span><br><span class="line"><span class="selector-tag">uniq</span> <span class="selector-tag">-d</span>      只显示重复过的行</span><br><span class="line"><span class="selector-tag">uniq</span> <span class="selector-tag">-u</span>      只显示不重复的行</span><br><span class="line">(<span class="attribute">ps</span>: 连续并且完全相同才为重复)</span><br></pre></td></tr></table></figure>
+<h3 id="sort-的常用选项"><a href="#sort-的常用选项" class="headerlink" title="sort 的常用选项"></a><strong>sort 的常用选项</strong></h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sort</span> -t:      指定:为分隔符（一般配合k使用，:可以更换各种分隔符， . / : % $ <span class="comment"># 等）</span></span><br><span class="line"><span class="built_in">sort</span> -k:      指定:为分隔符的第几列排序</span><br><span class="line"><span class="built_in">sort</span> -n       数字排序</span><br><span class="line"><span class="built_in">sort</span> -r       倒序</span><br><span class="line"><span class="built_in">sort</span> -f       忽略大小写</span><br><span class="line"><span class="built_in">sort</span> -u       删除重复行</span><br></pre></td></tr></table></figure>
+<h3 id="uniq-的常用选项"><a href="#uniq-的常用选项" class="headerlink" title="uniq 的常用选项"></a><strong>uniq 的常用选项</strong></h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">uniq</span>          合并相邻的重复行</span><br><span class="line"><span class="selector-tag">uniq</span> <span class="selector-tag">-c</span>      显示重复的次数</span><br><span class="line"><span class="selector-tag">uniq</span> <span class="selector-tag">-d</span>      只显示重复过的行</span><br><span class="line"><span class="selector-tag">uniq</span> <span class="selector-tag">-u</span>      只显示不重复的行</span><br><span class="line">(<span class="attribute">ps</span>: 连续并且完全相同才为重复)</span><br></pre></td></tr></table></figure>
 <ul>
 <li><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2></li>
 </ul>
 <blockquote>
-<p>正则表达式是一种非常方便与简介的一个规则，可以帮助你快速查询或者替换某些文本。它功能非常强大，但是要详细熟练的使用起来还是比较复杂的，现在有很多书籍专门讲正则，如有需要可以去看看。</p>
+<p>正则表达式是一种非常方便与简洁的一个规则，可以帮助你快速查询或者替换某些文本。它功能非常强大，但是要详细熟练的使用起来还是比较复杂的，现在有很多书籍专门讲正则，如有需要可以去看看。</p>
 <p>愿不忘初心。</p>
 </blockquote>
 
