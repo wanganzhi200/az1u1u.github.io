@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//Az1u1u.me">
-  <title>Linux MySQL基础理论 | 王安植的博客</title>
+  <title> CA证书的创建 | 王安植的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="mySQL （关系型数据库管理系统） 编辑 MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下产品。MySQL是最流行的关系型数据库管理系统之一，在WEB应用方面，MySQL是最好的 RDBMS(Relational Database ManagementSystem，">
-<meta name="keywords" content="Linux">
+  <meta name="description" content="创建CA证书CA证书   CA 也拥有一个证书（内含公钥和私钥）。网上的公众用户通过验证 CA 的签字从而信任 CA ，任何人都可以得到 CA的证书（含公钥），用以验证它所签发的证书。">
+<meta name="keywords" content="Linux,实验">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux MySQL基础理论">
-<meta property="og:url" content="//Az1u1u.me/2017/08/27/MySQL基础理论/index.html">
+<meta property="og:title" content=" CA证书的创建">
+<meta property="og:url" content="//Az1u1u.me/2017/08/06/CA证书的实现/index.html">
 <meta property="og:site_name" content="王安植的博客">
-<meta property="og:description" content="mySQL （关系型数据库管理系统） 编辑 MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下产品。MySQL是最流行的关系型数据库管理系统之一，在WEB应用方面，MySQL是最好的 RDBMS(Relational Database ManagementSystem，关系数据库管理系统) 应用软件。 MySQL是一种关系数据库管理系统，关系数据库">
+<meta property="og:description" content="创建CA证书CA证书   CA 也拥有一个证书（内含公钥和私钥）。网上的公众用户通过验证 CA 的签字从而信任 CA ，任何人都可以得到 CA的证书（含公钥），用以验证它所签发的证书。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7114772-2e2dfdb9a6ec7b09.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-11-27T01:33:01.759Z">
+<meta property="og:updated_time" content="2017-11-28T01:33:51.485Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux MySQL基础理论">
-<meta name="twitter:description" content="mySQL （关系型数据库管理系统） 编辑 MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下产品。MySQL是最流行的关系型数据库管理系统之一，在WEB应用方面，MySQL是最好的 RDBMS(Relational Database ManagementSystem，关系数据库管理系统) 应用软件。 MySQL是一种关系数据库管理系统，关系数据库">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/7114772-2e2dfdb9a6ec7b09.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content=" CA证书的创建">
+<meta name="twitter:description" content="创建CA证书CA证书   CA 也拥有一个证书（内含公钥和私钥）。网上的公众用户通过验证 CA 的签字从而信任 CA ，任何人都可以得到 CA的证书（含公钥），用以验证它所签发的证书。">
   
     <link rel="alternative" href="/atom.xml" title="王安植的博客" type="application/atom+xml">
   
@@ -147,145 +145,117 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-MySQL基础理论" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-CA证书的实现" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Linux MySQL基础理论
+       CA证书的创建
     </h1>
   
 
         
-        <a href="/2017/08/27/MySQL基础理论/" class="archive-article-date">
-  	<time datetime="2017-08-27T15:56:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-27</time>
+        <a href="/2017/08/06/CA证书的实现/" class="archive-article-date">
+  	<time datetime="2017-08-06T09:21:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="mySQL-（关系型数据库管理系统）"><a href="#mySQL-（关系型数据库管理系统）" class="headerlink" title="mySQL （关系型数据库管理系统）"></a>mySQL （关系型数据库管理系统）</h2><blockquote>
-<p>编辑 MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下产品。MySQL是最流行的关系型数据库管理系统之一，在WEB应用方面，MySQL是最好的 RDBMS(Relational Database ManagementSystem，关系数据库管理系统) 应用软件。</p>
-<p>MySQL是一种关系数据库管理系统，关系数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就增加了速度并提高了灵活性。</p>
-<p>　MySQL所使用的SQL语言是用于访问数据库的最常用标准化语言。MySQL 软件采用了双授权政策，分为社区版和商业版，由于其体积小、速度快、总体拥有成本低，尤其是开放源码这一特点，一般中小型网站的开发都选择 MySQL 作为网站数据库。</p>
+        <h1 id="创建CA证书"><a href="#创建CA证书" class="headerlink" title="创建CA证书"></a>创建CA证书</h1><h3 id="CA证书"><a href="#CA证书" class="headerlink" title="CA证书"></a>CA证书</h3><blockquote>
+<p>  CA 也拥有一个证书（内含公钥和私钥）。网上的公众用户通过验证 CA 的签字从而信任 CA ，任何人都可以得到 CA的证书（含公钥），用以验证它所签发的证书。</p>
 </blockquote>
 <a id="more"></a>
-<p><strong>数据库的发展史</strong></p>
-<p><strong>- 萌芽阶段—–文件系统</strong></p>
-<p>使用磁盘文件来存储数据</p>
-<p><strong>- 初级阶段—–第一代数据库</strong></p>
-<p>出现了网状模型、层次模型的数据库</p>
-<p><strong>- 中级阶段—–第二代数据库</strong>     </p>
-<p>关系型数据库和结构化查询语言</p>
-<p><strong>- 高级阶段——新一代数据库</strong></p>
-<p>“关系-对象”型数据库</p>
-<p><strong>数据库管理系统</strong></p>
 <ul>
-<li><p>数据库是数据的汇集，它以一定的组织形式存于存储介质上</p>
+<li><h3 id="个人CA证书"><a href="#个人CA证书" class="headerlink" title="个人CA证书"></a>个人CA证书</h3></li>
+</ul>
+<blockquote>
+<p>  如果用户想得到一份属于自己的证书，他应先向 CA 提出申请。在CA 判明申请者的身份后，便为他分配一个公钥，并且 CA 将该公钥与申请者的身份信息绑在一起，并为之签字后，便形成证书发给申请者。</p>
+</blockquote>
+<ul>
+<li><h3 id="CA真伪"><a href="#CA真伪" class="headerlink" title="CA真伪"></a>CA真伪</h3></li>
+</ul>
+<blockquote>
+<p>  如果一个用户想鉴别另一个证书的真伪，他就用 CA 的公钥对那个证书上的签字进行验证，一旦验证通过，该证书就被认为是有效的。证书实际是由证书签证机关（CA）签发的对用户的公钥的认证。</p>
+</blockquote>
+<ul>
+<li><h3 id="证书内容"><a href="#证书内容" class="headerlink" title="证书内容"></a>证书内容</h3></li>
+</ul>
+<blockquote>
+<p>  证书的内容包括：电子签证机关的信息、公钥用户信息、公钥、权威机构的签字和有效期等等。目前，证书的格式和验证方法普遍遵循X.509 国际标准。</p>
+<h3 id="证书类型："><a href="#证书类型：" class="headerlink" title="证书类型："></a>证书类型：</h3><ol>
+<li>证书授权机构的证书</li>
+<li>服务器</li>
+<li>用户证书</li>
+</ol>
+<h3 id="获取证书两种方法："><a href="#获取证书两种方法：" class="headerlink" title="获取证书两种方法："></a>获取证书两种方法：</h3></blockquote>
+<ul>
+<li><strong>使用证书授权机构</strong></li>
+</ul>
+<ol>
+<li>生成签名请求（csr）</li>
+<li>将csr发送给CA</li>
+<li>从CA处接收签名</li>
+</ol>
+<ul>
+<li><strong>自签名的证书</strong></li>
+</ul>
+<ol>
+<li>自已签发自己的公钥</li>
+</ol>
+<blockquote>
+<h3 id="创建私有CA："><a href="#创建私有CA：" class="headerlink" title="创建私有CA："></a>创建私有CA：</h3></blockquote>
+<ol>
+<li><p><strong>openssl的配置文件：</strong></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/etc/</span>pki<span class="regexp">/tls/</span>openssl.cnf</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>DBMS是管理数据库的系统软件，它实现数据库系统的各种功能。是数据库系统的核心。</p>
+<li><p><strong>三种策略：匹配、支持和可选</strong></p>
 </li>
-<li><p>DBA：负责数据库的规划、设计、协调维护和管理等工作</p>
+<li><p><strong> 匹配指要求申请填写的信息跟CA设置信息必须一致，支持指必须填写这项申请信息，可选指可有可无</strong></p>
 </li>
-<li><p>应用程序指以数据库为基础的应用程序。</p>
+</ol>
+<ul>
+<li><h3 id="创建CA证书-1"><a href="#创建CA证书-1" class="headerlink" title="创建CA证书"></a>创建CA证书</h3></li>
+</ul>
+<p><strong>1. 创建所需要的文件</strong><br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">touch <span class="regexp">/etc/</span>pki<span class="regexp">/CA/i</span>ndex.txt</span><br><span class="line">创建文件，生成证书索引数据库文件</span><br></pre></td></tr></table></figure></p>
+<p><strong>2. 指定第一个颁发证书的序列号</strong><br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="number">01</span> &gt; /etc/pki/CA/serial</span><br><span class="line">只要是两位数的数字都可以为序列号，你也可以把<span class="number">01</span>换成<span class="number">99</span>，这里我们就写<span class="number">01</span>，方便后续。</span><br></pre></td></tr></table></figure></p>
+<p><strong>3. CA自签证书</strong><br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">（umask <span class="number">066</span>;openssl genrsa -out /etc/pki/CA/private/cakey.pem <span class="number">2048</span>）</span><br><span class="line">创建文件，生成私钥，括号是为了让权限临时生效，怕影响以后权限，<span class="number">2048</span>是私钥加密的长度，也可以选择<span class="number">1024</span>、<span class="number">2048</span>、<span class="number">4096.</span>...</span><br></pre></td></tr></table></figure></p>
+<p><strong>4. 生成自签名证书</strong><br><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">openssl req -new -x509 -key /etc/pki/CA/private/cakey.pem -out /etc/pki/CA/cacert.pem -days 3650</span><br><span class="line">输入命令后会弹出设置页面，按顺序分为：国家、省、市、公司、单位、域名（服务器名称）、邮箱地址。</span><br><span class="line"></span><br><span class="line">-<span class="ruby">new      生成新证书签署请求</span></span><br><span class="line"><span class="ruby">-x509     专用与CA生成自签证书</span></span><br><span class="line"><span class="ruby">-key       生成请求时用到的私钥文件</span></span><br><span class="line"><span class="ruby">-days n   证书的有效期限</span></span><br><span class="line"><span class="ruby">-out /PATH/TO/SOMECERTFILE  证书的保存路径</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>5. 颁发证书</strong></p>
+<ul>
+<li><strong>A.</strong> 在需要使用证书的主机生成证书请求，在客户端上重复上面第一步。</li>
+</ul>
+<p>(1.)创建私钥（另一台电脑或者虚拟机）<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">（umask <span class="number">066</span>;openssl genrsa -out /app/service.<span class="type">key</span>）</span><br><span class="line">地址不用服务器那么严格，可自行放入家目录里或者其他目录，只是路径一定要写清楚</span><br></pre></td></tr></table></figure></p>
+<p>(2.)生成证书的申请文件<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">openssl req -new -key /app/service<span class="selector-class">.key</span> -out /app/service.csr</span><br><span class="line">这个命令输入之后也会出设置页面，按顺序分为：国家、省、市、公司、组织、对外网站（网站名叫什么必须就填什么，比如www<span class="selector-class">.XXXXX</span><span class="selector-class">.com</span>）、邮箱、密码、可选公司名</span><br><span class="line"></span><br><span class="line">注意：国家、省、公司，这<span class="number">3</span>个必须和上面服务器的CA一样。</span><br><span class="line">          邮箱、密码、可选公司名，这<span class="number">3</span>个可以填可以不填。</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p><strong>B.</strong> 将证书请求文件传输给服务器CA</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scp /app/service<span class="selector-class">.csr</span> <span class="number">192.168</span><span class="selector-class">.XX</span><span class="selector-class">.XXX</span>:/etc/pki/CA/csr</span><br><span class="line">将证书.csr这个文件传输服务器</span><br><span class="line">scp是一个远程传输文件的小工具。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>C.</strong> CA签署证书，并将证书颁发给请求者</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">openssl ca -<span class="keyword">in</span> <span class="regexp">/etc/</span>pki<span class="regexp">/CA/</span>csr<span class="regexp">/service.csr -out /</span>etc<span class="regexp">/pki/</span>CA<span class="regexp">/certs/</span>service.crt -days <span class="number">365</span></span><br><span class="line">颁发证书，由服务器颁发。</span><br><span class="line">注意：刚刚默认设置选项：国家，省，公司名称，这三项一定要和CA一样，刚刚也提醒了，不然就会报错。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>D.</strong> 查看证书中的信息</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -<span class="keyword">in</span> <span class="regexp">/etc/</span>pki<span class="regexp">/CA/</span>newcerts/<span class="number">01.</span>pem -noout -text</span><br><span class="line">查看<span class="number">01</span>证书的详细信息</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p><strong>管理系统的优缺点</strong></p>
-<p><strong>- 管理系统的缺点</strong></p>
-<ol>
-<li>编写应用程序不方便</li>
-<li>数据冗余不可避免</li>
-<li>应用程序依赖性</li>
-<li>不支持对文件的并发访问</li>
-<li>数据间联系弱</li>
-<li>难以按用户视图表示数据</li>
-<li>无安全控制功能</li>
-</ol>
-<p><strong>- 管理系统的优点</strong></p>
-<ol>
-<li>相互关联的数据的集合</li>
-<li>较少的数据冗余</li>
-<li>程序与数据相互对立</li>
-<li>保证数据的安全、可靠</li>
-<li>最大限度地保证数据的正确性</li>
-<li>数据可以并发使用并能同时保证一致性</li>
-</ol>
-<p><strong>数据三要素</strong></p>
-<p><strong>- 数据结构：</strong></p>
-<blockquote>
-<p>包括两类，一类是与数据类型、内容、性质有关的对象，比如关系模型中的域、属性和关系等；另一类是与数据之间联系有关的对象，它从数据组织层表达数据记录与字段的结构</p>
-</blockquote>
-<p><strong>- 数据的操作：</strong></p>
-<ol>
-<li>数据提取：在数据集合中提取感兴趣的内容。（SELECT）</li>
-<li>数据更新：变更数据库中的数据。（INSERT、DELETE、UPDATE</li>
-</ol>
-<p><strong>- 数据的约束条件：是一组完整性规则的集合</strong></p>
-<ol>
-<li>实体（行）完整性Entity integrity</li>
-<li>域（列）完整性Domain Integrity</li>
-<li>参考完整性Referential Integrity</li>
-</ol>
-<p><strong>数据规划简单流程</strong></p>
-<p><strong>- 第一阶段：收集数据，得到字</strong>段</p>
-<ol>
-<li>收集必要且完整的数据项</li>
-<li>转换成数据表的字段</li>
-</ol>
-<p><strong>- 第二阶段：把字段分类，归入表，建立表的关联</strong></p>
-<ol>
-<li>关联：表和表间的关系</li>
-<li>分割数据表并建立关联的优点</li>
-<li>节省空间</li>
-<li>减少输入错误</li>
-<li>方便数据修改</li>
-</ol>
-<p><strong>- 第三阶段：</strong></p>
-<ol>
-<li>规范化数据库</li>
-</ol>
-<h2 id="索引功能"><a href="#索引功能" class="headerlink" title="索引功能"></a>索引功能</h2><blockquote>
-<p>索引是一种特殊的文件（InnoDB 数据表上的索引是表空间的一个组成部分），它们包含着对数据表里所有记录的引用指针。索引不是万能的，索引可以加快数据检索操作，但会使数据修改操作变慢。每修改数据记录，索引就必须刷新一次。为了在某种程度上弥补这一缺陷，许多 SQL 命令都有一个 DELAY_KEY_WRITE 项。这个选项的作用是暂时制止 MySQL 在该命令每插入一条新记录和每修改一条现有之后立刻对索引进行刷新，对索引的刷新将等到全部记录插入/修改完毕之后再进行。在需要把许多新记录插入某个数据表的场合，DELAY_KEY_WRITE 选项的作用将非常明显。另外，索引还会在硬盘上占用相当大的空间。因此应该只为最经常查询和最经常排序的数据列建立索引。注意，如果某个数据列包含许多重复的内容，为它建立索引就没有太大的实际效果。</p>
-</blockquote>
-<p>从理论上讲，完全可以为数据表里的每个字段分别建一个索引，但 MySQL 把同一个数据表里的索引总数限制为16个。</p>
-<p><strong>索引类别</strong></p>
+<p><strong>6. 吊销证书</strong></p>
 <ul>
-<li><strong>普通索引</strong></li>
+<li><p><strong>A.</strong> 在客户端或许要吊销的证书的serial</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -<span class="keyword">in</span> <span class="regexp">/etc/</span>pki<span class="regexp">/CA/</span>newcerts<span class="regexp">/01.pem -noout -serial -subject</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>B.</strong>     在CA上，根据客户提交的serial与subject信息，对比检验是否与index.txt文件中的信息一致，吊销证书</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">openssl ca -revoke <span class="regexp">/etc/</span>pki<span class="regexp">/CA/</span>newcerts/<span class="number">01.</span>pem</span><br><span class="line">最后<span class="number">01</span>是你要取消的证书编号。如果你是<span class="number">99</span>那就写<span class="number">99.</span>pem就可以了，你想吊销那个证书就填那个。</span><br><span class="line"></span><br><span class="line">cat <span class="regexp">/etc/</span>pki<span class="regexp">/CA/</span>index.txt</span><br><span class="line">查看证书失效或者生效</span><br><span class="line">R失效</span><br><span class="line">V生效</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>C.</strong> 指定第一个吊销证书的编号</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="number">01</span> &gt; <span class="regexp">/etc/</span>pki<span class="regexp">/CA/</span>crlnumber</span><br><span class="line">注意：第一次更新证书吊销列表前才需要执行。注意第一次。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>D.</strong> 更新证书吊销列表</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">openssl <span class="keyword">ca</span> -gencrl -<span class="keyword">out</span> /etc/pki/<span class="keyword">CA</span>/crl/crl.pem</span><br><span class="line">更新吊销列表，将吊销的文件放进去</span><br><span class="line">openssl <span class="keyword">ca</span> -gencrl -<span class="keyword">out</span> /etc/pki/<span class="keyword">CA</span>/crl/crl.pem </span><br><span class="line">更新吊销列表，将吊销的文件放进去</span><br><span class="line">openssl crl -<span class="keyword">in</span> /etc/pki/<span class="keyword">CA</span>/crl/crl.pem -noout -text</span><br><span class="line">查看crl文件</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<blockquote>
-<p>普通索引（由关键字 KEY 或 INDEX 定义的索引）的唯一任务是加快对数据的访问速度。因此，应该只为那些最经常出现在查询条件（WHERE column =）或排序条件（ORDER BY column）中的数据列创建索引。只要有可能，就应该选择一个数据最整齐、最紧凑的数据列（如一个整数类型的数据列）来创建索引。</p>
-</blockquote>
-<ul>
-<li><strong>唯一索引</strong></li>
-</ul>
-<blockquote>
-<p>普通索引允许被索引的数据列包含重复的值。比如说，因为人有可能同名，所以同一个姓名在同一个“员工个人资料”数据表里可能出现两次或更多次。</p>
-<p>如果能确定某个数据列将只包含彼此各不相同的值，在为这个数据列创建索引的时候就应该用关键字UNIQUE 把它定义为一个唯一索引。这么做的好处：一是简化了 MySQL 对这个索引的管理工作，这个索引也因此而变得更有效率；二是 MySQL 会在有新记录插入数据表时，自动检查新记录的这个字段的值是否已经在某个记录的这个字段里出现过了；如果是，MySQL 将拒绝插入那条新记录。也就是说，唯一索引可以保证数据记录的唯一性。事实上，在许多场合，人们创建唯一索引的目的往往不是为了提高访问速度，而只是为了避免数据出现重复。</p>
-</blockquote>
-<ul>
-<li><strong>主索引</strong></li>
-</ul>
-<blockquote>
-<p>在前面已经反复多次强调过：必须为主键字段创建一个索引，这个索引就是所谓的“主索引”。主索引与唯一索引的唯一区别是：前者在定义时使用的关键字是 PRIMARY 而不是 UNIQUE。</p>
-</blockquote>
-<ul>
-<li><strong>外键索引</strong></li>
-</ul>
-<blockquote>
-<p>如果为某个外键字段定义了一个外键约束条件，MySQL 就会定义一个内部索引来帮助自己以最有效率的方式去管理和使用外键约束条件。</p>
-</blockquote>
-<ul>
-<li><strong>复合索引</strong></li>
-</ul>
-<blockquote>
-<p>索引可以覆盖多个数据列，如像 INDEX (columnA, columnB) 索引。这种索引的特点是 MySQL 可以有选择地使用一个这样的索引。如果查询操作只需要用到 columnA 数据列上的一个索引，就可以使用复合索引 INDEX(columnA, columnB)。不过，这种用法仅适用于在复合索引中排列在前的数据列组合。比如说，INDEX (A，B，C) 可以当做 A 或 (A,B) 的索引来使用，但不能当做 B、C 或 (B,C) 的索引来使用。</p>
-</blockquote>
-<p><strong>MySQL体系结构</strong></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/7114772-2e2dfdb9a6ec7b09.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>大致理论就是这样， 下次写安装流程与使用方法！！</p>
 
       
 
@@ -300,6 +270,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">实验</a>
         		</li>
       		
 		</ul>
@@ -355,7 +329,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://Az1u1u.me/2017/08/27/MySQL基础理论/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://Az1u1u.me/2017/08/06/CA证书的实现/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -369,18 +343,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/09/02/安装MySQL/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/08/27/MySQL基础理论/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Linux 安装MySQL
+          Linux MySQL基础理论
         
       </div>
     </a>
   
   
-    <a href="/2017/08/06/CA证书的实现/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"> CA证书的创建</div>
+    <a href="/2017/07/26/正则表达式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux 正则表达式及文本处理</div>
       <i class="icon-circle-right"></i>
     </a>
   
