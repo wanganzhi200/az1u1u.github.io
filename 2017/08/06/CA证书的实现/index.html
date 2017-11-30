@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="王安植的博客">
 <meta property="og:description" content="创建CA证书CA证书   CA 也拥有一个证书（内含公钥和私钥）。网上的公众用户通过验证 CA 的签字从而信任 CA ，任何人都可以得到 CA的证书（含公钥），用以验证它所签发的证书。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-28T01:33:51.485Z">
+<meta property="og:updated_time" content="2017-11-28T01:48:46.162Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content=" CA证书的创建">
 <meta name="twitter:description" content="创建CA证书CA证书   CA 也拥有一个证书（内含公钥和私钥）。网上的公众用户通过验证 CA 的签字从而信任 CA ，任何人都可以得到 CA的证书（含公钥），用以验证它所签发的证书。">
@@ -186,14 +186,19 @@
 </ul>
 <blockquote>
 <p>  证书的内容包括：电子签证机关的信息、公钥用户信息、公钥、权威机构的签字和有效期等等。目前，证书的格式和验证方法普遍遵循X.509 国际标准。</p>
-<h3 id="证书类型："><a href="#证书类型：" class="headerlink" title="证书类型："></a>证书类型：</h3><ol>
+</blockquote>
+<ul>
+<li><h3 id="证书类型："><a href="#证书类型：" class="headerlink" title="证书类型："></a>证书类型：</h3></li>
+</ul>
+<ol>
 <li>证书授权机构的证书</li>
 <li>服务器</li>
 <li>用户证书</li>
 </ol>
-<h3 id="获取证书两种方法："><a href="#获取证书两种方法：" class="headerlink" title="获取证书两种方法："></a>获取证书两种方法：</h3></blockquote>
 <ul>
-<li><strong>使用证书授权机构</strong></li>
+<li><h3 id="获取证书两种方法："><a href="#获取证书两种方法：" class="headerlink" title="获取证书两种方法："></a>获取证书两种方法：</h3></li>
+<li><p><strong>使用证书授权机构</strong></p>
+</li>
 </ul>
 <ol>
 <li>生成签名请求（csr）</li>
@@ -206,17 +211,12 @@
 <ol>
 <li>自已签发自己的公钥</li>
 </ol>
-<blockquote>
-<h3 id="创建私有CA："><a href="#创建私有CA：" class="headerlink" title="创建私有CA："></a>创建私有CA：</h3></blockquote>
-<ol>
-<li><p><strong>openssl的配置文件：</strong></p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/etc/</span>pki<span class="regexp">/tls/</span>openssl.cnf</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>三种策略：匹配、支持和可选</strong></p>
-</li>
-<li><p><strong> 匹配指要求申请填写的信息跟CA设置信息必须一致，支持指必须填写这项申请信息，可选指可有可无</strong></p>
-</li>
-</ol>
+<ul>
+<li><h3 id="创建私有CA："><a href="#创建私有CA：" class="headerlink" title="创建私有CA："></a>创建私有CA：</h3>1.<strong>openssl的配置文件：</strong></li>
+</ul>
+<p><code>/etc/pki/tls/openssl.cnf</code></p>
+<p>2.<strong>三种策略：匹配、支持和可选</strong></p>
+<p>3.<strong>匹配指要求申请填写的信息跟CA设置信息必须一致，支持指必须填写这项申请信息，可选指可有可无</strong></p>
 <ul>
 <li><h3 id="创建CA证书-1"><a href="#创建CA证书-1" class="headerlink" title="创建CA证书"></a>创建CA证书</h3></li>
 </ul>
@@ -478,11 +478,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">实验</a>
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+                <a href="javascript:void(0)" class="js-tag color3">实验</a>
               </li>
             
             <div class="clearfix"></div>
