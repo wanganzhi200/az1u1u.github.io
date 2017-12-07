@@ -6,20 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//Az1u1u.me">
-  <title> CA证书的创建 | 王安植的博客</title>
+  <title>Tag: CDN | 王安植的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="创建CA证书CA证书   CA 也拥有一个证书（内含公钥和私钥）。网上的公众用户通过验证 CA 的签字从而信任 CA ，任何人都可以得到 CA的证书（含公钥），用以验证它所签发的证书。">
-<meta name="keywords" content="Linux,实验">
-<meta property="og:type" content="article">
-<meta property="og:title" content=" CA证书的创建">
-<meta property="og:url" content="//Az1u1u.me/2017/08/06/CA证书的实现/index.html">
+  <meta name="description" content="Thanks for Litten&apos;s blog configuration">
+<meta property="og:type" content="website">
+<meta property="og:title" content="王安植的博客">
+<meta property="og:url" content="//Az1u1u.me/tags/CDN/index.html">
 <meta property="og:site_name" content="王安植的博客">
-<meta property="og:description" content="创建CA证书CA证书   CA 也拥有一个证书（内含公钥和私钥）。网上的公众用户通过验证 CA 的签字从而信任 CA ，任何人都可以得到 CA的证书（含公钥），用以验证它所签发的证书。">
+<meta property="og:description" content="Thanks for Litten&apos;s blog configuration">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-28T01:48:46.162Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content=" CA证书的创建">
-<meta name="twitter:description" content="创建CA证书CA证书   CA 也拥有一个证书（内含公钥和私钥）。网上的公众用户通过验证 CA 的签字从而信任 CA ，任何人都可以得到 CA的证书（含公钥），用以验证它所签发的证书。">
+<meta name="twitter:title" content="王安植的博客">
+<meta name="twitter:description" content="Thanks for Litten&apos;s blog configuration">
   
     <link rel="alternative" href="/atom.xml" title="王安植的博客" type="application/atom+xml">
   
@@ -145,247 +143,64 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-CA证书的实现" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-       CA证书的创建
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/12/08/CDN/" class="archive-article-date">
+  	<time datetime="2017-12-08T07:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-08</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/12/08/CDN/">CDN 检查方法</a>
     </h1>
   
 
-        
-        <a href="/2017/08/06/CA证书的实现/" class="archive-article-date">
-  	<time datetime="2017-08-06T09:21:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="创建CA证书"><a href="#创建CA证书" class="headerlink" title="创建CA证书"></a>创建CA证书</h1><h3 id="CA证书"><a href="#CA证书" class="headerlink" title="CA证书"></a>CA证书</h3><blockquote>
-<p>  CA 也拥有一个证书（内含公钥和私钥）。网上的公众用户通过验证 CA 的签字从而信任 CA ，任何人都可以得到 CA的证书（含公钥），用以验证它所签发的证书。</p>
-</blockquote>
-<a id="more"></a>
-<ul>
-<li><h3 id="个人CA证书"><a href="#个人CA证书" class="headerlink" title="个人CA证书"></a>个人CA证书</h3></li>
-</ul>
-<blockquote>
-<p>  如果用户想得到一份属于自己的证书，他应先向 CA 提出申请。在CA 判明申请者的身份后，便为他分配一个公钥，并且 CA 将该公钥与申请者的身份信息绑在一起，并为之签字后，便形成证书发给申请者。</p>
-</blockquote>
-<ul>
-<li><h3 id="CA真伪"><a href="#CA真伪" class="headerlink" title="CA真伪"></a>CA真伪</h3></li>
-</ul>
-<blockquote>
-<p>  如果一个用户想鉴别另一个证书的真伪，他就用 CA 的公钥对那个证书上的签字进行验证，一旦验证通过，该证书就被认为是有效的。证书实际是由证书签证机关（CA）签发的对用户的公钥的认证。</p>
-</blockquote>
-<ul>
-<li><h3 id="证书内容"><a href="#证书内容" class="headerlink" title="证书内容"></a>证书内容</h3></li>
-</ul>
-<blockquote>
-<p>  证书的内容包括：电子签证机关的信息、公钥用户信息、公钥、权威机构的签字和有效期等等。目前，证书的格式和验证方法普遍遵循X.509 国际标准。</p>
-</blockquote>
-<ul>
-<li><h3 id="证书类型："><a href="#证书类型：" class="headerlink" title="证书类型："></a>证书类型：</h3></li>
-</ul>
-<ol>
-<li>证书授权机构的证书</li>
-<li>服务器</li>
-<li>用户证书</li>
-</ol>
-<ul>
-<li><h3 id="获取证书两种方法："><a href="#获取证书两种方法：" class="headerlink" title="获取证书两种方法："></a>获取证书两种方法：</h3></li>
-<li><p><strong>使用证书授权机构</strong></p>
-</li>
-</ul>
-<ol>
-<li>生成签名请求（csr）</li>
-<li>将csr发送给CA</li>
-<li>从CA处接收签名</li>
-</ol>
-<ul>
-<li><strong>自签名的证书</strong></li>
-</ul>
-<ol>
-<li>自已签发自己的公钥</li>
-</ol>
-<ul>
-<li><h3 id="创建私有CA："><a href="#创建私有CA：" class="headerlink" title="创建私有CA："></a>创建私有CA：</h3>1.<strong>openssl的配置文件：</strong></li>
-</ul>
-<p><code>/etc/pki/tls/openssl.cnf</code></p>
-<p>2.<strong>三种策略：匹配、支持和可选</strong></p>
-<p>3.<strong>匹配指要求申请填写的信息跟CA设置信息必须一致，支持指必须填写这项申请信息，可选指可有可无</strong></p>
-<ul>
-<li><h3 id="创建CA证书-1"><a href="#创建CA证书-1" class="headerlink" title="创建CA证书"></a>创建CA证书</h3></li>
-</ul>
-<p><strong>1. 创建所需要的文件</strong><br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">touch <span class="regexp">/etc/</span>pki<span class="regexp">/CA/i</span>ndex.txt</span><br><span class="line">创建文件，生成证书索引数据库文件</span><br></pre></td></tr></table></figure></p>
-<p><strong>2. 指定第一个颁发证书的序列号</strong><br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="number">01</span> &gt; /etc/pki/CA/serial</span><br><span class="line">只要是两位数的数字都可以为序列号，你也可以把<span class="number">01</span>换成<span class="number">99</span>，这里我们就写<span class="number">01</span>，方便后续。</span><br></pre></td></tr></table></figure></p>
-<p><strong>3. CA自签证书</strong><br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">（umask <span class="number">066</span>;openssl genrsa -out /etc/pki/CA/private/cakey.pem <span class="number">2048</span>）</span><br><span class="line">创建文件，生成私钥，括号是为了让权限临时生效，怕影响以后权限，<span class="number">2048</span>是私钥加密的长度，也可以选择<span class="number">1024</span>、<span class="number">2048</span>、<span class="number">4096.</span>...</span><br></pre></td></tr></table></figure></p>
-<p><strong>4. 生成自签名证书</strong><br><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">openssl req -new -x509 -key /etc/pki/CA/private/cakey.pem -out /etc/pki/CA/cacert.pem -days 3650</span><br><span class="line">输入命令后会弹出设置页面，按顺序分为：国家、省、市、公司、单位、域名（服务器名称）、邮箱地址。</span><br><span class="line"></span><br><span class="line">-<span class="ruby">new      生成新证书签署请求</span></span><br><span class="line"><span class="ruby">-x509     专用与CA生成自签证书</span></span><br><span class="line"><span class="ruby">-key       生成请求时用到的私钥文件</span></span><br><span class="line"><span class="ruby">-days n   证书的有效期限</span></span><br><span class="line"><span class="ruby">-out /PATH/TO/SOMECERTFILE  证书的保存路径</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>5. 颁发证书</strong></p>
-<ul>
-<li><strong>A.</strong> 在需要使用证书的主机生成证书请求，在客户端上重复上面第一步。</li>
-</ul>
-<p>(1.)创建私钥（另一台电脑或者虚拟机）<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">（umask <span class="number">066</span>;openssl genrsa -out /app/service.<span class="type">key</span>）</span><br><span class="line">地址不用服务器那么严格，可自行放入家目录里或者其他目录，只是路径一定要写清楚</span><br></pre></td></tr></table></figure></p>
-<p>(2.)生成证书的申请文件<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">openssl req -new -key /app/service<span class="selector-class">.key</span> -out /app/service.csr</span><br><span class="line">这个命令输入之后也会出设置页面，按顺序分为：国家、省、市、公司、组织、对外网站（网站名叫什么必须就填什么，比如www<span class="selector-class">.XXXXX</span><span class="selector-class">.com</span>）、邮箱、密码、可选公司名</span><br><span class="line"></span><br><span class="line">注意：国家、省、公司，这<span class="number">3</span>个必须和上面服务器的CA一样。</span><br><span class="line">          邮箱、密码、可选公司名，这<span class="number">3</span>个可以填可以不填。</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><p><strong>B.</strong> 将证书请求文件传输给服务器CA</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scp /app/service<span class="selector-class">.csr</span> <span class="number">192.168</span><span class="selector-class">.XX</span><span class="selector-class">.XXX</span>:/etc/pki/CA/csr</span><br><span class="line">将证书.csr这个文件传输服务器</span><br><span class="line">scp是一个远程传输文件的小工具。</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>C.</strong> CA签署证书，并将证书颁发给请求者</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">openssl ca -<span class="keyword">in</span> <span class="regexp">/etc/</span>pki<span class="regexp">/CA/</span>csr<span class="regexp">/service.csr -out /</span>etc<span class="regexp">/pki/</span>CA<span class="regexp">/certs/</span>service.crt -days <span class="number">365</span></span><br><span class="line">颁发证书，由服务器颁发。</span><br><span class="line">注意：刚刚默认设置选项：国家，省，公司名称，这三项一定要和CA一样，刚刚也提醒了，不然就会报错。</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>D.</strong> 查看证书中的信息</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -<span class="keyword">in</span> <span class="regexp">/etc/</span>pki<span class="regexp">/CA/</span>newcerts/<span class="number">01.</span>pem -noout -text</span><br><span class="line">查看<span class="number">01</span>证书的详细信息</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>6. 吊销证书</strong></p>
-<ul>
-<li><p><strong>A.</strong> 在客户端或许要吊销的证书的serial</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -<span class="keyword">in</span> <span class="regexp">/etc/</span>pki<span class="regexp">/CA/</span>newcerts<span class="regexp">/01.pem -noout -serial -subject</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>B.</strong>     在CA上，根据客户提交的serial与subject信息，对比检验是否与index.txt文件中的信息一致，吊销证书</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">openssl ca -revoke <span class="regexp">/etc/</span>pki<span class="regexp">/CA/</span>newcerts/<span class="number">01.</span>pem</span><br><span class="line">最后<span class="number">01</span>是你要取消的证书编号。如果你是<span class="number">99</span>那就写<span class="number">99.</span>pem就可以了，你想吊销那个证书就填那个。</span><br><span class="line"></span><br><span class="line">cat <span class="regexp">/etc/</span>pki<span class="regexp">/CA/</span>index.txt</span><br><span class="line">查看证书失效或者生效</span><br><span class="line">R失效</span><br><span class="line">V生效</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>C.</strong> 指定第一个吊销证书的编号</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="number">01</span> &gt; <span class="regexp">/etc/</span>pki<span class="regexp">/CA/</span>crlnumber</span><br><span class="line">注意：第一次更新证书吊销列表前才需要执行。注意第一次。</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>D.</strong> 更新证书吊销列表</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">openssl <span class="keyword">ca</span> -gencrl -<span class="keyword">out</span> /etc/pki/<span class="keyword">CA</span>/crl/crl.pem</span><br><span class="line">更新吊销列表，将吊销的文件放进去</span><br><span class="line">openssl <span class="keyword">ca</span> -gencrl -<span class="keyword">out</span> /etc/pki/<span class="keyword">CA</span>/crl/crl.pem </span><br><span class="line">更新吊销列表，将吊销的文件放进去</span><br><span class="line">openssl crl -<span class="keyword">in</span> /etc/pki/<span class="keyword">CA</span>/crl/crl.pem -noout -text</span><br><span class="line">查看crl文件</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工作</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">实验</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CDN</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://Az1u1u.me/2017/08/06/CA证书的实现/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/08/27/MySQL基础理论/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Linux MySQL基础理论
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/07/26/正则表达式/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Linux 正则表达式及文本处理</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
+    
 
 
           </div>
@@ -408,9 +223,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,

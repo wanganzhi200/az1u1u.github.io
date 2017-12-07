@@ -6,20 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//Az1u1u.me">
-  <title> CA证书的创建 | 王安植的博客</title>
+  <title>CDN 检查方法 | 王安植的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="创建CA证书CA证书   CA 也拥有一个证书（内含公钥和私钥）。网上的公众用户通过验证 CA 的签字从而信任 CA ，任何人都可以得到 CA的证书（含公钥），用以验证它所签发的证书。">
-<meta name="keywords" content="Linux,实验">
+  <meta name="keywords" content="工作,CDN">
 <meta property="og:type" content="article">
-<meta property="og:title" content=" CA证书的创建">
-<meta property="og:url" content="//Az1u1u.me/2017/08/06/CA证书的实现/index.html">
+<meta property="og:title" content="CDN 检查方法">
+<meta property="og:url" content="//Az1u1u.me/2017/12/08/CDN/index.html">
 <meta property="og:site_name" content="王安植的博客">
-<meta property="og:description" content="创建CA证书CA证书   CA 也拥有一个证书（内含公钥和私钥）。网上的公众用户通过验证 CA 的签字从而信任 CA ，任何人都可以得到 CA的证书（含公钥），用以验证它所签发的证书。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-28T01:48:46.162Z">
+<meta property="og:image" content="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E7%85%A7%E7%89%87%E5%9B%BE%E7%89%87/%E7%A8%8B%E5%BA%8F%E5%91%98.jpg">
+<meta property="og:image" content="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/CDN/CDN.png">
+<meta property="og:image" content="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/CDN/CDN2.png">
+<meta property="og:updated_time" content="2017-12-07T09:41:07.758Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content=" CA证书的创建">
-<meta name="twitter:description" content="创建CA证书CA证书   CA 也拥有一个证书（内含公钥和私钥）。网上的公众用户通过验证 CA 的签字从而信任 CA ，任何人都可以得到 CA的证书（含公钥），用以验证它所签发的证书。">
+<meta name="twitter:title" content="CDN 检查方法">
+<meta name="twitter:image" content="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E7%85%A7%E7%89%87%E5%9B%BE%E7%89%87/%E7%A8%8B%E5%BA%8F%E5%91%98.jpg">
   
     <link rel="alternative" href="/atom.xml" title="王安植的博客" type="application/atom+xml">
   
@@ -145,117 +146,191 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-CA证书的实现" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-CDN" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-       CA证书的创建
+      CDN 检查方法
     </h1>
   
 
         
-        <a href="/2017/08/06/CA证书的实现/" class="archive-article-date">
-  	<time datetime="2017-08-06T09:21:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-06</time>
+        <a href="/2017/12/08/CDN/" class="archive-article-date">
+  	<time datetime="2017-12-08T07:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="创建CA证书"><a href="#创建CA证书" class="headerlink" title="创建CA证书"></a>创建CA证书</h1><h3 id="CA证书"><a href="#CA证书" class="headerlink" title="CA证书"></a>CA证书</h3><blockquote>
-<p>  CA 也拥有一个证书（内含公钥和私钥）。网上的公众用户通过验证 CA 的签字从而信任 CA ，任何人都可以得到 CA的证书（含公钥），用以验证它所签发的证书。</p>
-</blockquote>
+        <p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/%E7%85%A7%E7%89%87%E5%9B%BE%E7%89%87/%E7%A8%8B%E5%BA%8F%E5%91%98.jpg" alt=""></p>
 <a id="more"></a>
-<ul>
-<li><h3 id="个人CA证书"><a href="#个人CA证书" class="headerlink" title="个人CA证书"></a>个人CA证书</h3></li>
-</ul>
 <blockquote>
-<p>  如果用户想得到一份属于自己的证书，他应先向 CA 提出申请。在CA 判明申请者的身份后，便为他分配一个公钥，并且 CA 将该公钥与申请者的身份信息绑在一起，并为之签字后，便形成证书发给申请者。</p>
+<p>已经进入公司快1个月了，大致了解到自己的今后工作内容，工作的方向。也整理自己的发展方向，刚进入it这行，你没有经验，要迅速的寻找到自己的今后路线规划和目标。</p>
+<p>简单记录一下自己的工作内容和笔记，方便自己今后查询了解，算是自己走上it的一个开始。</p>
 </blockquote>
 <ul>
-<li><h3 id="CA真伪"><a href="#CA真伪" class="headerlink" title="CA真伪"></a>CA真伪</h3></li>
+<li><h3 id="什么是CDN"><a href="#什么是CDN" class="headerlink" title="什么是CDN"></a>什么是CDN</h3></li>
 </ul>
 <blockquote>
-<p>  如果一个用户想鉴别另一个证书的真伪，他就用 CA 的公钥对那个证书上的签字进行验证，一旦验证通过，该证书就被认为是有效的。证书实际是由证书签证机关（CA）签发的对用户的公钥的认证。</p>
+<p>说实话一开始我也不清楚什么是CDN，也不太了解CDN这个东西，但是通过自己上网查询了解，开始明白这个是做什么的了。</p>
 </blockquote>
 <ul>
-<li><h3 id="证书内容"><a href="#证书内容" class="headerlink" title="证书内容"></a>证书内容</h3></li>
+<li><blockquote>
+<p>首先我们了解什么是CDN（Content Delivery Network），CDN即内容分发网络。其目的是通过在现有的Internet种增加一层新的网络架构，将网站的内容发送到最近用的网络“边缘”，使用户可以就近取得所需的内容，解决网络拥挤，堵塞的状况，提高用户访问网站的响应速度。从技术上全面解决由于网络带宽小，用户访问量大，网点分布不均等原因造成的用户访问网站响应速度慢的问题。</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/CDN/CDN.png" alt=""> </p>
+<p>#ps:借鉴百度图片。</p>
+<ul>
+<li><strong>CDN关键技术</strong></li>
+</ul>
+<p><strong>路由：</strong> CDN负载均衡系统实现CDN的内容路由功能。它的作用是将用户的请求导向整个CDN网络种的最佳节点</p>
+<p><strong>分发：</strong> 从内容源到CDN边缘的Cache的过程。有两种主流的内容发技术：PUSH和PULL</p>
+<p><strong>存储：</strong> 一个是内容源的储存，一个是内容在CDN节点中的储存</p>
+<p><strong>管理：</strong> 内容管理在涵盖了从内容的发布，注入，分发，调整，传递等一系列过程</p>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/CDN/CDN2.png" alt=""></p>
+<p>#ps:借鉴百度图片</p>
+<ul>
+<li><strong>在网上我还曾经看到过一种说法，比如把CDN比作网络种的快递员小哥。</strong></li>
+</ul>
+<ol>
+<li>把电影，网购，订单的数据包裹从一个服务器快递到另一个服务器，快速送达。</li>
+<li>CDN快递员很聪明，它不瞎跑，它承建了很多加快递点，做就近快递（相当于网络缓存）</li>
+<li>然后优化快递路径（调度）</li>
+<li>重新对包裹进行打包（协议优化）</li>
+<li>然后派送给各个需要的客户手中</li>
+</ol>
+<ul>
+<li><strong>还有一种说法，就是比作网购；例如：</strong></li>
+</ul>
+<ol>
+<li>有个仓库（源站服务器）里面有很多类别的物品（数据）</li>
+<li>如生活用品；休闲食品；办公用品等之类的（你可以当作视频，文件，音频等）</li>
+<li>仓库下又有很多超市（代理缓存的各个节点）</li>
+<li>仓库的东西会下放到各个超市存储（缓存），售卖（调度）。</li>
+<li>如果有用户在武汉想买办公用品（数据），那么就会从武汉最近的店（节点）将办公用品发给你（用户请求数据）</li>
+<li>这个过程就是CD的运行过程。</li>
+</ol>
+<ul>
+<li><blockquote>
+<p>这两种说法都是最容易理解的，当然网上还有各种各样的说法，你可以去了解，这些说法也是我在网上看到的，笔记容易让人理解。</p>
+</blockquote>
+</li>
+</ul>
+<p>#</p>
+<ul>
+<li><h3 id="CDN防护原理"><a href="#CDN防护原理" class="headerlink" title="CDN防护原理"></a>CDN防护原理</h3></li>
 </ul>
 <blockquote>
-<p>  证书的内容包括：电子签证机关的信息、公钥用户信息、公钥、权威机构的签字和有效期等等。目前，证书的格式和验证方法普遍遵循X.509 国际标准。</p>
+<p>了解了什么是CDN和它的运行过程，那么它的防护原理呢？网络上现在到处冲击不同的攻击，如ddos攻击、cc攻击、syn攻击等等，不过幸好CDN本身具备防护的功能，CDN防护是怎么实现呢？CDN防护能够达到多大作用，除了能够防护ddos、cc等攻击外，CDN防护还有什么功能呢？能不能根据CDN防护原理，进行相关的解决方式呢？</p>
 </blockquote>
 <ul>
-<li><h3 id="证书类型："><a href="#证书类型：" class="headerlink" title="证书类型："></a>证书类型：</h3></li>
+<li><strong>我们说了它是什么，运行过程，那么这样也可以理解它的防护原理是什么。</strong></li>
+</ul>
+<blockquote>
+<p>CDN的防护原理是在其相关节点种成功建立动态加速机制以及智能沉余等机制，这种机制能够帮助网站流量访问分配到每一个节点种，智能的进行流量分配机制，如果CDN存在被ddos攻击的情况，CDN整个系统就能够将被攻击的流量分散开，节省了站点服务器的压力及节点压力。同时还能增强网站被黑客给攻击的难度，真正帮助服务管理人员提供更多应该被攻击的时间，从这里看来CDN能有效的防止ddos攻击，降低对网站带来的危害。</p>
+<p>所以CDN除了能够加速网页系统，还能有效的防护各种网络攻击。</p>
+</blockquote>
+<ul>
+<li><h3 id="网页打不开"><a href="#网页打不开" class="headerlink" title="网页打不开"></a>网页打不开</h3></li>
+</ul>
+<blockquote>
+<p>如果客户因为服务器导致网页打不开，有可能是什么原因？根据和几个好朋友一起讨论了一下，大致觉得可以检查以下几个步骤。</p>
+<ol>
+<li>ping能否ping通</li>
+<li>防火墙规则例外添加了没</li>
+<li>curl状态码是多少</li>
+<li>后端的页面资源是否正确解析</li>
+<li>调取资源的时候是否调整数据库了</li>
+<li>网页引导文件是否被修改</li>
+<li>DNS解析问题</li>
+<li>CDN节点问题</li>
+</ol>
+</blockquote>
+<ul>
+<li><strong>三步大致思路</strong></li>
 </ul>
 <ol>
-<li>证书授权机构的证书</li>
-<li>服务器</li>
-<li>用户证书</li>
+<li>顾客那里有无解析成功（DNS解析，ping包是否正常）</li>
+<li>云防御有无解析（CDN节点，防火墙）</li>
+<li>后端服务器是否正常提供服务</li>
+<li>硬件问题是否有问题</li>
 </ol>
 <ul>
-<li><h3 id="获取证书两种方法："><a href="#获取证书两种方法：" class="headerlink" title="获取证书两种方法："></a>获取证书两种方法：</h3></li>
-<li><p><strong>使用证书授权机构</strong></p>
-</li>
+<li><strong>像老员工讨教之后发现本公司较多的大致问题为：</strong></li>
 </ul>
 <ol>
-<li>生成签名请求（csr）</li>
-<li>将csr发送给CA</li>
-<li>从CA处接收签名</li>
+<li>源ip问题以及节点的问题（跟源ip问题就是后端服务器是否正常提供服务有关）</li>
 </ol>
 <ul>
-<li><strong>自签名的证书</strong></li>
+<li><strong>源ip问题分为两种情况</strong></li>
 </ul>
 <ol>
-<li>自已签发自己的公钥</li>
+<li>平台那边的CDN节点问题</li>
+<li>服务器端的对外ip</li>
 </ol>
 <ul>
-<li><h3 id="创建私有CA："><a href="#创建私有CA：" class="headerlink" title="创建私有CA："></a>创建私有CA：</h3>1.<strong>openssl的配置文件：</strong></li>
+<li><strong>初级解决办法</strong></li>
 </ul>
-<p><code>/etc/pki/tls/openssl.cnf</code></p>
-<p>2.<strong>三种策略：匹配、支持和可选</strong></p>
-<p>3.<strong>匹配指要求申请填写的信息跟CA设置信息必须一致，支持指必须填写这项申请信息，可选指可有可无</strong></p>
+<ol>
+<li>检查能否正常ping通</li>
+<li>节点问题可能牵扯到网络线路的问题</li>
+</ol>
 <ul>
-<li><h3 id="创建CA证书-1"><a href="#创建CA证书-1" class="headerlink" title="创建CA证书"></a>创建CA证书</h3></li>
+<li><strong>CDN访问站源异常怎么排查</strong></li>
 </ul>
-<p><strong>1. 创建所需要的文件</strong><br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">touch <span class="regexp">/etc/</span>pki<span class="regexp">/CA/i</span>ndex.txt</span><br><span class="line">创建文件，生成证书索引数据库文件</span><br></pre></td></tr></table></figure></p>
-<p><strong>2. 指定第一个颁发证书的序列号</strong><br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="number">01</span> &gt; /etc/pki/CA/serial</span><br><span class="line">只要是两位数的数字都可以为序列号，你也可以把<span class="number">01</span>换成<span class="number">99</span>，这里我们就写<span class="number">01</span>，方便后续。</span><br></pre></td></tr></table></figure></p>
-<p><strong>3. CA自签证书</strong><br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">（umask <span class="number">066</span>;openssl genrsa -out /etc/pki/CA/private/cakey.pem <span class="number">2048</span>）</span><br><span class="line">创建文件，生成私钥，括号是为了让权限临时生效，怕影响以后权限，<span class="number">2048</span>是私钥加密的长度，也可以选择<span class="number">1024</span>、<span class="number">2048</span>、<span class="number">4096.</span>...</span><br></pre></td></tr></table></figure></p>
-<p><strong>4. 生成自签名证书</strong><br><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">openssl req -new -x509 -key /etc/pki/CA/private/cakey.pem -out /etc/pki/CA/cacert.pem -days 3650</span><br><span class="line">输入命令后会弹出设置页面，按顺序分为：国家、省、市、公司、单位、域名（服务器名称）、邮箱地址。</span><br><span class="line"></span><br><span class="line">-<span class="ruby">new      生成新证书签署请求</span></span><br><span class="line"><span class="ruby">-x509     专用与CA生成自签证书</span></span><br><span class="line"><span class="ruby">-key       生成请求时用到的私钥文件</span></span><br><span class="line"><span class="ruby">-days n   证书的有效期限</span></span><br><span class="line"><span class="ruby">-out /PATH/TO/SOMECERTFILE  证书的保存路径</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>5. 颁发证书</strong></p>
+<ol>
+<li>ping 域名，查看解析出的ip是否是服务商CDN的节点。</li>
+<li>如果不是服务商CDN节点的ip，说明可能被劫持了。</li>
+<li>如果CDN节点ip正常，域名ping通，那么本地绑定host测试，查看是否是CDN问题还是源站问题。</li>
+<li>如果检查出来源站无法访问，那么直奔源站检查。</li>
+<li>如果源站可以访问，通过CDN无法访问，那么把ping域名的截图和访问<a href="https://cdn.dns-detect.alicdn.com/https/doc.html的链接截图下面，联系CDN服务商解决。" target="_blank" rel="noopener">https://cdn.dns-detect.alicdn.com/https/doc.html的链接截图下面，联系CDN服务商解决。</a></li>
+<li>如果是服务商CDN的节点ip，但是域名ping不通，可能是网络或者CDN节点有问题。</li>
+</ol>
 <ul>
-<li><strong>A.</strong> 在需要使用证书的主机生成证书请求，在客户端上重复上面第一步。</li>
+<li>**CDN访问异常，测试问题出现在CDN节点还是本地网络</li>
 </ul>
-<p>(1.)创建私钥（另一台电脑或者虚拟机）<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">（umask <span class="number">066</span>;openssl genrsa -out /app/service.<span class="type">key</span>）</span><br><span class="line">地址不用服务器那么严格，可自行放入家目录里或者其他目录，只是路径一定要写清楚</span><br></pre></td></tr></table></figure></p>
-<p>(2.)生成证书的申请文件<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">openssl req -new -key /app/service<span class="selector-class">.key</span> -out /app/service.csr</span><br><span class="line">这个命令输入之后也会出设置页面，按顺序分为：国家、省、市、公司、组织、对外网站（网站名叫什么必须就填什么，比如www<span class="selector-class">.XXXXX</span><span class="selector-class">.com</span>）、邮箱、密码、可选公司名</span><br><span class="line"></span><br><span class="line">注意：国家、省、公司，这<span class="number">3</span>个必须和上面服务器的CA一样。</span><br><span class="line">          邮箱、密码、可选公司名，这<span class="number">3</span>个可以填可以不填。</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>当用户使用CDN后，若反馈访问慢或报错，文件没有更新的情况，可以直接让nslookup加速域名，ping下观察延迟。</p>
+<p>以下因素先判断节点是否正常</p>
+<ol>
+<li>通过访问<a href="https://cdn.dns-detect.alicdn.com/https/doc.html查看是否正常。" target="_blank" rel="noopener">https://cdn.dns-detect.alicdn.com/https/doc.html查看是否正常。</a></li>
+<li>如果第一步正常，nslookup CDN域名 查看节点距离是否较近。</li>
+<li>如果上述都没有问题进行，验证源站是否有问题，在本地hosts绑定客户对应节点，例如：123.45.678.910 www.xxxxxx.com 添加到本地host里，然后ping对应域名，查看解析出来的ip是不是host里写的ip。</li>
+<li>最后，清楚浏览器和浏览记录，刷新页面后观察访问情况是否正常，然后判断CDN节点问题还是用户网络问题。<br>（测试时需要和用户所访问的CDN节点属于一个运营商）</li>
+</ol>
+</blockquote>
 <ul>
-<li><p><strong>B.</strong> 将证书请求文件传输给服务器CA</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scp /app/service<span class="selector-class">.csr</span> <span class="number">192.168</span><span class="selector-class">.XX</span><span class="selector-class">.XXX</span>:/etc/pki/CA/csr</span><br><span class="line">将证书.csr这个文件传输服务器</span><br><span class="line">scp是一个远程传输文件的小工具。</span><br></pre></td></tr></table></figure>
+<li><blockquote>
+<p>ps:以上步骤借鉴于aliyun的帮助文档。网上现在有很多解决办法，多查查看看能自己解决就尽量自己解决，多动手，懂的比较快，实在不会可以询问老员工，大牛….</p>
+</blockquote>
 </li>
-<li><p><strong>C.</strong> CA签署证书，并将证书颁发给请求者</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">openssl ca -<span class="keyword">in</span> <span class="regexp">/etc/</span>pki<span class="regexp">/CA/</span>csr<span class="regexp">/service.csr -out /</span>etc<span class="regexp">/pki/</span>CA<span class="regexp">/certs/</span>service.crt -days <span class="number">365</span></span><br><span class="line">颁发证书，由服务器颁发。</span><br><span class="line">注意：刚刚默认设置选项：国家，省，公司名称，这三项一定要和CA一样，刚刚也提醒了，不然就会报错。</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>D.</strong> 查看证书中的信息</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -<span class="keyword">in</span> <span class="regexp">/etc/</span>pki<span class="regexp">/CA/</span>newcerts/<span class="number">01.</span>pem -noout -text</span><br><span class="line">查看<span class="number">01</span>证书的详细信息</span><br></pre></td></tr></table></figure>
-</li>
+<li><h3 id="CDN常见问题"><a href="#CDN常见问题" class="headerlink" title="CDN常见问题"></a>CDN常见问题</h3></li>
 </ul>
-<p><strong>6. 吊销证书</strong></p>
+<p><strong>1.</strong> CDN和双线机房相比有何优势？</p>
+<blockquote>
+<p>常见的双线机房只能解决网通和电信互相访问慢的问题，其它ISP（譬如教育网，移动网，铁通）互通的问题还是没得到解决。而CDN是访问者就近取数据，而CDN的节点遍布各ISP，从而保证了网站到任意ISP的访问速度。另外CDN因为其流量分流到各节点的原理，天然得抵抗网络攻击的能力。</p>
+</blockquote>
+<p><strong>2.</strong> 网站用CDN后，有些地区反映无法访问了，怎么办？</p>
+<blockquote>
+<p>CDN<br>启用后，访客不能访问网站有很多种可能，可能是CDN的问题，也可能是源站点出现故障或者源站点被关闭，还可能是访客自己所在的网络出现问题，甚至实际故障排除中，还出现过计算机中毒，导致无法访问网站。故障时，可自行去首页下载一个诊断软件，将诊断信息贴在email中报上来，这样可以有利于诊断客户出现的是什么错误。</p>
+</blockquote>
+<p><strong>3.</strong>当单一节点负载很大时会如何解决？</p>
+<blockquote>
+<p>1.提前部署的智能流量分配策略能够将部分访问定向到离终端用户最近的其<br>它流量少的节点上，单一节点的负载过大问题一般不会出现；2.在一个区域部署一定数量的节点来提供服务，保证节点的负载一般不会超过70%；多节点分流。3.当发现单一节点负载增大时，可以人干预，根据其它各点的负载状态，就近分配相应的其它节点来提供服务或者启用备份带宽来解决这个问题</p>
+</blockquote>
 <ul>
-<li><p><strong>A.</strong> 在客户端或许要吊销的证书的serial</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -<span class="keyword">in</span> <span class="regexp">/etc/</span>pki<span class="regexp">/CA/</span>newcerts<span class="regexp">/01.pem -noout -serial -subject</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>B.</strong>     在CA上，根据客户提交的serial与subject信息，对比检验是否与index.txt文件中的信息一致，吊销证书</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">openssl ca -revoke <span class="regexp">/etc/</span>pki<span class="regexp">/CA/</span>newcerts/<span class="number">01.</span>pem</span><br><span class="line">最后<span class="number">01</span>是你要取消的证书编号。如果你是<span class="number">99</span>那就写<span class="number">99.</span>pem就可以了，你想吊销那个证书就填那个。</span><br><span class="line"></span><br><span class="line">cat <span class="regexp">/etc/</span>pki<span class="regexp">/CA/</span>index.txt</span><br><span class="line">查看证书失效或者生效</span><br><span class="line">R失效</span><br><span class="line">V生效</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>C.</strong> 指定第一个吊销证书的编号</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="number">01</span> &gt; <span class="regexp">/etc/</span>pki<span class="regexp">/CA/</span>crlnumber</span><br><span class="line">注意：第一次更新证书吊销列表前才需要执行。注意第一次。</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>D.</strong> 更新证书吊销列表</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">openssl <span class="keyword">ca</span> -gencrl -<span class="keyword">out</span> /etc/pki/<span class="keyword">CA</span>/crl/crl.pem</span><br><span class="line">更新吊销列表，将吊销的文件放进去</span><br><span class="line">openssl <span class="keyword">ca</span> -gencrl -<span class="keyword">out</span> /etc/pki/<span class="keyword">CA</span>/crl/crl.pem </span><br><span class="line">更新吊销列表，将吊销的文件放进去</span><br><span class="line">openssl crl -<span class="keyword">in</span> /etc/pki/<span class="keyword">CA</span>/crl/crl.pem -noout -text</span><br><span class="line">查看crl文件</span><br></pre></td></tr></table></figure>
-</li>
+<li><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3></li>
 </ul>
+<blockquote>
+<p>现在一般碰到的问题，大部分都能够在网上找到答案，但是你找到答案了，不代表你就会了，要多做多看多防备。遇到问题是好事，你解决了就代表你进步了，最怕不遇到问题，那你一直没进步，那就是退步。</p>
+<p>愿不忘初心。</p>
+</blockquote>
 
       
 
@@ -269,11 +344,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工作</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">实验</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CDN</a>
         		</li>
       		
 		</ul>
@@ -329,7 +404,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://Az1u1u.me/2017/08/06/CA证书的实现/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://Az1u1u.me/2017/12/08/CDN/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -343,18 +418,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/08/27/MySQL基础理论/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Linux MySQL基础理论
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/07/26/正则表达式/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Linux 正则表达式及文本处理</div>
+    <a href="/2017/12/03/远程系统安装/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"> 远程系统安装</div>
       <i class="icon-circle-right"></i>
     </a>
   
