@@ -40,7 +40,7 @@
 <meta property="og:image" content="https://www.kangleweb.com/data/attachment/forum/201402/24/173753dstumkawee74k47u.jpg">
 <meta property="og:image" content="https://www.kangleweb.com/data/attachment/forum/201402/24/173759xs8wx2qy69280u2z.jpg">
 <meta property="og:image" content="https://www.kangleweb.com/data/attachment/forum/201209/01/115046we7nelbjyq2bjazr.jpg">
-<meta property="og:updated_time" content="2017-12-18T10:27:00.248Z">
+<meta property="og:updated_time" content="2017-12-18T10:44:43.422Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content=" kangle 简介">
 <meta name="twitter:description" content="kangle kangle web服务器，刚开始还真不知道这是什么软件，之前因客户机器网页启动不了，通过客户同意后，上服务器查看了启动项，发现了这款软件，挺好奇的，就查了下这款软件是什么，有什么用，优势与劣势在哪里。（当然…网页打不开不是因为这个软件，后来解决了） 根据我自己了解的大概来说下，感觉kangle web服务器跟iis，apache，nginx web服务器其实差不了多少的感觉（个人感">
@@ -351,13 +351,13 @@
 </tr>
 </tbody>
 </table>
+<ul>
+<li>来自kangle论坛。友情链接：<a href="https://www.kangleweb.com/thread-8441-1-1.html" target="_blank" rel="noopener">https://www.kangleweb.com/thread-8441-1-1.html</a></li>
+</ul>
 <blockquote>
 <p>这里我只列出了它的不同，借鉴于kangle官方论坛，下面贴出了它的地址。</p>
 <p>对于比较大的网站来说挺节约的，但是小型网站就不是太强，对于IDC或反代等，服务器较多或者服务器需要技术支持来说挺合适的。</p>
 </blockquote>
-<ul>
-<li>来自kangle论坛。友情链接：<a href="https://www.kangleweb.com/thread-8441-1-1.html" target="_blank" rel="noopener">https://www.kangleweb.com/thread-8441-1-1.html</a></li>
-</ul>
 <h3 id="kangle的安装"><a href="#kangle的安装" class="headerlink" title="kangle的安装"></a>kangle的安装</h3><blockquote>
 <p>现在安装kangle也相当方便，技术支持也挺好说话，我之前安装出了一点问题，也联系技术支持，也挺快跟我联系，并一起沟通解决了问题。</p>
 </blockquote>
@@ -424,8 +424,8 @@
 <li><strong>下载地址</strong></li>
 </ul>
 <ol>
-<li>windows x86:<a href="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/kangle/kangle-3.4.8.msi" target="_blank" rel="noopener">https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/kangle/kangle-3.4.8.msi</a></li>
-<li>windows x86 64:<a href="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/kangle/kangle-3.4.8-x64.msi" target="_blank" rel="noopener">https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/kangle/kangle-3.4.8-x64.msi</a></li>
+<li>windows x86: <a href="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/kangle/kangle-3.4.8.msi" target="_blank" rel="noopener">https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/kangle/kangle-3.4.8.msi</a></li>
+<li>windows x86 64: <a href="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/kangle/kangle-3.4.8-x64.msi" target="_blank" rel="noopener">https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/kangle/kangle-3.4.8-x64.msi</a></li>
 </ol>
 <p>下载windows x86 安装包，下载完成后会得到安装文件，直接打开msi文件按照提示安装即可。</p>
 <blockquote>
@@ -434,25 +434,31 @@
 <p><strong>启动方法：</strong></p>
 <p>有三种方式可以启动kangle:</p>
 <ol>
-<li>直接双击kangle安装目录\bin目录下的kangle.exe</li>
+<li><p>直接双击kangle安装目录\bin目录下的kangle.exe</p>
+</li>
 <li><p>以服务方式启动</p>
+</li>
+</ol>
 <figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">按win+r，输入<span class="built_in">cmd</span>进入命令模式，运行：</span><br><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> kangle 启动kangle</span><br><span class="line"><span class="built_in">net</span> stop kangle  停止kangle</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>打开控制面板 –&gt; 管理工具 –&gt; 服务， 找到kangle，按右键进行启动或者停止kangle 服务</p>
-</li>
+<ol>
+<li>打开控制面板–&gt;管理工具–&gt;服务，找到kangle，按右键进行启动或者停止kangle 服务</li>
 </ol>
 <ul>
 <li>安装后登入地址：ip:3311</li>
 <li>默认账户密码： admin kangle </li>
 </ul>
-<p>windows php插件</p>
-<pre><code>windows php 一键自动安装包，集成zend,采用fastcgi接口。
-专为kangle web服务器打造，支持32位和64位的windows。easypanel 的用户不需要安装(因为已经集成)。
-
-默认启动8个进程，用户可以在管理后台，“扩展--&gt;命令”内修改进程数。
-也可在kangle目录ext目录下，php 5.3.x是php-nts目录，
-php 5.2.17是php52目录，下修改config.xml文件，worker=&apos;进程数&apos; 指定进程数，修改完config.xml后重起kangle。
-</code></pre><ul>
+<p><strong>windows php插件:</strong></p>
+<ol>
+<li><p>windows php一键自动安装包，集成zend,采用fastcgi接口。</p>
+</li>
+<li><p>专为kangle web服务器打造，支持32位和64位的windows。easypanel 的用户不需要安装(因为已经集成)。</p>
+</li>
+<li><p>默认启动8个进程，用户可以在管理后台，“扩展–&gt;命令”内修改进程数。</p>
+</li>
+<li><p>也可在kangle目录ext目录下，php5.3.x是php-nts目录，php 5.2.17是php52目录，下修改config.xml文件，worker=’进程数’ 指定进程数，修改完config.xml后重起kangle。</p>
+</li>
+</ol>
+<ul>
 <li><p>windows php插件下载地址：<a href="http://www.kangleweb.com/thread-6127-1-1.html" target="_blank" rel="noopener">http://www.kangleweb.com/thread-6127-1-1.html</a></p>
 </li>
 <li><p><strong>主要特性：</strong></p>
@@ -572,50 +578,33 @@ php 5.2.17是php52目录，下修改config.xml文件，worker=&apos;进程数&ap
 <ul>
 <li><strong>kangle常见错误</strong></li>
 </ul>
-<ol>
-<li><p>404 Not Found</p>
+<p>1.404 Not Found</p>
 <figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">404</span> <span class="keyword">Not</span> Found</span><br><span class="line"><span class="keyword">No</span> such <span class="keyword">file</span> <span class="keyword">or</span> directory.</span><br><span class="line">原因:没有相关文件</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>403 Forbidden</p>
+<p>2.403 Forbidden</p>
 <figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">403</span> Forbidden</span><br><span class="line">You don<span class="symbol">'t</span> have permisson <span class="keyword">to</span> browse.</span><br><span class="line">原因: 没有默认首页面</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>503 Service Not Available</p>
+<p>3.503 Service Not Available</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">503<span class="built_in"> Service </span><span class="keyword">Not</span> Available</span><br><span class="line">The virtualhost is closed</span><br><span class="line">原因:虚拟主机是关闭的</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>504 Gateway Timeout</p>
+<p>4.504 Gateway Timeout</p>
 <figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">504</span> Gateway Timeout</span><br><span class="line">Cann<span class="symbol">'t</span> connect <span class="keyword">to</span> remote host</span><br><span class="line">原因: 无法连接上远程主机</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
 <ul>
 <li><strong>kangle 如何自定义错误页面</strong></li>
 </ul>
-<ol>
-<li><p>登入kangle的3311管理后台，点击左边的虚拟主机，再点自定义错误页面：<br><img src="https://www.kangleweb.com/data/attachment/forum/201305/27/1240180ga92r1292y1okfj.jpg" alt=""></p>
-</li>
-<li><p>然后弹出如下界面，然后填写错误代码和错误地址<br><img src="https://www.kangleweb.com/data/attachment/forum/201305/27/124018ecx7nwjv6wq7s7w9.jpg" alt=""></p>
-</li>
-</ol>
+<p>1.登入kangle的3311管理后台，点击左边的虚拟主机，再点自定义错误页面：</p>
+<p><img src="https://www.kangleweb.com/data/attachment/forum/201305/27/1240180ga92r1292y1okfj.jpg" alt=""></p>
+<p>2.然后弹出如下界面，然后填写错误代码和错误地址</p>
+<p><img src="https://www.kangleweb.com/data/attachment/forum/201305/27/124018ecx7nwjv6wq7s7w9.jpg" alt=""></p>
 <p><img src="https://www.kangleweb.com/data/attachment/forum/201305/27/124018dot49kzzoaz6sv6o.jpg" alt=""></p>
-<ol>
-<li>设置好后，做下测试，显示我们设置的错误页面内容<br><img src="https://www.kangleweb.com/data/attachment/forum/201305/27/124018ph92lrer2r0k2n62.jpg" alt=""></li>
-</ol>
+<p>3.设置好后，做下测试，显示我们设置的错误页面内容</p>
+<p><img src="https://www.kangleweb.com/data/attachment/forum/201305/27/124018ph92lrer2r0k2n62.jpg" alt=""></p>
 <ul>
-<li><strong>kangle 的启动和关闭命令</strong></li>
+<li><strong>kangle 的启动和关闭命令</strong><br>1.windows下启动命令：</li>
 </ul>
-<ol>
-<li><p>windows下启动命令：</p>
 <figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> kangle</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>windows下关闭命令：</p>
+<p>2.windows下关闭命令：</p>
 <figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net <span class="built_in">stop</span> kangle</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>linux下启动命令：</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/vhs/</span>kangle<span class="regexp">/bin/</span>kangle</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>linux下关闭命令：</p>
+<p>3.linux下启动命令：<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/vhs/</span>kangle<span class="regexp">/bin/</span>kangle</span><br></pre></td></tr></table></figure></p>
+<p>4.linux下关闭命令：</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/vhs/</span>kangle<span class="regexp">/bin/</span>kangle -q</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
 <ul>
 <li><strong>kangle的配置文件在哪</strong></li>
 </ul>
@@ -632,19 +621,14 @@ php 5.2.17是php52目录，下修改config.xml文件，worker=&apos;进程数&ap
 </li>
 </ol>
 <ul>
-<li><strong>kangle 忘记管理密码后如何找回</strong></li>
+<li><strong>kangle 忘记管理密码后如何找回</strong><br>1.找到kangle的安装目录下的etc/config.xml</li>
 </ul>
-<ol>
-<li><p>找到kangle的安装目录下的etc/config.xml<br><img src="https://www.kangleweb.com/data/attachment/forum/201305/15/083445kkaao204lcolki44.jpg" alt=""></p>
-</li>
-<li><p>打开这个文件编辑，修改以下代码：<br><img src="https://www.kangleweb.com/data/attachment/forum/201305/15/083445wiii5dk0w86qd1q6.jpg" alt=""></p>
-</li>
-<li><p>修改为：</p>
+<p><img src="https://www.kangleweb.com/data/attachment/forum/201305/15/083445kkaao204lcolki44.jpg" alt=""></p>
+<p>2.打开这个文件编辑，修改以下代码：</p>
+<p><img src="https://www.kangleweb.com/data/attachment/forum/201305/15/083445wiii5dk0w86qd1q6.jpg" alt=""></p>
+<p>3.修改为：</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;admin <span class="attribute">user</span>=<span class="string">'admin'</span> <span class="attribute">password</span>=<span class="string">'kangle'</span> <span class="attribute">admin_ips</span>=<span class="string">'*'</span>/&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>然后重启kangle就行</p>
-</li>
-</ol>
+<p>4.然后重启kangle就行</p>
 <p>windows下重启命令：<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net <span class="built_in">stop</span> kangle</span><br></pre></td></tr></table></figure></p>
 <p>Windows下启动命令：<br><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> kangle</span><br></pre></td></tr></table></figure></p>
 <p>在Linux下也是同样找到/vhs/kangle/config.xml，按照上面第三部来修改</p>
@@ -652,27 +636,23 @@ php 5.2.17是php52目录，下修改config.xml文件，worker=&apos;进程数&ap
 <ul>
 <li><strong>如果忘记easypanel的管理员密码怎么办</strong></li>
 </ul>
-<ol>
-<li>如果在windows下忘记easypanel的管理员密码，可以在kangle的安装目录里找到/etc/node.cfg.php这个文件。</li>
-</ol>
+<p>1.如果在windows下忘记easypanel的管理员密码，可以在kangle的安装目录里找到/etc/node.cfg.php这个文件。</p>
 <p><img src="https://www.kanglesoft.com/data/attachment/forum/201303/27/112814k7eotdrdn377kewa.jpg" alt=""></p>
 <p>ps:下面红框中就是账户和密码：</p>
 <p><img src="https://www.kanglesoft.com/data/attachment/forum/201303/27/112814jl2a1ujdz5556ldd.jpg" alt=""></p>
-<ol>
-<li>Linux如果忘记管理源密码找回方式是一样的，Linux下的安装路径默认是在/vhs/kangle/etc/node.cfg.php，同样是在这个文件里找到。</li>
-</ol>
+<p>2.Linux如果忘记管理源密码找回方式是一样的，Linux下的安装路径默认是在/vhs/kangle/etc/node.cfg.php，同样是在这个文件里找到。</p>
 <ul>
 <li><strong>在linux下，安装了kangle内存就占满了，怎么回事</strong></li>
 </ul>
-<ol>
-<li>这时正常的，Linux的内存管理就是有多少内存就用多少内存</li>
-</ol>
+<p>1.这时正常的，Linux的内存管理就是有多少内存就用多少内存</p>
 <ul>
 <li><strong>kangle的3311端口和80端口可以修改吗，怎么修改</strong></li>
 </ul>
 <ol>
-<li>可以修改</li>
-<li>进入kangle的3311管理后台点左下角的配置 –&gt; 服务 –&gt; 点击3311或80旁边的设置修改</li>
+<li><p>可以修改</p>
+</li>
+<li><p>进入kangle的3311管理后台点左下角的配置 –&gt; 服务 –&gt; 点击3311或80旁边的设置修改</p>
+</li>
 </ol>
 <ul>
 <li><strong>Php-cgi进程数很多怎么办</strong></li>
@@ -864,13 +844,13 @@ php 5.2.17是php52目录，下修改config.xml文件，worker=&apos;进程数&ap
 <li>说明：限速只正对当前连接。</li>
 <li>min_size：起始限速（ps：单位字节）</li>
 <li>limit：限速/秒</li>
-<li><p>语法:</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;mark_speed_limit   <span class="attribute">min_size</span>=<span class="string">'设置起始限速值'</span> <span class="attribute">limit</span>=<span class="string">'限速'</span>&gt;&lt;/mark_speed_limit&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用例子:</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;mark_speed_limit   <span class="attribute">min_size</span>=<span class="string">'1024'</span> <span class="attribute">limit</span>=<span class="string">'102400'</span>&gt;&lt;/mark_speed_limit&gt;</span><br></pre></td></tr></table></figure>
-</li>
+<li>语法:</li>
 </ol>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;mark_speed_limit   <span class="attribute">min_size</span>=<span class="string">'设置起始限速值'</span> <span class="attribute">limit</span>=<span class="string">'限速'</span>&gt;&lt;/mark_speed_limit&gt;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>使用例子:</li>
+</ol>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;mark_speed_limit   <span class="attribute">min_size</span>=<span class="string">'1024'</span> <span class="attribute">limit</span>=<span class="string">'102400'</span>&gt;&lt;/mark_speed_limit&gt;</span><br></pre></td></tr></table></figure>
 <p>ps:流量超过1024字节开始限速，最大允许流量是102400字节/秒</p>
 <ul>
 <li><strong>分组限速（gspeed_limit）</strong></li>
@@ -881,11 +861,11 @@ php 5.2.17是php52目录，下修改config.xml文件，worker=&apos;进程数&ap
 <ol>
 <li>说明：限速针对所有连接</li>
 <li>gspeed_limit:限速/秒</li>
-<li><p>语法：</p>
+<li>语法：</li>
+</ol>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mark_gspeed_limit</span>   <span class="attr">limit</span>=<span class="string">'设置限速值'</span>&gt;</span><span class="tag">&lt;/<span class="name">mark_gspeed_limit</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用例子：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mark_gspeed_limit</span>   <span class="attr">limit</span>=<span class="string">'10240'</span>&gt;</span><span class="tag">&lt;/<span class="name">mark_gspeed_limit</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>使用例子：<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mark_gspeed_limit</span>   <span class="attr">limit</span>=<span class="string">'10240'</span>&gt;</span><span class="tag">&lt;/<span class="name">mark_gspeed_limit</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>ps:所有访问最大允许流量10240字节/秒</p>
@@ -898,13 +878,13 @@ php 5.2.17是php52目录，下修改config.xml文件，worker=&apos;进程数&ap
 <ol>
 <li>说明：限速针对单个ip</li>
 <li>speed_limit:限速/秒（单位字节）</li>
-<li><p>语法：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mark_ip_speed_limit</span>  <span class="attr">speed_limit</span>=<span class="string">'设置限速值'</span>&gt;</span><span class="tag">&lt;/<span class="name">mark_ip_speed_limit</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用例子：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mark_ip_speed_limit</span>  <span class="attr">speed_limit</span>=<span class="string">'10K'</span>&gt;</span><span class="tag">&lt;/<span class="name">mark_gspeed_limit</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>语法：</li>
 </ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mark_ip_speed_limit</span>  <span class="attr">speed_limit</span>=<span class="string">'设置限速值'</span>&gt;</span><span class="tag">&lt;/<span class="name">mark_ip_speed_limit</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>使用例子：</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mark_ip_speed_limit</span>  <span class="attr">speed_limit</span>=<span class="string">'10K'</span>&gt;</span><span class="tag">&lt;/<span class="name">mark_gspeed_limit</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>ps：单个ip的最大流量限制不超过10k/秒</p>
 <ul>
 <li><strong>虚拟主机限速</strong></li>
@@ -914,13 +894,13 @@ php 5.2.17是php52目录，下修改config.xml文件，worker=&apos;进程数&ap
 </blockquote>
 <ol>
 <li>说明: 针对一个虚拟主机限速</li>
-<li><p>语法：</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;vh <span class="attribute">name</span>=<span class="string">'default'</span> <span class="attribute">doc_root</span>=<span class="string">'www'</span>  <span class="attribute">inherit</span>=<span class="string">'on'</span> <span class="attribute">app</span>=<span class="string">'1'</span> <span class="attribute">speed_limit</span>=<span class="string">'设置限速值'</span>&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用例子：</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;vh <span class="attribute">name</span>=<span class="string">'default'</span> <span class="attribute">doc_root</span>=<span class="string">'www'</span>  <span class="attribute">inherit</span>=<span class="string">'on'</span> <span class="attribute">app</span>=<span class="string">'1'</span> <span class="attribute">speed_limit</span>=<span class="string">'10240'</span>&gt;</span><br></pre></td></tr></table></figure>
-</li>
+<li>语法：</li>
 </ol>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;vh <span class="attribute">name</span>=<span class="string">'default'</span> <span class="attribute">doc_root</span>=<span class="string">'www'</span>  <span class="attribute">inherit</span>=<span class="string">'on'</span> <span class="attribute">app</span>=<span class="string">'1'</span> <span class="attribute">speed_limit</span>=<span class="string">'设置限速值'</span>&gt;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>使用例子：</li>
+</ol>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;vh <span class="attribute">name</span>=<span class="string">'default'</span> <span class="attribute">doc_root</span>=<span class="string">'www'</span>  <span class="attribute">inherit</span>=<span class="string">'on'</span> <span class="attribute">app</span>=<span class="string">'1'</span> <span class="attribute">speed_limit</span>=<span class="string">'10240'</span>&gt;</span><br></pre></td></tr></table></figure>
 <p>ps：限制本虚拟主机最大限速值10k</p>
 <h3 id="kangle-防上传木马"><a href="#kangle-防上传木马" class="headerlink" title="kangle 防上传木马"></a>kangle 防上传木马</h3><blockquote>
 <p>防上传木马（上传文件过滤）需要使用请求控制内的标记模块“post_file”</p>
@@ -966,21 +946,13 @@ php 5.2.17是php52目录，下修改config.xml文件，worker=&apos;进程数&ap
 <h3 id="https如何设置反向代理"><a href="#https如何设置反向代理" class="headerlink" title="https如何设置反向代理"></a>https如何设置反向代理</h3><blockquote>
 <p>配置前准备好SSL证书</p>
 </blockquote>
-<ol>
-<li>进入kangle的3311后台点配置，点新加侦听</li>
-</ol>
+<p>1.进入kangle的3311后台点配置，点新加侦听</p>
 <p><img src="https://www.kangleweb.com/data/attachment/forum/201402/24/173742chbz77gvgv272nqm.jpg" alt=""></p>
-<ol>
-<li>设置端口，服务和密钥文件如下图，密钥文件写实际路径</li>
-</ol>
+<p>2.设置端口，服务和密钥文件如下图，密钥文件写实际路径</p>
 <p><img src="https://www.kangleweb.com/data/attachment/forum/201402/24/173747i20hhyxdnzxyvxwx.jpg" alt=""></p>
-<ol>
-<li>点kangle后台左边的扩展，单节点服务器，添加你的源主机信息</li>
-</ol>
+<p>3.点kangle后台左边的扩展，单节点服务器，添加你的源主机信息</p>
 <p><img src="https://www.kangleweb.com/data/attachment/forum/201402/24/173753dstumkawee74k47u.jpg" alt=""></p>
-<ol>
-<li>在请求控制的匹配模块里找到host模块，然后添加你要反代的域名。</li>
-</ol>
+<p>4.在请求控制的匹配模块里找到host模块，然后添加你要反代的域名。</p>
 <p><img src="https://www.kangleweb.com/data/attachment/forum/201402/24/173759xs8wx2qy69280u2z.jpg" alt=""></p>
 <h3 id="kangle-proxy代理服务器如何限制上网的ip"><a href="#kangle-proxy代理服务器如何限制上网的ip" class="headerlink" title="kangle-proxy代理服务器如何限制上网的ip"></a>kangle-proxy代理服务器如何限制上网的ip</h3><ol>
 <li>登入代理服务器的3311管理后台</li>
@@ -1029,7 +1001,6 @@ php 5.2.17是php52目录，下修改config.xml文件，worker=&apos;进程数&ap
 <td>限制每ip的访问频率</td>
 <td>no</td>
 <td>yes</td>
-<td></td>
 </tr>
 <tr>
 <td>虚拟主机可以查看具体的连接信息（ip来源、访问时间、状态、访问的url等）</td>
@@ -1064,8 +1035,7 @@ php 5.2.17是php52目录，下修改config.xml文件，worker=&apos;进程数&ap
 <tr>
 <td>自动web数据，mysql数据的全备份和增量备份，备份到远程FTP，备份文件加密及自动恢复向导</td>
 <td>no</td>
-<td>yes</td>
-<td></td>
+<td>yes </td>
 </tr>
 </tbody>
 </table>
@@ -1091,13 +1061,20 @@ php 5.2.17是php52目录，下修改config.xml文件，worker=&apos;进程数&ap
 <li>网址友情链接：</li>
 </ul>
 <ol>
-<li>官网论坛：<a href="https://www.kangleweb.com/forum.php" target="_blank" rel="noopener">https://www.kangleweb.com/forum.php</a></li>
-<li>kangle使用手册：<a href="http://wiki.kangleweb.com/Kangle%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C" target="_blank" rel="noopener">http://wiki.kangleweb.com/Kangle%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C</a></li>
-<li>kangle文档：<a href="http://wiki.kangleweb.com/kangle" target="_blank" rel="noopener">http://wiki.kangleweb.com/kangle</a></li>
-<li>kangle帮助文档：<a href="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/kangle/kangle%20%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3.rar" target="_blank" rel="noopener">https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/kangle/kangle%20%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3.rar</a></li>
-<li>kangle服务器稳定版本：<a href="https://www.kangleweb.com/thread-23884-1-1.html" target="_blank" rel="noopener">https://www.kangleweb.com/thread-23884-1-1.html</a></li>
-<li>kangle常见问题：<a href="http://wiki.kangleweb.com/Kangle%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98" target="_blank" rel="noopener">http://wiki.kangleweb.com/Kangle%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98</a></li>
-<li>kangle 首页： <a href="http://wiki.kangleweb.com/%E9%A6%96%E9%A1%B5" target="_blank" rel="noopener">http://wiki.kangleweb.com/%E9%A6%96%E9%A1%B5</a></li>
+<li><p>官网论坛：<a href="https://www.kangleweb.com/forum.php" target="_blank" rel="noopener">https://www.kangleweb.com/forum.php</a></p>
+</li>
+<li><p>kangle使用手册：<a href="http://wiki.kangleweb.com/Kangle%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C" target="_blank" rel="noopener">http://wiki.kangleweb.com/Kangle%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C</a></p>
+</li>
+<li><p>kangle文档：<a href="http://wiki.kangleweb.com/kangle" target="_blank" rel="noopener">http://wiki.kangleweb.com/kangle</a></p>
+</li>
+<li><p>kangle帮助文档:<a href="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/kangle/kangle%20%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3.rar" target="_blank" rel="noopener">https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/kangle/kangle%20%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3.rar</a></p>
+</li>
+<li><p>kangle服务器稳定版本：<a href="https://www.kangleweb.com/thread-23884-1-1.html" target="_blank" rel="noopener">https://www.kangleweb.com/thread-23884-1-1.html</a></p>
+</li>
+<li><p>kangle常见问题：<a href="http://wiki.kangleweb.com/Kangle%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98" target="_blank" rel="noopener">http://wiki.kangleweb.com/Kangle%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98</a></p>
+</li>
+<li><p>kangle 首页： <a href="http://wiki.kangleweb.com/%E9%A6%96%E9%A1%B5" target="_blank" rel="noopener">http://wiki.kangleweb.com/%E9%A6%96%E9%A1%B5</a></p>
+</li>
 </ol>
 
       
@@ -1312,6 +1289,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">实验</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CDN</a>
               </li>
              
@@ -1320,11 +1301,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">实验</a>
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+                <a href="javascript:void(0)" class="js-tag color3">汇报</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1333,10 +1314,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">汇报</a>
               </li>
             
             <div class="clearfix"></div>
