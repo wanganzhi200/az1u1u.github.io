@@ -1,0 +1,25 @@
+edit security nat static  进入
+
+set rule-set static-nat from zone untrust   个人理解...: 在防火墙里创建一个表格  static-nat 创建一个名字，例如 set rule-set 2017-12-19 from zone untrust
+set rule-set static-nat rule rule1 match destination-address 100.100.100.100   个人理解....：给static-nat这个表格添加一个外网ip ， 例如:set rule 19 match destination-address 202.66.43.200 
+set rule-set static-nat rule rule1 then static-nat prefix 192.168.1.200        个人理解....：给static-nat这个表格添加一个内网ip，  例如:set rule rule2 then static-nat prefix 192.168.10.20
+
+
+
+edit security nat static 进入后可简洁输入下面两个命令则类似上面第二三条命令。
+set rule rule2 match destination-address 202.66.43.200
+set rule rule2 then static-nat prefix 192.168.10.20
+
+
+
+
+
+
+
+记录：
+show 查看
+commit 提交
+commit confirmed 5 5分钟后回滚
+edit security nat static 进入之后可以直接输入命令，无需加 rule-set 
+static-nat 你要设置名称 
+rule1 已设置的名称
