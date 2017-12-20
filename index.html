@@ -151,6 +151,239 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ip设置与防火墙外网映射" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>layout：post<br>title：”ip设置与防火墙外网映射”<br>date：2017-12-20  16:49<br>comments：true<br>tags：</p>
+<pre><code>- 工作
+- 笔记
+</code></pre><hr>
+<h3 id="ip"><a href="#ip" class="headerlink" title="ip"></a>ip</h3><blockquote>
+<p>网络之间互连的协议也就是为计算机网络相互连接进行通信而设计的协议。在因特网中，它是能使连接到网上的所有计算机网络实现相互通信的一套规则，规定了计算机在因特网上进行通信时应当遵守的规则。任何厂家生产的计算机系统，只要遵守IP协议就可以与因特网互连互通。IP地址具有唯一性，根据用户性质的不同，可以分为5类。另外，IP还有进入防护，知识产权，指针寄存器等含义。</p>
+</blockquote>
+<ul>
+<li><strong>地址分配</strong></li>
+</ul>
+<blockquote>
+<p>根据用途和安全性级别的不同，IP地址还可以大致分为两类：公共地址和私有地址。公用地址在Internet中使用，可以在Internet中随意访问。私有地址只能在内部网络中使用，只有通过代理服务器才能与Internet通信。</p>
+<p>这就是我们俗称的外网和内网</p>
+</blockquote>
+<ul>
+<li><strong>外网</strong></li>
+</ul>
+<blockquote>
+<p>根据上面所说，简单来说就是可以在互联网中任意访问（当然..也别瞎访问..）的ip称为外网，外网就不经路由器或交换机就可以上网的网络，可以直接被外界所访问到。无需经如何设备，直接连接电脑，其中联通，电信，移动等都已经超过局域网的覆盖范围，应该都算是外网。</p>
+</blockquote>
+<ul>
+<li><strong>内网</strong></li>
+</ul>
+<blockquote>
+<p>内网IP包括：内网的IP也就是所谓的局域网内的IP，内网IP多半为，网吧内的局域网，校园网，小区网，打开ADSL路由功能后形成的局域网，局域网应该也是内网（不知道我的理解对不对），局域网是指在某一区域内由多台计算机互联成的计算机组，局域网内可以实现文件管理，软件共享等之类的日程安排，电子邮件和传真通信等功能，局域网是封闭性的。局域网由网络硬件和网络传输介质，以及网络软件组成。</p>
+</blockquote>
+<ul>
+<li><strong>外网与内网的区别</strong></li>
+</ul>
+<blockquote>
+<p>判断外网与内网关键看它是不是与广阔的外界互联。我们说的www的概念就是这样，world wide web。它是世界范围内的互联。不管你用什么宽带，只要你连接了internet，可与外界（世界范围，法律规定除外）进行互通，就是外网。外网与内网不同，外网可以是数百万台计算机，而内网基本上不会超过5000台计算机 </p>
+<p>说句最通俗也最容易理解的话。外网是可以上互联网的，内网基本是办公的局域网内互相访问，不能连接互联网。</p>
+</blockquote>
+<ul>
+<li><strong>Adsl</strong></li>
+</ul>
+<blockquote>
+<p>adsl比较特殊，它有两种工作方式。第一种，adsl的modem打开代理功能，这时候，modem实际上就可以看作一台电脑，它是internet（外网）的一个节点，同时，它与你的电脑连接成为局域网，也就是内网，内网网关就是modem。第二种，通过电脑进行拨号上网，这种情况下，modem就是电脑的一个外部设备，而你的电脑通过电话线直接连接在internet上，不存在其它网络，因此也就无所谓内网外网。 </p>
+</blockquote>
+<h3 id="ip的设置方法"><a href="#ip的设置方法" class="headerlink" title="ip的设置方法"></a>ip的设置方法</h3><blockquote>
+<p>上面已经解释了各个网络的区别，下面我来操作各个系统如何设置ip，现在很多人也许知道ip这个东西，但从来也不关心这个问题，因为现在技术大部分都是属于自动获取，你无须操心你的ip设置，反正能上网就行。</p>
+<p>但是不同的是，如果是在工作环境中，你的ip就尤为重要了，打个比方来说，这就属于你网络的一个身份证号，一个识别的编号一样，在工作中有很多情况需要知道你的ip是多少，从小说个人网络上不了可能是ip问题，但是从大说ip问题可能影响到整个公司网络部署，因为ip是会冲突的。</p>
+</blockquote>
+<ul>
+<li><strong>winodws的ip设置</strong></li>
+</ul>
+<blockquote>
+<p>其实我对于ip也并不是非常了解，但是对于现在基础来说，应该是够用，但是如果有更需要的东西，当然还是要去学习，只要对你有所用处肯定就要去学的，这就是进步。</p>
+</blockquote>
+<p><strong>windows的ip设置：</strong></p>
+<p>windows的ip设置应该是最简单的了，也是用的最多的。</p>
+<p>1.首先打开网络，然后打开网络发现与共享。</p>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/windows%20ip%E8%AE%BE%E7%BD%AE1.png" alt=""></p>
+<p>2.然后打开网络适配器</p>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/windows%20ip%E8%AE%BE%E7%BD%AE2.png" alt=""></p>
+<p>3.这里你会看到好几个网络，我这里有几个虚拟机的网卡，暂时不用管，还要wifi网卡，还有以太网，这些不用管它，你就当字面意思理解就好，只用打开你正在使用或者需要使用的网卡。</p>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/windows%20ip%E8%AE%BE%E7%BD%AE3.png" alt=""></p>
+<p>4.点击反键 –&gt; 属性 –&gt; Internet 协议版本 4 （TCP/IPv4） –&gt; 属性 这里你就可以看到ip的设置项，你想要手动设置，你就需要一个网络段，根据你自己的网络段来手动设置你的静态ip就行了。</p>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/windows%20ip%E8%AE%BE%E7%BD%AE4.png" alt=""></p>
+<p><strong>Linux的ip设置:</strong></p>
+<blockquote>
+<p>Linux设置ip的方法真的是特别多，临时生效，当前生效，永久生效，命令设置ip，修改配置文件，ip的命令也是各式各样，在这里我就不一一去解释，去实验。我直接修改ip的配置文件，方便直接，也是永久生效。在Linux修改配置文件，基本就是永久生效的。</p>
+</blockquote>
+<p>1.进入设置ip的文件目录</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/sysconfig/network-scripts/</span><br><span class="line">进入ip的文件目录</span><br><span class="line">ls</span><br><span class="line">查看当前文件，选择你要设置的网卡（ifcfg-ethX，这个名称在各个机器上有不同的名称，你可以输入ip a查看一下你的网卡名称）,X代表编号，我这里有2个网卡，一般都只有一个网卡，我是虚拟机</span><br><span class="line">ip a </span><br><span class="line">查看当前ip</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/linux%20ip%E8%AE%BE%E7%BD%AE%201.png" alt=""></p>
+<ol>
+<li>打开配置文件进行修改</li>
+</ol>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">vi /ifcfg-xxx1</span><br><span class="line">进入配置文件，修改</span><br><span class="line">一般来说都是DHCP，这是自动获取的意思</span><br><span class="line">静态ip配置：</span><br><span class="line">ONBOOT=yes               开机自启</span><br><span class="line">BOOTPROTO=static         设置静态</span><br><span class="line">DNS1=8.8.8.8             DNS设置</span><br><span class="line">IPADDR=你的ip网段        ip地址</span><br><span class="line">NETMASK=255.255.255.xxx  子网掩码</span><br><span class="line">GATEWAY=xxx.xxx.xxx.x    网关</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/Linux%20ip%E8%AE%BE%E7%BD%AE%202.png" alt=""></p>
+<p>ps:静态</p>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/Linux%20ip%E8%AE%BE%E7%BD%AE%203.png" alt=""></p>
+<p>ps:自动获取</p>
+<ol>
+<li>重启网卡</li>
+</ol>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">service<span class="built_in"> network </span>restart</span><br><span class="line">重启网卡（因为我这里之前设置好ip了，重启用的xshell，所以中途掉线）</span><br><span class="line"></span><br><span class="line">备注(还有一种命令)：</span><br><span class="line">systemctl start xxxxx      启动</span><br><span class="line">systemctl restart xxxxxx   重启</span><br><span class="line">systemctl stop xxxxxxx     停止</span><br><span class="line">systemctl <span class="builtin-name">enable</span> xxxx      开机自启</span><br><span class="line">systemctl <span class="builtin-name">disable</span> xxxx     开机不启动</span><br><span class="line">systemctl status xxxx      查看服务状态</span><br><span class="line">systemctl list -units <span class="attribute">--type</span>=sevice  查看已启动的服务</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/Linux%20ip%E8%AE%BE%E7%BD%AE%204.png" alt=""></p>
+<p>4.检查</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ip a</span><br><span class="line">查看ip设置</span><br><span class="line"></span><br><span class="line">ping xxx.xxx.xxx.xx </span><br><span class="line">测试网络是否联通</span><br><span class="line"></span><br><span class="line">使用xshell连接是否正常</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/Linux%20ip%E8%AE%BE%E7%BD%AE%205.png" alt=""></p>
+<blockquote>
+<p>其实就像我之前说的，ip这个问题可大可小，但是这相当于属于基础，必须要会；根据上面来说，设置一个简单的动态或者静态ip真的是很简单，但是还有很多设置ip的方法，包括我下面要说的防火墙的外网映射，还有等等之类的，其实我都不是很了解，防火墙外网映射也是近期才了解这个，才知道原来还有这种设置方法。所以在IT这个环节里，无论你职位是什么，你总会有学不完的东西，IT在进步，你也需要进步，不然你迟早会被淘汰。</p>
+</blockquote>
+<h3 id="防火墙的外网映射"><a href="#防火墙的外网映射" class="headerlink" title="防火墙的外网映射"></a>防火墙的外网映射</h3><ul>
+<li>NAT</li>
+</ul>
+<blockquote>
+<p>NAT（Network Address Translation，网络地址转换）是1994年提出的。当在专用网内部的一些主机本来已经分配到了本地IP地址（即仅在本专用网内使用的专用地址），但现在又想和因特网上的主机通信（并不需要加密）时，可使用NAT方法。</p>
+<p>这种方法需要在专用网连接到因特网的路由器上安装NAT软件。装有NAT软件的路由器叫做NAT路由器，它至少有一个有效的外部全球IP地址。这样，所有使用本地地址的主机在和外界通信时，都要在NAT路由器上将其本地地址转换成全球IP地址，才能和因特网连接。</p>
+<p>另外，这种通过使用少量的公有IP地址代表较多的私有IP地址的方式，将有助于减缓可用的IP地址空间的枯竭。</p>
+</blockquote>
+<ul>
+<li><strong>NAT功能</strong></li>
+</ul>
+<blockquote>
+<p>NAT是网络地址转换，它实现内网的ip地址与公网的地址之间的互相转换，将大量的内网ip地址转换为一个或少量公网ip地址，减少对公网ip地址的占用。</p>
+<p>例如：在一个局域网内，只需要一台计算机连接上lnternet，就可以利用NAT共享lnternet连接，使局域网内其他计算机也可以上网。使用NAT协议，局域网内的计算机可以访问lnternet上的计算机，但lnternet上的计算机无法访问局域网内的计算机。</p>
+</blockquote>
+<ol>
+<li>NAT不仅能解决ip地址的不足问题，还能够有效的避免来自网络外部的攻击，隐藏并保护网络内部的计算机</li>
+<li>宽带分享：这是NAT主机的最大功能</li>
+<li>安全防护：NAT之内的PC联机到lnternet上面时，显示的ip是NAT主机的公共ip，所以当客户端的PC当然就具有一定程度的安全性，外界在进行portscan 端口扫描时，就侦测不到源客户端的PC了。 </li>
+</ol>
+<ul>
+<li><strong>端口映射原理</strong></li>
+</ul>
+<blockquote>
+<p>将入内网的一台电脑要上因特网，就需要端口映射，端口映射分为动态和静态。</p>
+</blockquote>
+<p><strong>1.动态端口映射</strong></p>
+<blockquote>
+<p>动态端口映射：假如内网中的一台电脑要访问互联网，会向NAT网关发送数据包，包头就包括对方的ip，端口和本机ip，端口，NAT网关会把本机的ip、端口替换成自己的公网ip，一个未使用的端口，并且记录这个映射关系，为以后转发数据包使用。然后再把数据发送给互联网，互联网这边收到数据后做出回应，发送数据到NAT网关的未使用端口，然后NAT网关将数据转发给内网中的那台电脑，实现内网和公网的通讯，当连接关闭时，NAT网关会释放分配给这条连接的端口，以便以后的的连接可以继续使用。动态端口映射就是NAT网关的工作方式。</p>
+</blockquote>
+<p><strong>2.静态端口映射</strong></p>
+<blockquote>
+<p>在NAT网关上开放一个固定的端口，然后设定此端口收到的数据要转发给内网的哪个ip和端口，不管有没有连接，这个映射关系都会一直存在。就可以让公网主动访问内网的一个电脑。NAT网关可以是交换机、路由器或者电脑。</p>
+</blockquote>
+<p>3.Juniper防火墙的网络地址映射</p>
+<blockquote>
+<p>Juniper防火墙作为网络的一道关卡，除了控制内网用户访问外网之外还可以控制外网对内网的访问，如果用户内网的服务器需要对外网发布服务的话就需要使用Juniper防火墙的网络映射功能</p>
+<p>这个防火墙我也不是很了解，我只是讲解一下，也是给我自己工作做个笔记，公司业务防火墙外网映射该如何去做</p>
+</blockquote>
+<p>1.首先上跳板机打开需要设置的服务器。</p>
+<p>2.然后使用xshell登入防火墙</p>
+<p>3.输入命令进入路由表</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">edit</span> security<span class="built_in"> nat </span>static</span><br><span class="line">进去之后可以直接输入命令，则无需在添加rule-set</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/%E5%A4%96%E7%BD%91%E6%98%A0%E5%B0%84%201.png" alt=""></p>
+<p>4.创建一个路由表</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set rule-set <span class="number">2017</span><span class="number">-12</span><span class="number">-19</span> from zone untrust</span><br><span class="line">在防火墙创建一个<span class="number">2017</span><span class="number">-12</span><span class="number">-19</span>的表格</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/%E5%A4%96%E7%BD%91%E6%98%A0%E5%B0%84%202.png" alt=""></p>
+<p>5.查看一下表格</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">show</span><br><span class="line">查看表</span><br><span class="line">第一个表示之前创建的，忽略不管</span><br><span class="line">第二个就是我们刚刚创建的表格<span class="number">2017</span><span class="number">-12</span><span class="number">-19</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/%E5%A4%96%E7%BD%91%E6%98%A0%E5%B0%84%203.png" alt=""></p>
+<p>6.进入表格，查看当前位置</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">edit rule-set <span class="number">2017</span><span class="number">-12</span><span class="number">-19</span></span><br><span class="line">进入<span class="number">2017</span><span class="number">-12</span><span class="number">-19</span>表格</span><br><span class="line"></span><br><span class="line">show</span><br><span class="line">查看当前位置</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/%E5%A4%96%E7%BD%91%E6%98%A0%E5%B0%84%204.png" alt=""></p>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/%E5%A4%96%E7%BD%91%E6%98%A0%E5%B0%84%205.png" alt=""></p>
+<p>7.添加外网</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set rule <span class="number">19</span> match destination-address <span class="number">202.66</span><span class="number">.43</span><span class="number">.200</span></span><br><span class="line">给<span class="number">19</span>这个表里添加一个外网ip</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/%E5%A4%96%E7%BD%91%E6%98%A0%E5%B0%84%206.png" alt=""></p>
+<p>8.添加内网ip，做相互转换</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">set</span> rule 19 then static-nat<span class="built_in"> prefix </span>192.168.10.20</span><br><span class="line">给19表里添加内网ip，做网络转换</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/%E5%A4%96%E7%BD%91%E6%98%A0%E5%B0%84%207.png" alt=""></p>
+<p>9.提交（测试情况下请回滚）</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">commit confirmed <span class="number">5</span></span><br><span class="line">回滚，发现错误。</span><br><span class="line">commit confirmed <span class="number">5</span>这个命令是说<span class="number">5</span>分钟后回滚，在测试环境下使用，<span class="number">5</span>分钟后，外网ip失效，回到初始值。</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/%E5%A4%96%E7%BD%91%E6%98%A0%E5%B0%84%208.png" alt=""></p>
+<p>10.检查错误</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">show</span><br><span class="line">查看表</span><br><span class="line"></span><br><span class="line"><span class="keyword">exit</span></span><br><span class="line">退出</span><br><span class="line"></span><br><span class="line">show</span><br><span class="line">查看整体表结构</span><br><span class="line"></span><br><span class="line">commit confirmed <span class="number">5</span></span><br><span class="line">错误提示，发现问题：<span class="number">2017</span>-<span class="number">12</span>-<span class="number">19</span>和<span class="number">2017</span>-<span class="number">12</span>-<span class="number">16</span>的规则具有相同的背景，配置检测失败</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/%E5%A4%96%E7%BD%91%E6%98%A0%E5%B0%84%209.png" alt=""></p>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/%E5%A4%96%E7%BD%91%E6%98%A0%E5%B0%84%2010.png" alt=""></p>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/%E5%A4%96%E7%BD%91%E6%98%A0%E5%B0%84%2011.png" alt=""></p>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/%E5%A4%96%E7%BD%91%E6%98%A0%E5%B0%84%2012.png" alt=""></p>
+<p>11.解决问题</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">delete rule-set <span class="number">2017</span><span class="number">-12</span><span class="number">-19</span></span><br><span class="line">删除<span class="number">19</span>这个表</span><br><span class="line"></span><br><span class="line">show</span><br><span class="line">查看一下</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/%E5%A4%96%E7%BD%91%E6%98%A0%E5%B0%84%2013.png" alt=""></p>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/%E5%A4%96%E7%BD%91%E6%98%A0%E5%B0%84%2014.png" alt=""></p>
+<p>12.继续添加</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">edit rule-set <span class="number">2017</span><span class="number">-12</span><span class="number">-16</span></span><br><span class="line">进入<span class="number">16</span>这个表。</span><br><span class="line">ps：这个表示之前给客户创建的表格，注意这个表里的名称是rule1</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/%E5%A4%96%E7%BD%91%E6%98%A0%E5%B0%84%2015.png" alt=""></p>
+<p>13.新建代码</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">set</span> rule rule2 match destination-address 202.66.43.200</span><br><span class="line">在16这个表里添加第二行代码，赋值外网ip</span><br><span class="line"></span><br><span class="line"><span class="builtin-name">set</span> rule rule2 then static-nat<span class="built_in"> prefix </span>192.168.10.20</span><br><span class="line">在16这个表里，赋值内网ip</span><br><span class="line"></span><br><span class="line">show</span><br><span class="line">查看一下</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/%E5%A4%96%E7%BD%91%E6%98%A0%E5%B0%84%2016.png" alt=""></p>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/%E5%A4%96%E7%BD%91%E6%98%A0%E5%B0%84%2017.png" alt=""></p>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/%E5%A4%96%E7%BD%91%E6%98%A0%E5%B0%84%2018.png" alt=""></p>
+<p>14.提交</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">commit</span> confirmed <span class="number">5</span></span><br><span class="line">提交并回滚。</span><br><span class="line">ps:因为这里是做实验测试，所以选择回滚，如果正常映射，直接输入<span class="keyword">commit</span>提交即可。</span><br><span class="line">现在正常了。</span><br></pre></td></tr></table></figure>
+<p><img src="" alt=""></p>
+<p>15.测试</p>
+<p>开启xshell 输入ip进入服务器，查看外网，ping ip。测试完毕即可。</p>
+<p><img src="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/%E5%A4%96%E7%BD%91%E6%98%A0%E5%B0%84%2019.png" alt=""></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<p>上面这套流程即是我在工作中需要给服务器做外网映射的流程。其实对于juniper SRX、NAT 来说我都不是很了解，包括配置使用都还不完善。下面我会给出学习资料，可以在闲余时间可以适当学习，加强自己的技能水平。</p>
+<p>在刚刚那套外网映射流程中，遇到的问题也询问过飞哥，在防火墙里这个路由表是由限制的，需要配置，所以在我新创一个路由表的时候，第一次安装失败，后来在前一章表里，加一行代码则成功。</p>
+<p>其实从上班到现在发现自己真的很多东西都不懂，不管是运维技术也好，语言也好，网络基础也好，Linux系统，windows系统，都有无数需要你去学习去了解的地方，IT更新换代快，软件的使用也更新换代的快，基础为王，把基础打好，了解软件，这样在新出一款比较好用的软件后，你可以迅速上手，多努力加油。</p>
+<p>不忘初心</p>
+</blockquote>
+<p><strong>学习资料：</strong></p>
+<p>1.Juniper官方内部SRX培训资料：<br><a href="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/Juniper%20%E5%AE%98%E6%96%B9%E6%AD%A3%E8%A7%84%E5%86%85%E9%83%A8SRX%E5%9F%B9%E8%AE%AD108%E9%A1%B5.pdf" target="_blank" rel="noopener">https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/Juniper%20%E5%AE%98%E6%96%B9%E6%AD%A3%E8%A7%84%E5%86%85%E9%83%A8SRX%E5%9F%B9%E8%AE%AD108%E9%A1%B5.pdf</a></p>
+<p>2.juniper SRX中文配置手册:<br><a href="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/juniper%20SRX%E4%B8%AD%E6%96%87%E9%85%8D%E7%BD%AE%E6%89%8B%E5%86%8Csecurity-guide-11.4-zh-hans%E4%B8%AD%E6%96%87.pdf" target="_blank" rel="noopener">https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/juniper%20SRX%E4%B8%AD%E6%96%87%E9%85%8D%E7%BD%AE%E6%89%8B%E5%86%8Csecurity-guide-11.4-zh-hans%E4%B8%AD%E6%96%87.pdf</a></p>
+<p>3.juniper静态NAT配置：<br><a href="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/juniper%20%E9%9D%99%E6%80%81NAT%E9%85%8D%E7%BD%AE.docx" target="_blank" rel="noopener">https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/juniper%20%E9%9D%99%E6%80%81NAT%E9%85%8D%E7%BD%AE.docx</a></p>
+<p>一步一步配置Juniper SRX防火墙：<br><a href="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E9%85%8D%E7%BD%AEJuniper%20SRX%E9%98%B2%E7%81%AB%E5%A2%99%E5%9F%BA.pdf" target="_blank" rel="noopener">https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E9%85%8D%E7%BD%AEJuniper%20SRX%E9%98%B2%E7%81%AB%E5%A2%99%E5%9F%BA.pdf</a></p>
+<p>防火墙外网映射简洁步骤（工作笔记内容）：<br><a href="https://github.com/wanganzhi200/az1u1u.github.io/blame/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/%E9%98%B2%E7%81%AB%E5%A2%99%E5%A4%96%E7%BD%91%E6%98%A0%E5%B0%84%E7%AE%80%E6%B4%81%E6%AD%A5%E9%AA%A4.txt" target="_blank" rel="noopener">https://github.com/wanganzhi200/az1u1u.github.io/blame/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/%E9%98%B2%E7%81%AB%E5%A2%99%E5%A4%96%E7%BD%91%E6%98%A0%E5%B0%84%E7%AE%80%E6%B4%81%E6%AD%A5%E9%AA%A4.txt</a></p>
+<p>juniper.rar整体解压包：<br><a href="https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/juniper.rar" target="_blank" rel="noopener">https://github.com/wanganzhi200/az1u1u.github.io/raw/master/assets/blogImg/%E5%9B%BE%E7%89%87%E8%B5%84%E6%96%99/ip%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%98%A0%E5%B0%84/juniper.rar</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/20/ip设置与防火墙外网映射/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-kengle 介绍及安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -724,98 +957,6 @@
 
 
   
-    <article id="post-nginx proxy+keepalived实现双主模式高可用集群" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/27/nginx proxy+keepalived实现双主模式高可用集群/">keepalived实现双主模式高可用集群</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/27/nginx proxy+keepalived实现双主模式高可用集群/" class="archive-article-date">
-  	<time datetime="2017-11-27T14:51:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="keepalived-nginx-proxy"><a href="#keepalived-nginx-proxy" class="headerlink" title="keepalived+nginx proxy"></a>keepalived+nginx proxy</h1><blockquote>
-<p>Keepalived是Linux下面实现VRRP备份路由的高可靠性运行件。基于Keepalived设计的服务模式能够真正做到主服务器和备份服务器故障时IP瞬间无缝交接。二者结合，可以构架出比较稳定的软件方案，现在就开始做实验吧。</p>
-</blockquote>
-<ul>
-<li><h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a><strong>环境准备</strong></h2></li>
-</ul>
-<ol>
-<li>[root@node1 ~]# httpd服务器192.168.40.184</li>
-<li>[root@node2 ~]# httpd服务器192.168.40.185</li>
-<li>[root@node3 ~]# keepalived+nginx服务器192.168.40.186 Vip:192.168.100.1</li>
-<li>[root@node4 ~]# keepalived+nginx服务器192.168.40.187 Vip:192.168.100.2</li>
-<li>[root@localhost ~] 客户机</li>
-</ol>
-        
-          <a class="article-more-a" href="/2017/11/27/nginx proxy+keepalived实现双主模式高可用集群/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">实验</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/27/nginx proxy+keepalived实现双主模式高可用集群/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -921,11 +1062,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+                <a href="javascript:void(0)" class="js-tag color3">实验</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">实验</a>
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">

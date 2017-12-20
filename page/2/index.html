@@ -151,6 +151,98 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-nginx proxy+keepalived实现双主模式高可用集群" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/27/nginx proxy+keepalived实现双主模式高可用集群/">keepalived实现双主模式高可用集群</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/27/nginx proxy+keepalived实现双主模式高可用集群/" class="archive-article-date">
+  	<time datetime="2017-11-27T14:51:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="keepalived-nginx-proxy"><a href="#keepalived-nginx-proxy" class="headerlink" title="keepalived+nginx proxy"></a>keepalived+nginx proxy</h1><blockquote>
+<p>Keepalived是Linux下面实现VRRP备份路由的高可靠性运行件。基于Keepalived设计的服务模式能够真正做到主服务器和备份服务器故障时IP瞬间无缝交接。二者结合，可以构架出比较稳定的软件方案，现在就开始做实验吧。</p>
+</blockquote>
+<ul>
+<li><h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a><strong>环境准备</strong></h2></li>
+</ul>
+<ol>
+<li>[root@node1 ~]# httpd服务器192.168.40.184</li>
+<li>[root@node2 ~]# httpd服务器192.168.40.185</li>
+<li>[root@node3 ~]# keepalived+nginx服务器192.168.40.186 Vip:192.168.100.1</li>
+<li>[root@node4 ~]# keepalived+nginx服务器192.168.40.187 Vip:192.168.100.2</li>
+<li>[root@localhost ~] 客户机</li>
+</ol>
+        
+          <a class="article-more-a" href="/2017/11/27/nginx proxy+keepalived实现双主模式高可用集群/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">实验</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/27/nginx proxy+keepalived实现双主模式高可用集群/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-了解Keepalived" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -738,11 +830,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+                <a href="javascript:void(0)" class="js-tag color3">实验</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">实验</a>
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
